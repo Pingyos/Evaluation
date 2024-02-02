@@ -56,18 +56,90 @@ include('user_cont/head.php');
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="B3" id="B4" value="18.5-24.9" />
-                                                                <label class="form-check-label" for="B3">18.5-24.9</label>
+                                                                <label class="form-check-label" for="B4">18.5-24.9</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="B3" id="B5" value="25-29.9" />
-                                                                <label class="form-check-label" for="B3">25-29.9</label>
+                                                                <label class="form-check-label" for="B5">25-29.9</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="B3" id="B6" value="มากกว่า 30" />
-                                                                <label class="form-check-label" for="B3">มากกว่า 30</label>
+                                                                <label class="form-check-label" for="B6">มากกว่า 30</label>
                                                             </div>
                                                         </div>
                                                     </div>
+
+                                                    <script>
+                                                        document.addEventListener('DOMContentLoaded', function() {
+                                                            const heightInput = document.getElementById('B1');
+                                                            const weightInput = document.getElementById('B2');
+                                                            const bmiDisplay = document.getElementById('bmiDisplay');
+
+                                                            const bmiRadioInputs = [{
+                                                                    input: document.getElementById('B3'),
+                                                                    range: {
+                                                                        min: 0,
+                                                                        max: 18.5
+                                                                    }
+                                                                },
+                                                                {
+                                                                    input: document.getElementById('B4'),
+                                                                    range: {
+                                                                        min: 18.55,
+                                                                        max: 24.9
+                                                                    }
+                                                                },
+                                                                {
+                                                                    input: document.getElementById('B5'),
+                                                                    range: {
+                                                                        min: 25,
+                                                                        max: 29.9
+                                                                    }
+                                                                },
+                                                                {
+                                                                    input: document.getElementById('B6'),
+                                                                    range: {
+                                                                        min: 30,
+                                                                        max: Infinity
+                                                                    }
+                                                                }
+                                                            ];
+
+                                                            heightInput.addEventListener('input', updateBMI);
+                                                            weightInput.addEventListener('input', updateBMI);
+
+                                                            function updateBMI() {
+                                                                const heightInCM = parseFloat(heightInput.value);
+                                                                const weight = parseFloat(weightInput.value);
+                                                                const heightInM = heightInCM / 100;
+                                                                const heightSquared = Math.pow(heightInM, 2);
+
+                                                                if (!isNaN(heightInM) && !isNaN(weight) && heightInM > 0 && weight > 0) {
+                                                                    const bmi = calculateBMI(heightSquared, weight);
+                                                                    updateFormBasedOnBMI(bmi);
+                                                                }
+                                                            }
+
+                                                            function calculateBMI(heightSquared, weight) {
+                                                                return weight / heightSquared;
+                                                            }
+
+                                                            function updateFormBasedOnBMI(bmi) {
+                                                                if (bmiDisplay) {
+                                                                    bmiDisplay.textContent = `BMI: ${bmi.toFixed(2)}`;
+                                                                }
+
+                                                                // ให้วนลูปผ่าน bmiRadioInputs เพื่อตรวจสอบว่า BMI อยู่ในช่วงใด
+                                                                bmiRadioInputs.forEach(({
+                                                                    input,
+                                                                    range
+                                                                }) => {
+                                                                    input.checked = bmi >= range.min && bmi <= range.max;
+                                                                });
+                                                            }
+                                                        });
+                                                    </script>
+
 
                                                     <br>
                                                     <h5 class="card-title text-primary">ระดับความดันโลหิตตัวบน (mmHg)</h5>
@@ -196,78 +268,6 @@ include('user_cont/head.php');
                                                         <button type="button" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
                                                 </form>
-                                                <script>
-                                                    document.addEventListener('DOMContentLoaded', function() {
-                                                        const heightInput = document.getElementById('B1');
-                                                        const weightInput = document.getElementById('B2');
-                                                        const bmiDisplay = document.getElementById('bmiDisplay');
-
-                                                        const bmiRadioInputs = [{
-                                                                input: document.getElementById('B3'),
-                                                                range: {
-                                                                    min: 18.5,
-                                                                    max: Infinity
-                                                                }
-                                                            },
-                                                            {
-                                                                input: document.getElementById('B4'),
-                                                                range: {
-                                                                    min: 18.5,
-                                                                    max: 24.9
-                                                                }
-                                                            },
-                                                            {
-                                                                input: document.getElementById('B5'),
-                                                                range: {
-                                                                    min: 25,
-                                                                    max: 29.9
-                                                                }
-                                                            },
-                                                            {
-                                                                input: document.getElementById('B6'),
-                                                                range: {
-                                                                    min: 30,
-                                                                    max: Infinity
-                                                                }
-                                                            }
-                                                        ];
-
-                                                        heightInput.addEventListener('input', updateBMI);
-                                                        weightInput.addEventListener('input', updateBMI);
-
-                                                        function updateBMI() {
-                                                            const heightInCM = parseFloat(heightInput.value);
-                                                            const weight = parseFloat(weightInput.value);
-                                                            const heightInM = heightInCM / 100;
-                                                            const heightSquared = Math.pow(heightInM, 2);
-
-                                                            if (!isNaN(heightInM) && !isNaN(weight) && heightInM > 0 && weight > 0) {
-                                                                const bmi = calculateBMI(heightSquared, weight);
-                                                                updateFormBasedOnBMI(bmi);
-                                                            }
-                                                        }
-
-                                                        function calculateBMI(heightSquared, weight) {
-                                                            return weight / heightSquared;
-                                                        }
-
-                                                        function updateFormBasedOnBMI(bmi) {
-                                                            if (bmiDisplay) {
-                                                                bmiDisplay.textContent = `BMI: ${bmi.toFixed(2)}`;
-                                                            }
-
-                                                            // ให้วนลูปผ่าน bmiRadioInputs เพื่อตรวจสอบว่า BMI อยู่ในช่วงใด
-                                                            bmiRadioInputs.forEach(({
-                                                                input,
-                                                                range
-                                                            }) => {
-                                                                if (bmi >= range.min && bmi <= range.max) {
-                                                                    input.checked = true;
-                                                                }
-                                                            });
-                                                        }
-                                                    });
-                                                </script>
                                             </div>
                                         </div>
                                     </div>
