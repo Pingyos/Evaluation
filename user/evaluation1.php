@@ -26,11 +26,11 @@ include('user_cont/head.php');
                                                         <div class="col-mb">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="sex" id="A1" value="หญิง" />
-                                                                <label class="form-check-label" for="sex">หญิง</label>
+                                                                <label class="form-check-label" for="A1">หญิง</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="sex" id="A2" value="ชาย" />
-                                                                <label class="form-check-label" for="sex">ชาย</label>
+                                                                <label class="form-check-label" for="A2">ชาย</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -40,15 +40,15 @@ include('user_cont/head.php');
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="age" id="A3" value="0-34 ปี" />
-                                                                <label class="form-check-label" for="age">0-34 ปี</label>
+                                                                <label class="form-check-label" for="A3">0-34 ปี</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="age" id="A4" value="34-59 ปี" />
-                                                                <label class="form-check-label" for="age">34-59 ปี</label>
+                                                                <label class="form-check-label" for="A4">34-59 ปี</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="age" id="A5" value="60 ปีขึ้นไป" />
-                                                                <label class="form-check-label" for="age">60 ปีขึ้นไป</label>
+                                                                <label class="form-check-label" for="A5">60 ปีขึ้นไป</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -58,15 +58,15 @@ include('user_cont/head.php');
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="status" id="A6" value="โสด" />
-                                                                <label class="form-check-label" for="status">โสด</label>
+                                                                <label class="form-check-label" for="A6">โสด</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="status" id="A7" value="สมรส" />
-                                                                <label class="form-check-label" for="status">สมรส</label>
+                                                                <label class="form-check-label" for="A7">สมรส</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="status" id="A8" value="หม้าย/หย่าร้าง/แยกกันอยู่" />
-                                                                <label class="form-check-label" for="status">หม้าย/หย่าร้าง/แยกกันอยู่</label>
+                                                                <label class="form-check-label" for="A8">หม้าย/หย่าร้าง/แยกกันอยู่</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -98,19 +98,19 @@ include('user_cont/head.php');
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="study" id="A13" value="ประถมและต่ำกว่า" />
-                                                                <label class="form-check-label" for="study">ประถมและต่ำกว่า</label>
+                                                                <label class="form-check-label" for="A13">ประถมและต่ำกว่า</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="study" id="A14" value="มัธยมศึกษาตอนต้น" />
-                                                                <label class="form-check-label" for="study">มัธยมศึกษาตอนต้น</label>
+                                                                <label class="form-check-label" for="A14">มัธยมศึกษาตอนต้น</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="study" id="A15" value="มัธยมศึกษาตอนปลาย" />
-                                                                <label class="form-check-label" for="study">มัธยมศึกษาตอนปลาย</label>
+                                                                <label class="form-check-label" for="A15">มัธยมศึกษาตอนปลาย</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="study" id="A16" value="ปริญญาตรี และสูงกว่า" />
-                                                                <label class="form-check-label" for="study">ปริญญาตรี และสูงกว่า</label>
+                                                                <input class="form-check-input" type="radio" name="study" id="A16" value="ปริญญาตรีและสูงกว่า" />
+                                                                <label class="form-check-label" for="A16">ปริญญาตรีและสูงกว่า</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -129,9 +129,8 @@ include('user_cont/head.php');
                                                     $status = isset($_POST['status']) ? $_POST['status'] : '';
                                                     $province = isset($_POST['province']) ? $_POST['province'] : '';
                                                     $study = isset($_POST['study']) ? $_POST['study'] : '';
+                                                    $provinceScore = 0;
 
-                                                    // Get province score
-                                                    $provinceScore = 0; // Default value if no province is selected
                                                     if (!empty($province)) {
                                                         $provinceQuery = "SELECT province_scores FROM province WHERE province_name = :province";
                                                         $stmtProvince = $conn->prepare($provinceQuery);
@@ -141,16 +140,48 @@ include('user_cont/head.php');
                                                         $provinceScore = $resultProvince['province_scores'];
                                                     }
 
-                                                    // Define scores
-                                                    $sexScore = ($_POST['sex'] === 'A1') ? 2 : 1;
-                                                    $ageScore = ($_POST['age'] === 'A3') ? 1 : (($_POST['age'] === 'A4') ? 2 : 1);
-                                                    $statusScore = ($_POST['status'] === 'A6') ? 2 : (($_POST['status'] === 'A7') ? 1 : 2);
-                                                    $studyScore = ($_POST['study'] === 'A13') ? 2 : (($_POST['study'] === 'A14') ? 2 : (($_POST['study'] === 'A15') ? 1 : 1));
+                                                    $scoreMapping = array(
+                                                        'sex' => array(
+                                                            'หญิง' => 2,
+                                                            'ชาย' => 1,
+                                                        ),
+                                                        'age' => array(
+                                                            '0-34 ปี' => 1,
+                                                            '34-59 ปี' => 2,
+                                                            '60 ปีขึ้นไป' => 1,
+                                                        ),
+                                                        'status' => array(
+                                                            'โสด' => 2,
+                                                            'สมรส' => 1,
+                                                            'หม้าย/หย่าร้าง/แยกกันอยู่' => 2,
+                                                        ),
+                                                        'study' => array(
+                                                            'ประถมและต่ำกว่า' => 2,
+                                                            'มัธยมศึกษาตอนต้น' => 2,
+                                                            'มัธยมศึกษาตอนปลาย' => 1,
+                                                            'ปริญญาตรีและสูงกว่า' => 1,
+                                                        ),
+                                                    );
 
-                                                    // Calculate total score
+                                                    $sexScore = isset($_POST['sex']) ? ($scoreMapping['sex'][$_POST['sex']] ?? 0) : 0;
+                                                    $ageScore = isset($_POST['age']) ? ($scoreMapping['age'][$_POST['age']] ?? 0) : 0;
+                                                    $statusScore = isset($_POST['status']) ? ($scoreMapping['status'][$status] ?? 0) : 0;
+                                                    $studyScore = isset($_POST['study']) ? ($scoreMapping['study'][$study] ?? 0) : 0;
+
                                                     $totalScore = $sexScore + $ageScore + $statusScore + $studyScore + $provinceScore;
 
-                                                    // Insert data into form_1 table
+                                                    echo "คะแนน sexScore: $sexScore<br>";
+                                                    echo "คะแนน ageScore: $ageScore<br>";
+                                                    echo "คะแนน statusScore: $statusScore<br>";
+                                                    echo "คะแนน studyScore: $studyScore<br>";
+                                                    echo "<hr>";
+                                                    echo "POST sex: $sex<br>";
+                                                    echo "POST age: $age<br>";
+                                                    echo "POST status: $status<br>";
+                                                    echo "POST study: $study<br>";
+
+                                                    echo "คะแนนรวมทั้งหมด: $totalScore";
+
                                                     $insertQuery = "INSERT INTO form_1 (sex, age, status, province, study, province_score, total_score) 
                                                     VALUES (:sex, :age, :status, :province, :study, :provinceScore, :totalScore)";
 
@@ -165,15 +196,14 @@ include('user_cont/head.php');
 
                                                     try {
                                                         $stmt->execute();
-                                                        $form_1_id = $conn->lastInsertId(); // Get the last inserted ID
-
-                                                        // Redirect to "evaluation2.php" with form_1_id as a query parameter
+                                                        $form_1_id = $conn->lastInsertId();
                                                         echo '<script>window.location.href = "evaluation2.php?form_1_id=' . $form_1_id . '";</script>';
                                                     } catch (PDOException $e) {
                                                         echo "Error: " . $e->getMessage();
                                                     }
                                                 }
                                                 ?>
+
                                                 <script>
                                                     function checkSelection() {
                                                         var selectedProvinces = document.querySelectorAll('input[type="radio"]:checked').length;
@@ -184,13 +214,19 @@ include('user_cont/head.php');
                                                         } else {
                                                             document.getElementById('nextButton').style.display = 'none';
                                                         }
-                                                        document.getElementById('selectedProvinceCount').innerText = selectedProvinces;
+
+                                                        var selectedProvinceCountElement = document.getElementById('selectedProvinceCount');
+                                                        if (selectedProvinceCountElement) {
+                                                            selectedProvinceCountElement.innerText = selectedProvinces;
+                                                        }
                                                     }
+
                                                     var formElements = document.querySelectorAll('#formevaluation1 select, #formevaluation1 input[type="radio"]');
                                                     formElements.forEach(function(element) {
                                                         element.addEventListener('change', checkSelection);
                                                     });
                                                 </script>
+
                                             </div>
                                         </div>
                                     </div>

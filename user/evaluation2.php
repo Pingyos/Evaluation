@@ -19,6 +19,38 @@ include('user_cont/head.php');
                                             <div class="card-body">
                                                 <form id="formevaluation2" method="post">
                                                     <h5 class="card-title text-primary">ส่วนที่ 2 ข้อมูลสุขภาพ</h5>
+                                                    <?php
+                                                    include('user_cont/connect.php');
+                                                    $form_1_id = isset($_GET['form_1_id']) ? $_GET['form_1_id'] : 0;
+                                                    if (!empty($form_1_id)) {
+                                                        $query = "SELECT * FROM form_1 WHERE form_1_id = :form_1_id";
+                                                        $stmt = $conn->prepare($query);
+                                                        $stmt->bindParam(':form_1_id', $form_1_id);
+                                                        $stmt->execute();
+                                                        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                        if ($result) {
+                                                            $sex = $result['sex'];
+                                                            $age = $result['age'];
+                                                            $status = $result['status'];
+                                                            $province = $result['province'];
+                                                            $study = $result['study'];
+                                                            $totalScoreFromDatabase = $result['total_score'];
+                                                    ?>
+                                                            <h1>ข้อมูล Form 1</h1>
+                                                            <p><strong>เพศ:</strong> <?php echo $sex; ?></p>
+                                                            <p><strong>อายุ:</strong> <?php echo $age; ?></p>
+                                                            <p><strong>สถานะ:</strong> <?php echo $status; ?></p>
+                                                            <p><strong>ภูมิลำเนา:</strong> <?php echo $province; ?></p>
+                                                            <p><strong>ระดับการศึกษา:</strong> <?php echo $study; ?></p>
+                                                            <p><strong>คะแนนรวมจากฐานข้อมูล:</strong> <?php echo $totalScoreFromDatabase; ?></p>
+                                                    <?php
+                                                        } else {
+                                                            echo "ไม่พบข้อมูลสำหรับ form_1_id: $form_1_id";
+                                                        }
+                                                    } else {
+                                                        echo "ไม่ได้รับ form_1_id จาก URL";
+                                                    }
+                                                    ?>
                                                     <hr>
                                                     <h5 class="card-title text-primary">ส่วนสูง (เซนติเมตร)</h5>
                                                     <div class="row col-lg-12 col-md-6 col-12">
@@ -91,11 +123,11 @@ include('user_cont/head.php');
                                                                 <label class="form-check-label" for="pressuredown">น้อยกว่า 80 mmHg</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="pressuredown" id="B12" value="สมรส" />
+                                                                <input class="form-check-input" type="radio" name="pressuredown" id="B12" value="80-89 mmHg" />
                                                                 <label class="form-check-label" for="pressuredown">80-89 mmHg</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="pressuredown" id="B13" value="หม้าย/หย่าร้าง/แยกกันอยู่" />
+                                                                <input class="form-check-input" type="radio" name="pressuredown" id="B13" value="มากกว่าหรือเท่ากับ 90 mmHg" />
                                                                 <label class="form-check-label" for="pressuredown">มากกว่าหรือเท่ากับ 90 mmHg</label>
                                                             </div>
                                                         </div>
@@ -103,12 +135,32 @@ include('user_cont/head.php');
                                                     <br>
                                                     <h5 class="card-title text-primary">รอบเอว วัดผ่านสะดือ (เซนติเมตร)</h5>
                                                     <div class="row col-lg-12 col-md-6 col-12">
-                                                        <div class="col-md">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="waistline" id="B14" value="น้อยกว่า 80 mmHg" />
-                                                                <label class="form-check-label" for="waistline">น้อยกว่า 80 mmHg</label>
-                                                            </div>
-                                                        </div>
+                                                        <?php
+                                                        $sex = $result['sex'];
+                                                        if ($sex == 'ชาย') {
+                                                            echo '<div class="col-md">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="waistline" id="B14.1" value="น้อยกว่าหรือเท่ากับ 89 cm" />
+                                                                    <label class="form-check-label" for="waistline">น้อยกว่าหรือเท่ากับ 89 cm</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="waistline" id="B14.2" value="มากกว่าหรือเท่ากับ 90 cm" />
+                                                                    <label class="form-check-label" for="waistline">มากกว่าหรือเท่ากับ 90 cm</label>
+                                                                </div>
+                                                            </div>';
+                                                        } elseif ($sex == 'หญิง') {
+                                                            echo '<div class="col-md">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="waistline" id="B14.3" value="น้อยกว่าหรือเท่ากับ 79 cm" />
+                                                                    <label class="form-check-label" for="waistline">น้อยกว่าหรือเท่ากับ 79 cm</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="waistline" id="B14.4" value="มากกว่าหรือเท่ากับ 80 cm" />
+                                                                    <label class="form-check-label" for="waistline">มากกว่าหรือเท่ากับ 80 cm</label>
+                                                                </div>
+                                                            </div>';
+                                                        }
+                                                        ?>
                                                         <h5 class="card-title text-primary">ระดับไขมัน HDL ในเลือด (mg/dL)</h5>
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
@@ -153,20 +205,26 @@ include('user_cont/head.php');
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <br>
-                                                    <h5 class="card-title text-primary">มีประวัติเป็นเบาหวานขณะตั้งครรภ์ /คลอดบุตรมีน้ำหนักเกิน 4 กิโลกรัม (สำหรับเพศหญิงเท่านั้น)</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
-                                                        <div class="col-md">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="pregnant" id="B22" value="ไม่มี" />
-                                                                <label class="form-check-label" for="pregnant">ไม่มี</label>
+                                                    <?php
+                                                    $sex = $result['sex'];
+                                                    if ($sex == 'หญิง') {
+                                                        echo '<br>
+                                                        <h5 class="card-title text-primary">มีประวัติเป็นเบาหวานขณะตั้งครรภ์ /คลอดบุตรมีน้ำหนักเกิน 4 กิโลกรัม</h5>
+                                                        <div class="row col-lg-12 col-md-6 col-12">
+                                                            <div class="col-md">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="pregnant" id="B22" value="ไม่มี" />
+                                                                    <label class="form-check-label" for="pregnant">ไม่มี</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="pregnant" id="B23" value="มี" />
+                                                                    <label class="form-check-label" for="pregnant">มี</label>
+                                                                </div>
                                                             </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="pregnant" id="B23" value="มี" />
-                                                                <label class="form-check-label" for="pregnant">มี</label>
-                                                            </div>
-                                                        </div>
-                                                    </div>
+                                                        </div>';
+                                                    }
+                                                    ?>
+
                                                     <br>
                                                     <h5 class="card-title text-primary">มีประวัติเป็นโรคความดันโลหิตสูง หรือ ถุงน้ำรังไข่หลายใบหรือ โรคหัวใจและหลอดเลือดหรือ โรคอ้วนรุนแรง หรือ มีภาวะไขมันพอกตับ หรือไม่ </h5>
                                                     <div class="row col-lg-12 col-md-6 col-12">
@@ -190,7 +248,11 @@ include('user_cont/head.php');
                                                 <?php
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     include('user_cont/connect.php');
-
+                                                    $sex = isset($result['sex']) ? $result['sex'] : '';
+                                                    $age = isset($result['age']) ? $result['age'] : '';
+                                                    $status = isset($result['status']) ? $result['status'] : '';
+                                                    $province = isset($result['province']) ? $result['province'] : '';
+                                                    $study = isset($result['study']) ? $result['study'] : '';
                                                     $height = isset($_POST['height']) ? $_POST['height'] : '';
                                                     $weight = isset($_POST['weight']) ? $_POST['weight'] : '';
                                                     $bmi = isset($_POST['bmi']) ? $_POST['bmi'] : '';
@@ -203,47 +265,68 @@ include('user_cont/head.php');
                                                     $pregnant = isset($_POST['pregnant']) ? $_POST['pregnant'] : '';
                                                     $ovary = isset($_POST['ovary']) ? $_POST['ovary'] : '';
 
-                                                    echo "ID ของ BMI ที่เลือก: $bmi<br>";
-                                                    echo "ID ของ Pressure Up ที่เลือก: $pressureup<br>";
-                                                    echo "ID ของ Pressure Down ที่เลือก: $pressuredown<br>";
-                                                    echo "ID ของ Waistline ที่เลือก: $waistline<br>";
-                                                    echo "ID ของ Fat ที่เลือก: $fat<br>";
-                                                    echo "ID ของ Fat Blood ที่เลือก: $fatblood<br>";
-                                                    echo "ID ของ Blood Level ที่เลือก: $bloodlevel<br>";
-                                                    echo "ID ของ Pregnant ที่เลือก: $pregnant<br>";
-                                                    echo "ID ของ Ovary ที่เลือก: $ovary<br>";
+                                                    $scoreMapping = array(
+                                                        'bmi' => array(
+                                                            'น้อยกว่า 18.5' => 2,
+                                                            '18.5-24.9' => 1,
+                                                            '25-29.9' => 3,
+                                                            'มากกว่า 30' => 4,
+                                                        ),
+                                                        'pressureup' => array(
+                                                            'น้อยกว่า 120 mmHg' => 1,
+                                                            '121-139 mmHg' => 2,
+                                                            '140-159mmHg' => 3,
+                                                            'มากกว่าหรือเท่ากับ 160 mmHg' => 4,
+                                                        ),
+                                                        'pressuredown' => array(
+                                                            'น้อยกว่า 80 mmHg' => 1,
+                                                            '80-89 mmHg' => 2,
+                                                            'มากกว่าหรือเท่ากับ 90 mmHg' => 3,
+                                                        ),
+                                                        'waistline' => array(
+                                                            'น้อยกว่าหรือเท่ากับ 89 cm' => 1,
+                                                            'มากกว่าหรือเท่ากับ 90 cm' => 2,
+                                                            'น้อยกว่าหรือเท่ากับ 79 cm' => 1,
+                                                            'มากกว่าหรือเท่ากับ 80 cm' => 2,
+                                                        ),
+                                                        'fat' => array(
+                                                            'น้อยกว่า 35 mg/dL' => 2,
+                                                            'มากกว่า 35 mg/dL' => 1,
+                                                        ),
+                                                        'fatblood' => array(
+                                                            'น้อยกว่า 250 mg/dL' => 1,
+                                                            'มากกว่า 250 mg/dL' => 2,
+                                                        ),
+                                                        'bloodlevel' => array(
+                                                            'น้อยกว่า 100 mg%' => 0,
+                                                            '100 ถึง 125 mg%' => 1,
+                                                            'มากกว่า 126 mg%' => 4,
+                                                        ),
+                                                        'pregnant' => array(
+                                                            'ไม่มี' => 0,
+                                                            'มี' => 2,
+                                                        ),
+                                                        'ovary' => array(
+                                                            'ไม่มี' => 0,
+                                                            'มี' => 1,
+                                                        ),
+                                                    );
 
-                                                    // ... (โค้ดที่เหลือ)
+                                                    $bmiScore = isset($_POST['bmi']) ? ($scoreMapping['bmi'][$_POST['bmi']] ?? 0) : 0;
+                                                    $pressureupScore = isset($_POST['pressureup']) ? ($scoreMapping['pressureup'][$_POST['pressureup']] ?? 0) : 0;
+                                                    $pressuredownScore = isset($_POST['pressuredown']) ? ($scoreMapping['pressuredown'][$_POST['pressuredown']] ?? 0) : 0;
+                                                    $waistlineScore = isset($_POST['waistline']) ? ($scoreMapping['waistline'][$_POST['waistline']] ?? 0) : 0;
+                                                    $fatScore = isset($_POST['fat']) ? ($scoreMapping['fat'][$_POST['fat']] ?? 0) : 0;
+                                                    $fatbloodScore = isset($_POST['fatblood']) ? ($scoreMapping['fatblood'][$_POST['fatblood']] ?? 0) : 0;
+                                                    $bloodlevelScore = isset($_POST['bloodlevel']) ? ($scoreMapping['bloodlevel'][$_POST['bloodlevel']] ?? 0) : 0;
+                                                    $pregnantScore = isset($_POST['pregnant']) ? ($scoreMapping['pregnant'][$_POST['pregnant']] ?? 0) : 0;
+                                                    $ovaryScore = isset($_POST['ovary']) ? ($scoreMapping['ovary'][$_POST['ovary']] ?? 0) : 0;
 
+                                                    $totalScore = $bmiScore + $pressureupScore + $pressuredownScore + $waistlineScore + $fatScore + $fatbloodScore + $bloodlevelScore + $pregnantScore + $ovaryScore + $totalScoreFromDatabase;
 
-                                                    $bmiScore = ($_POST['bmi'] === 'B3') ? 2 : (($_POST['bmi'] === 'B4') ? 1 : (($_POST['bmi'] === 'B5') ? 3 : 4));
-                                                    $pressureupScore = ($_POST['pressureup'] === 'B7') ? 1 : (($_POST['pressureup'] === 'B8') ? 2 : (($_POST['pressureup'] === 'B9') ? 3 : 4));
-                                                    $pressuredownScore = ($_POST['pressuredown'] === 'B11') ? 1 : (($_POST['pressuredown'] === 'B12') ? 2 : 3);
-                                                    $waistlineScore = ($_POST['waistline'] === 'B14') ? 2 : 1;
-                                                    $fatScore = ($_POST['fat'] === 'B15') ? 2 : 1;
-                                                    $fatbloodScore = ($_POST['fatblood'] === 'B17') ? 1 : 2;
-                                                    $bloodlevelScore = ($_POST['bloodlevel'] === 'B19') ? 0 : (($_POST['bloodlevel'] === 'B20') ? 1 : 4);
-                                                    $pregnantScore = ($_POST['pregnant'] === 'B22') ? 0 : 2;
-                                                    $ovaryScore = ($_POST['ovary'] === 'B24') ? 0 : 1;
+                                                    $insertQuery = "INSERT INTO form_2 (total_score, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study) 
+                                                    VALUES (:totalScore, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study)";
 
-                                                    // แสดงผลคะแนนแต่ละตัวเลือก
-                                                    echo "คะแนน BMI: $bmiScore<br>";
-                                                    echo "คะแนน Pressure Up: $pressureupScore<br>";
-                                                    echo "คะแนน Pressure Down: $pressuredownScore<br>";
-                                                    echo "คะแนน Waistline: $waistlineScore<br>";
-                                                    echo "คะแนน Fat: $fatScore<br>";
-                                                    echo "คะแนน Fat Blood: $fatbloodScore<br>";
-                                                    echo "คะแนน Blood Level: $bloodlevelScore<br>";
-                                                    echo "คะแนน Pregnant: $pregnantScore<br>";
-                                                    echo "คะแนน Ovary: $ovaryScore<br>";
-
-                                                    // คำนวณและแสดงผลคะแนนรวม
-                                                    $totalScore = $bmiScore + $pressureupScore + $pressuredownScore + $waistlineScore + $fatScore + $fatbloodScore + $bloodlevelScore + $pregnantScore + $ovaryScore;
-                                                    echo "คะแนนรวมทั้งหมด: $totalScore";
-
-                                                    // เตรียมและ execute คำสั่ง SQL
-                                                    $insertQuery = "INSERT INTO form_2 (total_score, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary) 
-                                                    VALUES (:totalScore, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary)";
                                                     $stmt = $conn->prepare($insertQuery);
                                                     $stmt->bindParam(':totalScore', $totalScore);
                                                     $stmt->bindParam(':height', $height);
@@ -257,14 +340,19 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':bloodlevel', $bloodlevel);
                                                     $stmt->bindParam(':pregnant', $pregnant);
                                                     $stmt->bindParam(':ovary', $ovary);
+                                                    $stmt->bindParam(':sex', $sex);
+                                                    $stmt->bindParam(':age', $age);
+                                                    $stmt->bindParam(':status', $status);
+                                                    $stmt->bindParam(':province', $province);
+                                                    $stmt->bindParam(':study', $study);
 
-                                                    // try {
-                                                    //     $stmt->execute();
-                                                    //     $form_2_id = $conn->lastInsertId();
-                                                    //     echo '<script>window.location.href = "evaluation3.php?form_2_id=' . $form_2_id . '";</script>';
-                                                    // } catch (PDOException $e) {
-                                                    //     echo "Error: " . $e->getMessage();
-                                                    // }
+                                                    try {
+                                                        $stmt->execute();
+                                                        $form_2_id = $conn->lastInsertId();
+                                                        echo '<script>window.location.href = "evaluation3.php?form_2_id=' . $form_2_id . '";</script>';
+                                                    } catch (PDOException $e) {
+                                                        echo "Error: " . $e->getMessage();
+                                                    }
                                                 }
                                                 ?>
                                                 <script>
@@ -340,12 +428,13 @@ include('user_cont/head.php');
                                                         var selectedProvinces = document.querySelectorAll('input[type="radio"]:checked').length;
                                                         var selectedOptions = document.querySelectorAll('select, input[type="radio"]:checked').length;
 
-                                                        if (selectedOptions === 9) {
+                                                        if (selectedOptions >= 8 && selectedOptions <= 9) {
                                                             document.getElementById('nextButton').style.display = 'block';
                                                         } else {
                                                             document.getElementById('nextButton').style.display = 'none';
                                                         }
                                                     }
+
 
                                                     var formElements = document.querySelectorAll('#formevaluation2 select, #formevaluation2 input[type="radio"]');
                                                     formElements.forEach(function(element) {

@@ -5,24 +5,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section1" id="C1" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C1">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section1" id="C2" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C2">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section1" id="C3" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C3">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section1" id="C4" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C4">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section1" id="C5" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C5">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
@@ -31,24 +31,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3"> เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section2" id="C6" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C6">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section2" id="C7" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C7">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section2" id="C8" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C8">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section2" id="C9" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C9">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section2" id="C10" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C10">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
@@ -57,24 +57,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3"> เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section3" id="C11" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C11">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section3" id="C12" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C12">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section3" id="C13" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C13">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section3" id="C14" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C14">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section3" id="C15" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C15">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
@@ -83,24 +83,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3"> เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section4" id="C16" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C16">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section4" id="C17" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C17">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section4" id="C18" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C18">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section4" id="C19" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C19">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section4" id="C20" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C20">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
@@ -109,24 +109,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3"> เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section5" id="C21" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C21">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section5" id="C22" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C22">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section5" id="C23" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C23">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section5" id="C24" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C24">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section5" id="C25" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C25">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
@@ -135,24 +135,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3"> เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section6" id="C26" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C26">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section6" id="C27" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C27">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section6" id="C28" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C28">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section6" id="C29" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C29">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section6" id="C30" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C30">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
@@ -161,24 +161,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3"> เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section7" id="C31" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C31">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section7" id="C32" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C32">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section7" id="C33" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C33">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section7" id="C34" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C34">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section7" id="C35" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C35">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
@@ -187,24 +187,24 @@
     <div class="row col-lg-12 col-md-6 col-12">
         <div class="col-md">
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="5" />
-                <label class="form-check-label" for="B3"> เป็นประจำ/ปฏิบัติทุกวัน</label>
+                <input class="form-check-input" type="radio" name="section8" id="C36" value="เป็นประจำ/ปฏิบัติทุกวัน" />
+                <label class="form-check-label" for="C36">เป็นประจำ/ปฏิบัติทุกวัน</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="4" />
-                <label class="form-check-label" for="B3">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section8" id="C37" value="บ่อยครั้ง/5-6 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C37">บ่อยครั้ง/5-6 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="3" />
-                <label class="form-check-label" for="B3">บางครั้ง/3-4 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section8" id="C38" value="บางครั้ง/3-4 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C38">บางครั้ง/3-4 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="2" />
-                <label class="form-check-label" for="B3">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
+                <input class="form-check-input" type="radio" name="section8" id="C39" value="นานๆครั้ง/1-2 วัน/สัปดาห์" />
+                <label class="form-check-label" for="C39">นานๆครั้ง/1-2 วัน/สัปดาห์</label>
             </div>
             <div class="form-check form-check-inline">
-                <input class="form-check-input" type="radio" name="B3" id="B3" value="1" />
-                <label class="form-check-label" for="B3">ไม่เคยเลย</label>
+                <input class="form-check-input" type="radio" name="section8" id="C40" value="ไม่เคยเลย" />
+                <label class="form-check-label" for="C40">ไม่เคยเลย</label>
             </div>
         </div>
     </div>
