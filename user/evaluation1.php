@@ -22,7 +22,7 @@ include('user_cont/head.php');
                                                     <h5 class="card-title text-primary">ส่วนที่ 1 ข้อมูลทั่วไป</h5>
                                                     <hr>
                                                     <h5 class="card-title text-primary">เพศ</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-6">
                                                         <div class="col-mb">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="sex" id="A1" value="หญิง" />
@@ -36,7 +36,7 @@ include('user_cont/head.php');
                                                     </div>
                                                     <br>
                                                     <h5 class="card-title text-primary">อายุ (ปีเต็ม)</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-6">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="age" id="A3" value="0-34 ปี" />
@@ -54,7 +54,7 @@ include('user_cont/head.php');
                                                     </div>
                                                     <br>
                                                     <h5 class="card-title text-primary">สถานภาพ</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-6">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="status" id="A6" value="โสด" />
@@ -86,7 +86,7 @@ include('user_cont/head.php');
                                                                 <option value="">กรุณาเลือกภูมิลำเนา</option>
                                                                 <?php
                                                                 foreach ($result as $row) {
-                                                                    echo '<option value="' . $row["province_name"] . '">' . $row["province_name"] . ' - Scores: ' . $row["province_scores"] . '</option>';
+                                                                    echo '<option value="' . $row["province_name"] . '">' . $row["province_name"] . '</option>';
                                                                 }
                                                                 ?>
                                                             </select>
@@ -116,9 +116,10 @@ include('user_cont/head.php');
                                                     </div>
                                                     <hr>
                                                     <div class="demo-inline-spacing d-flex justify-content-between">
-                                                        <button type="button" class="btn btn-primary active">ย้อนกลับ</button>
+                                                        <div></div>
                                                         <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
+
                                                 </form>
                                                 <?php
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -170,17 +171,17 @@ include('user_cont/head.php');
 
                                                     $totalScore = $sexScore + $ageScore + $statusScore + $studyScore + $provinceScore;
 
-                                                    echo "คะแนน sexScore: $sexScore<br>";
-                                                    echo "คะแนน ageScore: $ageScore<br>";
-                                                    echo "คะแนน statusScore: $statusScore<br>";
-                                                    echo "คะแนน studyScore: $studyScore<br>";
-                                                    echo "<hr>";
-                                                    echo "POST sex: $sex<br>";
-                                                    echo "POST age: $age<br>";
-                                                    echo "POST status: $status<br>";
-                                                    echo "POST study: $study<br>";
+                                                    // echo "คะแนน sexScore: $sexScore<br>";
+                                                    // echo "คะแนน ageScore: $ageScore<br>";
+                                                    // echo "คะแนน statusScore: $statusScore<br>";
+                                                    // echo "คะแนน studyScore: $studyScore<br>";
+                                                    // echo "<hr>";
+                                                    // echo "POST sex: $sex<br>";
+                                                    // echo "POST age: $age<br>";
+                                                    // echo "POST status: $status<br>";
+                                                    // echo "POST study: $study<br>";
 
-                                                    echo "คะแนนรวมทั้งหมด: $totalScore";
+                                                    // echo "คะแนนรวมทั้งหมด: $totalScore";
 
                                                     $insertQuery = "INSERT INTO form_1 (sex, age, status, province, study, province_score, total_score) 
                                                     VALUES (:sex, :age, :status, :province, :study, :provinceScore, :totalScore)";
@@ -226,7 +227,6 @@ include('user_cont/head.php');
                                                         element.addEventListener('change', checkSelection);
                                                     });
                                                 </script>
-
                                             </div>
                                         </div>
                                     </div>

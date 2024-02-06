@@ -36,7 +36,6 @@ include('user_cont/head.php');
                                                             $status = $result['status'];
                                                             $province = $result['province'];
                                                             $study = $result['study'];
-
                                                             $height = $result['height'];
                                                             $weight = $result['weight'];
                                                             $bmi = $result['bmi'];
@@ -48,9 +47,13 @@ include('user_cont/head.php');
                                                             $bloodlevel = $result['bloodlevel'];
                                                             $pregnant = $result['pregnant'];
                                                             $ovary = $result['ovary'];
+                                                            $score_form1 = $result['score_form1'];
+                                                            $score_form2 = $result['score_form2'];
                                                             $totalScoreFromDatabase = $result['total_score'];
                                                     ?>
-                                                            <p><strong>:</strong> <?php echo $sex; ?></p>
+                                                            <!-- <p><strong>:</strong> <?php echo $score_form1; ?></p>
+                                                            <p><strong>:</strong> <?php echo $score_form2; ?></p> -->
+                                                            <!-- <p><strong>:</strong> <?php echo $sex; ?></p>
                                                             <p><strong>:</strong> <?php echo $age; ?></p>
                                                             <p><strong>:</strong> <?php echo $status; ?></p>
                                                             <p><strong>:</strong> <?php echo $province; ?></p>
@@ -66,7 +69,7 @@ include('user_cont/head.php');
                                                             <p><strong>:</strong> <?php echo $bloodlevel; ?></p>
                                                             <p><strong>:</strong> <?php echo $pregnant; ?></p>
                                                             <p><strong>:</strong> <?php echo $ovary; ?></p>
-                                                            <p><strong>คะแนนรวมจากฐานข้อมูล:</strong> <?php echo $totalScoreFromDatabase; ?></p>
+                                                            <p><strong>คะแนนรวมจากฐานข้อมูล:</strong> <?php echo $totalScoreFromDatabase; ?></p> -->
                                                     <?php
                                                         } else {
                                                             echo "ไม่พบข้อมูลสำหรับ form_2_id: $form_2_id";
@@ -75,7 +78,7 @@ include('user_cont/head.php');
                                                         echo "ไม่ได้รับ form_2_id จาก URL";
                                                     }
                                                     ?>
-                                                    <hr>
+                                                    <br>
                                                     <h5 class="card-title text-primary">ท่านรับประทานอาหารครบ 3 มื้อ</h5>
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
@@ -287,7 +290,7 @@ include('user_cont/head.php');
                                                     <h5 class="card-title text-primary">3.2 พฤติกรรมการออกกำลังกาย</h5>
                                                     <br>
                                                     <h5 class="card-title text-primary">ท่านออกกำลังกายประเภทแอโรบิก เช่น การวิ่งเหยาะ ๆ ว่ายน้ำ แบดมินตัน ฟุตบอล เต้นแอโรบิก</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-3">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="section9" id="C41" value="ไม่ใช่" />
@@ -331,7 +334,7 @@ include('user_cont/head.php');
                                                     <h5 class="card-title text-primary">3.3 พฤติกรรมการสูบบุหรี่</h5>
                                                     <br>
                                                     <h5 class="card-title text-primary">ท่านสูบบุหรี่หรือไม่</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-8">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="section12" id="C47" value="ไม่เคย" />
@@ -347,40 +350,102 @@ include('user_cont/head.php');
                                                             </div>
                                                         </div>
                                                     </div>
+                                                    <div class="row col-lg-12 col-md-6 col-12" id="section12">
+                                                        <br>
+                                                        <h5 class="card-title text-primary">ปริมาณการสูบบุหรี่ ม้วน/วัน</h5>
+                                                        <div class="row col-lg-12 col-md-6 col-12">
+                                                            <div class="col-md">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section13" id="C50" value="น้อยกว่า 24 ม้วน/วัน" />
+                                                                    <label class="form-check-label" for="C50">น้อยกว่า 24 ม้วน/วัน</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section13" id="C51" value="มากกว่าเท่ากับ 25 ม้วน/วัน" />
+                                                                    <label class="form-check-label" for="C51">มากกว่าเท่ากับ 25 ม้วน/วัน</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <br>
+                                                        <h5 class="card-title text-primary">บุคคลใกล้ชิดของท่านเคยสูบบุหรี่หรือไม่</h5>
+                                                        <div class="row col-lg-12 col-md-6 col-8">
+                                                            <div class="col-md">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section14" id="C52" value="ไม่เคย" />
+                                                                    <label class="form-check-label" for="C52">ไม่เคย</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section14" id="C53" value="ปัจจุบันสูบอยู่" />
+                                                                    <label class="form-check-label" for="C53">ปัจจุบันสูบอยู่</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section14" id="C54" value="เคยสูบแต่เลิกแล้ว" />
+                                                                    <label class="form-check-label" for="C54">เคยสูบแต่เลิกแล้ว</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr>
+                                                    <h5 class="card-title text-primary">3.4 พฤติกรรมการบริโภคเครื่องดื่มแอลกอฮอล์</h5>
                                                     <br>
-                                                    <h5 class="card-title text-primary">ปริมาณการสูบบุหรี่ ม้วน/วัน</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <h5 class="card-title text-primary">ท่านดื่มเครื่องดื่มแอลกอฮอล์หรือไม่</h5>
+                                                    <div class="row col-lg-12 col-md-6 col-8">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section13" id="C50" value="น้อยกว่า 24 ม้วน/วัน" />
-                                                                <label class="form-check-label" for="C50">น้อยกว่า 24 ม้วน/วัน</label>
+                                                                <input class="form-check-input" type="radio" name="section15" id="C55" value="ไม่เคยดื่ม" />
+                                                                <label class="form-check-label" for="C55">ไม่เคยดื่ม</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section13" id="C51" value="มากกว่าเท่ากับ 25 ม้วน/วัน" />
-                                                                <label class="form-check-label" for="C51">มากกว่าเท่ากับ 25 ม้วน/วัน</label>
+                                                                <input class="form-check-input" type="radio" name="section15" id="C56" value="ปัจจุบันดื่มอยู่" />
+                                                                <label class="form-check-label" for="C56">ปัจจุบันดื่มอยู่</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="section15" id="C57" value="เคยดื่มแต่เลิกแล้ว" />
+                                                                <label class="form-check-label" for="C57">เคยดื่มแต่เลิกแล้ว</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <h5 class="card-title text-primary">บุคคลใกล้ชิดของท่านเคยสูบบุหรี่หรือไม่</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <h5 class="card-title text-primary">ชนิดของเครื่องดื่มแอลกอฮอล์ที่ดื่มเป็นประจำ</h5>
+                                                    <div class="row col-lg-12 col-md-6 col-6">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section14" id="C52" value="ไม่เคย" />
-                                                                <label class="form-check-label" for="C52">ไม่เคย</label>
+                                                                <input class="form-check-input" type="radio" name="section16" id="C58" value="สุรา" />
+                                                                <label class="form-check-label" for="C58">สุรา</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section14" id="C53" value="ปัจจุบันสูบอยู่" />
-                                                                <label class="form-check-label" for="C53">ปัจจุบันสูบอยู่</label>
+                                                                <input class="form-check-input" type="radio" name="section16" id="C59" value="เบียร์" />
+                                                                <label class="form-check-label" for="C59">เบียร์</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section14" id="C54" value="เคยสูบแต่เลิกแล้ว" />
-                                                                <label class="form-check-label" for="C54">เคยสูบแต่เลิกแล้ว</label>
+                                                                <input class="form-check-input" type="radio" name="section16" id="C60" value="ไวน์/สปาย" />
+                                                                <label class="form-check-label" for="C60">ไวน์/สปาย</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                    <h5 class="card-title text-primary">ปริมาณการดื่มต่อครั้ง</h5>
+                                                    <div class="row col-lg-12 col-md-6 col-8">
+                                                        <div class="col-md">
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="section17" id="C61" value="ไม่เคยดื่ม/ดื่มน้อยมาก" />
+                                                                <label class="form-check-label" for="C61">ไม่เคยดื่ม/ดื่มน้อยมาก</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="section17" id="C62" value="ดื่มน้อย" />
+                                                                <label class="form-check-label" for="C62">ดื่มน้อย</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="section17" id="C63" value="ดื่มปานกลาง" />
+                                                                <label class="form-check-label" for="C63">ดื่มปานกลาง</label>
+                                                            </div>
+                                                            <div class="form-check form-check-inline">
+                                                                <input class="form-check-input" type="radio" name="section17" id="C64" value="ดื่มมาก" />
+                                                                <label class="form-check-label" for="C64">ดื่มมาก</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="demo-inline-spacing d-flex justify-content-between">
-                                                        <button type="button" class="btn btn-primary active">ย้อนกลับ</button>
+                                                        <button type="button" class="btn btn-primary active" onclick="window.history.back();">ย้อนกลับ</button>
                                                         <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
                                                 </form>
@@ -490,9 +555,23 @@ include('user_cont/head.php');
                                                             'ปัจจุบันสูบอยู่' => 2,
                                                             'เคยสูบแต่เลิกแล้ว' => 2,
                                                         ),
+                                                        'section15' => array(
+                                                            'ไม่เคยดื่ม' => 1,
+                                                            'ปัจจุบันดื่มอยู่' => 2,
+                                                            'เคยดื่มแต่เลิกแล้ว' => 2,
+                                                        ),
+                                                        'section16' => array(
+                                                            'สุรา' => 0,
+                                                            'เบียร์' => 0,
+                                                            'ไวน์/สปาย' => 0,
+                                                        ),
+                                                        'section17' => array(
+                                                            'ไม่เคยดื่ม/ดื่มน้อยมาก' => 1,
+                                                            'ดื่มน้อย' => 1,
+                                                            'ดื่มปานกลาง' => 2,
+                                                            'ดื่มมาก' => 2,
+                                                        ),
                                                     );
-
-                                                    // ตัวแปรที่ใช้รับค่าจากฟอร์ม
                                                     $section1 = isset($_POST['section1']) ? $_POST['section1'] : '';
                                                     $section2 = isset($_POST['section2']) ? $_POST['section2'] : '';
                                                     $section3 = isset($_POST['section3']) ? $_POST['section3'] : '';
@@ -507,8 +586,10 @@ include('user_cont/head.php');
                                                     $section12 = isset($_POST['section12']) ? $_POST['section12'] : '';
                                                     $section13 = isset($_POST['section13']) ? $_POST['section13'] : '';
                                                     $section14 = isset($_POST['section14']) ? $_POST['section14'] : '';
+                                                    $section15 = isset($_POST['section15']) ? $_POST['section15'] : '';
+                                                    $section16 = isset($_POST['section16']) ? $_POST['section16'] : '';
+                                                    $section17 = isset($_POST['section17']) ? $_POST['section17'] : '';
 
-                                                    // คำนวณคะแนนแต่ละ section
                                                     $section1score = isset($_POST['section1']) ? ($scoreMapping['section1'][$_POST['section1']] ?? 0) : 0;
                                                     $section2score = isset($_POST['section2']) ? ($scoreMapping['section2'][$_POST['section2']] ?? 0) : 0;
                                                     $section3score = isset($_POST['section3']) ? ($scoreMapping['section3'][$_POST['section3']] ?? 0) : 0;
@@ -523,6 +604,9 @@ include('user_cont/head.php');
                                                     $section12score = isset($_POST['section12']) ? ($scoreMapping['section12'][$_POST['section12']] ?? 0) : 0;
                                                     $section13score = isset($_POST['section13']) ? ($scoreMapping['section13'][$_POST['section13']] ?? 0) : 0;
                                                     $section14score = isset($_POST['section14']) ? ($scoreMapping['section14'][$_POST['section14']] ?? 0) : 0;
+                                                    $section15score = isset($_POST['section15']) ? ($scoreMapping['section15'][$_POST['section15']] ?? 0) : 0;
+                                                    $section16score = isset($_POST['section16']) ? ($scoreMapping['section16'][$_POST['section16']] ?? 0) : 0;
+                                                    $section17score = isset($_POST['section17']) ? ($scoreMapping['section17'][$_POST['section17']] ?? 0) : 0;
 
                                                     $totalScore = $section1score + $section2score + $section3score + $section4score + $section5score + $section6score + $section7score + $section8score;
                                                     if ($totalScore >= 8 && $totalScore <= 14) {
@@ -535,6 +619,8 @@ include('user_cont/head.php');
                                                         $score = 4;
                                                     }
 
+                                                    echo "score : $score <br>";
+
                                                     $totalScore2 = $section9score + $section10score + $section11score;
 
                                                     if ($totalScore2 <= 5) {
@@ -543,47 +629,66 @@ include('user_cont/head.php');
                                                         $score2 = 1;
                                                     }
 
+                                                    echo "score2 : $score2 <br>";
+
                                                     $totalScore3 = $section12score + $section13score + $section14score;
 
-                                                    $scoreall = $score + $score2 + $totalScore3;
+                                                    echo "totalScore3 : $totalScore3 <br>";
 
+                                                    $scoreall = $totalScoreFromDatabase + $score + $score2 + $totalScore3 + $section15score + $section16score + $section17score;
+                                                    echo "score_form3 : $score_form3 <br>";
 
-                                                    echo "คะแนน section1score : $section1score <br>";
-                                                    echo "คะแนน section2score : $section2score <br>";
-                                                    echo "คะแนน section3score : $section3score <br>";
-                                                    echo "คะแนน section4score : $section4score <br>";
-                                                    echo "คะแนน section5score : $section5score <br>";
-                                                    echo "คะแนน section6score : $section6score <br>";
-                                                    echo "คะแนน section7score : $section7score <br>";
-                                                    echo "คะแนน section8score : $section8score <br>";
-                                                    echo "คะแนน section9score : $section9score <br>";
-                                                    echo "คะแนน section10score : $section10score <br>";
-                                                    echo "คะแนน section11score : $section11score <br>";
-                                                    echo "คะแนน section12score : $section12score <br>";
-                                                    echo "คะแนน section13score : $section13score <br>";
-                                                    echo "คะแนน section14score : $section14score <br>";
-                                                    echo "<hr>";
-                                                    echo ": $section1<br>";
-                                                    echo ": $section2<br>";
-                                                    echo ": $section3<br>";
-                                                    echo ": $section4<br>";
-                                                    echo ": $section5<br>";
-                                                    echo ": $section6<br>";
-                                                    echo ": $section7<br>";
-                                                    echo ": $section8<br>";
-                                                    echo ": $section9<br>";
-                                                    echo ": $section10<br>";
-                                                    echo ": $section11<br>";
-                                                    echo ": $section12<br>";
-                                                    echo ": $section13<br>";
-                                                    echo ": $section14<br>";
-                                                    echo "คะแนนรวมทั้งหมด: $scoreall";
+                                                    $score_form1 = $score_form1;
+                                                    $score_form2 = $score_form2;
+                                                    $score_form3 = $score + $score2 + $totalScore3 + $section15score + $section16score + $section17score;
 
-                                                    // SQL query สำหรับการเพิ่มข้อมูลลงในฐานข้อมูล
-                                                    $insertQuery = "INSERT INTO form_3 (score, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study, section1, section2, section3, section4, section5, section6, section7, section8) 
-                                                        VALUES (:score, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study, :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8)";
+                                                    // echo "คะแนน section1score : $section1score <br>";
+                                                    // echo "คะแนน section2score : $section2score <br>";
+                                                    // echo "คะแนน section3score : $section3score <br>";
+                                                    // echo "คะแนน section4score : $section4score <br>";
+                                                    // echo "คะแนน section5score : $section5score <br>";
+                                                    // echo "คะแนน section6score : $section6score <br>";
+                                                    // echo "คะแนน section7score : $section7score <br>";
+                                                    // echo "คะแนน section8score : $section8score <br>";
+                                                    // echo "คะแนน section9score : $section9score <br>";
+                                                    // echo "คะแนน section10score : $section10score <br>";
+                                                    // echo "คะแนน section11score : $section11score <br>";
+                                                    // echo "คะแนน section12score : $section12score <br>";
+                                                    // echo "คะแนน section13score : $section13score <br>";
+                                                    // echo "คะแนน section14score : $section14score <br>";
+                                                    // echo "คะแนน section15score : $section15score <br>";
+                                                    // echo "คะแนน section16score : $section16score <br>";
+                                                    // echo "คะแนน section17score : $section17score <br>";
+                                                    // echo "<hr>";
+                                                    // echo ": $section1<br>";
+                                                    // echo ": $section2<br>";
+                                                    // echo ": $section3<br>";
+                                                    // echo ": $section4<br>";
+                                                    // echo ": $section5<br>";
+                                                    // echo ": $section6<br>";
+                                                    // echo ": $section7<br>";
+                                                    // echo ": $section8<br>";
+                                                    // echo ": $section9<br>";
+                                                    // echo ": $section10<br>";
+                                                    // echo ": $section11<br>";
+                                                    // echo ": $section12<br>";
+                                                    // echo ": $section13<br>";
+                                                    // echo ": $section14<br>";
+                                                    // echo ": $section15<br>";
+                                                    // echo ": $section16<br>";
+                                                    // echo ": $section17<br>";
+                                                    // echo "1-8: $score<br>";
+                                                    // echo "9-11: $score2<br>";
+                                                    // echo "12-14: $totalScore3<br>";
+                                                    // echo "คะแนนรวมทั้งหมด: $scoreall";
+
+                                                    $insertQuery = "INSERT INTO form_3 (score_form1, score_form2, score_form3, scoreall, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17) 
+                                                    VALUES (:score_form1, :score_form2, :score_form3, :scoreall, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study, :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14, :section15, :section16, :section17)";
                                                     $stmt = $conn->prepare($insertQuery);
-                                                    $stmt->bindParam(':score', $score);
+                                                    $stmt->bindParam(':score_form3', $score_form3);
+                                                    $stmt->bindParam(':score_form2', $score_form2);
+                                                    $stmt->bindParam(':score_form1', $score_form1);
+                                                    $stmt->bindParam(':scoreall', $scoreall);
                                                     $stmt->bindParam(':height', $height);
                                                     $stmt->bindParam(':weight', $weight);
                                                     $stmt->bindParam(':bmi', $bmi);
@@ -608,13 +713,22 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':section6', $section6);
                                                     $stmt->bindParam(':section7', $section7);
                                                     $stmt->bindParam(':section8', $section8);
-                                                    // try {
-                                                    //     $stmt->execute();
-                                                    //     $form_3_id = $conn->lastInsertId();
-                                                    //     echo '<script>window.location.href = "evaluation4.php?form_3_id=' . $form_3_id . '";</script>';
-                                                    // } catch (PDOException $e) {
-                                                    //     echo "Error: " . $e->getMessage();
-                                                    // }
+                                                    $stmt->bindParam(':section9', $section9);
+                                                    $stmt->bindParam(':section10', $section10);
+                                                    $stmt->bindParam(':section11', $section11);
+                                                    $stmt->bindParam(':section12', $section12);
+                                                    $stmt->bindParam(':section13', $section13);
+                                                    $stmt->bindParam(':section14', $section14);
+                                                    $stmt->bindParam(':section15', $section15);
+                                                    $stmt->bindParam(':section16', $section16);
+                                                    $stmt->bindParam(':section17', $section17);
+                                                    try {
+                                                        $stmt->execute();
+                                                        $form_3_id = $conn->lastInsertId();
+                                                        echo '<script>window.location.href = "evaluation4.php?form_3_id=' . $form_3_id . '";</script>';
+                                                    } catch (PDOException $e) {
+                                                        echo "Error: " . $e->getMessage();
+                                                    }
                                                 }
                                                 ?>
                                                 <script>
@@ -622,7 +736,7 @@ include('user_cont/head.php');
                                                         var selectedProvinces = document.querySelectorAll('input[type="radio"]:checked').length;
                                                         var selectedOptions = document.querySelectorAll('select, input[type="radio"]:checked').length;
 
-                                                        if (selectedOptions >= 13 && selectedOptions <= 15) {
+                                                        if (selectedOptions >= 15 && selectedOptions <= 18) {
                                                             document.getElementById('nextButton').style.display = 'block';
                                                         } else {
                                                             document.getElementById('nextButton').style.display = 'none';
@@ -633,6 +747,7 @@ include('user_cont/head.php');
                                                         element.addEventListener('change', checkSelection);
                                                     });
                                                 </script>
+
                                                 <script>
                                                     document.addEventListener('DOMContentLoaded', function() {
                                                         toggleSmokingSection();
@@ -643,9 +758,11 @@ include('user_cont/head.php');
                                                     });
 
                                                     function toggleSmokingSection() {
-                                                        var smokingSection = document.querySelector('.row.col-lg-12.col-md-6.col-12');
                                                         var smokingStatus = getSelectedRadioValue('section12');
-                                                        smokingSection.style.display = (smokingStatus === 'ไม่เคย') ? 'none' : 'block';
+                                                        var smokingStatusSection = document.getElementById('section12');
+                                                        if (smokingStatusSection) {
+                                                            smokingStatusSection.style.display = (smokingStatus === 'ไม่เคย') ? 'none' : 'block';
+                                                        }
                                                     }
 
                                                     function getSelectedRadioValue(name) {

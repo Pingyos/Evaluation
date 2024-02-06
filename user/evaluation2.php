@@ -36,13 +36,13 @@ include('user_cont/head.php');
                                                             $study = $result['study'];
                                                             $totalScoreFromDatabase = $result['total_score'];
                                                     ?>
-                                                            <h1>ข้อมูล Form 1</h1>
+                                                            <!-- <h1>ข้อมูล Form 1</h1>
                                                             <p><strong>เพศ:</strong> <?php echo $sex; ?></p>
                                                             <p><strong>อายุ:</strong> <?php echo $age; ?></p>
                                                             <p><strong>สถานะ:</strong> <?php echo $status; ?></p>
                                                             <p><strong>ภูมิลำเนา:</strong> <?php echo $province; ?></p>
                                                             <p><strong>ระดับการศึกษา:</strong> <?php echo $study; ?></p>
-                                                            <p><strong>คะแนนรวมจากฐานข้อมูล:</strong> <?php echo $totalScoreFromDatabase; ?></p>
+                                                            <p><strong>คะแนนรวมจากฐานข้อมูล:</strong> <?php echo $totalScoreFromDatabase; ?></p> -->
                                                     <?php
                                                         } else {
                                                             echo "ไม่พบข้อมูลสำหรับ form_1_id: $form_1_id";
@@ -56,7 +56,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-mb">
                                                             <div class="form-check form-check-inline">
-                                                                <input type="text" class="form-control" name="height" id="B1" aria-describedby="defaultFormControlHelp">
+                                                                <input type="number" class="form-control" name="height" id="B1" aria-describedby="defaultFormControlHelp">
                                                             </div>
                                                         </div>
                                                     </div>
@@ -65,13 +65,13 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input type="text" class="form-control" name="weight" id="B2" aria-describedby="defaultFormControlHelp">
+                                                                <input type="number" class="form-control" name="weight" id="B2" aria-describedby="defaultFormControlHelp">
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <br>
                                                     <h5 class="card-title text-primary">ดัชนีมวลกาย</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-6">
                                                         <span id="bmiDisplay"></span>
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
@@ -94,7 +94,7 @@ include('user_cont/head.php');
                                                     </div>
                                                     <br>
                                                     <h5 class="card-title text-primary">ระดับความดันโลหิตตัวบน (mmHg)</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-8">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="pressureup" id="B7" value="น้อยกว่า 120 mmHg" />
@@ -210,7 +210,7 @@ include('user_cont/head.php');
                                                     if ($sex == 'หญิง') {
                                                         echo '<br>
                                                         <h5 class="card-title text-primary">มีประวัติเป็นเบาหวานขณะตั้งครรภ์ /คลอดบุตรมีน้ำหนักเกิน 4 กิโลกรัม</h5>
-                                                        <div class="row col-lg-12 col-md-6 col-12">
+                                                        <div class="row col-lg-12 col-md-6 col-3">
                                                             <div class="col-md">
                                                                 <div class="form-check form-check-inline">
                                                                     <input class="form-check-input" type="radio" name="pregnant" id="B22" value="ไม่มี" />
@@ -227,7 +227,7 @@ include('user_cont/head.php');
 
                                                     <br>
                                                     <h5 class="card-title text-primary">มีประวัติเป็นโรคความดันโลหิตสูง หรือ ถุงน้ำรังไข่หลายใบหรือ โรคหัวใจและหลอดเลือดหรือ โรคอ้วนรุนแรง หรือ มีภาวะไขมันพอกตับ หรือไม่ </h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
+                                                    <div class="row col-lg-12 col-md-6 col-3">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="ovary" id="B24" value="ไม่มี" />
@@ -241,7 +241,7 @@ include('user_cont/head.php');
                                                     </div>
                                                     <hr>
                                                     <div class="demo-inline-spacing d-flex justify-content-between">
-                                                        <button type="button" class="btn btn-primary active">ย้อนกลับ</button>
+                                                        <button type="button" class="btn btn-primary active" onclick="window.history.back();">ย้อนกลับ</button>
                                                         <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
                                                 </form>
@@ -324,10 +324,15 @@ include('user_cont/head.php');
 
                                                     $totalScore = $bmiScore + $pressureupScore + $pressuredownScore + $waistlineScore + $fatScore + $fatbloodScore + $bloodlevelScore + $pregnantScore + $ovaryScore + $totalScoreFromDatabase;
 
-                                                    $insertQuery = "INSERT INTO form_2 (total_score, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study) 
-                                                    VALUES (:totalScore, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study)";
+                                                    $score_form1 = $totalScoreFromDatabase;
+                                                    $score_form2 = $bmiScore + $pressureupScore + $pressuredownScore + $waistlineScore + $fatScore + $fatbloodScore + $bloodlevelScore + $pregnantScore + $ovaryScore;
+
+                                                    $insertQuery = "INSERT INTO form_2 (score_form1, score_form2, total_score, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study) 
+                                                    VALUES (:score_form1, :score_form2, :totalScore, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study)";
 
                                                     $stmt = $conn->prepare($insertQuery);
+                                                    $stmt->bindParam(':score_form2', $score_form2);
+                                                    $stmt->bindParam(':score_form1', $score_form1);
                                                     $stmt->bindParam(':totalScore', $totalScore);
                                                     $stmt->bindParam(':height', $height);
                                                     $stmt->bindParam(':weight', $weight);
@@ -441,6 +446,7 @@ include('user_cont/head.php');
                                                         element.addEventListener('change', checkSelection);
                                                     });
                                                 </script>
+
                                             </div>
                                         </div>
                                     </div>
