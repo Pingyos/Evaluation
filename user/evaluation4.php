@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/"
-    data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
 
 <?php
 include('user_cont/head.php');
@@ -68,45 +67,7 @@ include('user_cont/head.php');
                                                             $score_form1 = $result['score_form1'];
                                                             $score_form2 = $result['score_form2'];
                                                             $score_form3 = $result['score_form3'];
-
                                                     ?>
-                                                    <!-- <p><strong>:</strong> <?php echo $score_form1; ?></p>
-                                                            <p><strong>:</strong> <?php echo $score_form2; ?></p>
-                                                            <p><strong>:</strong> <?php echo $score_form3; ?></p> -->
-                                                    <!-- <p><strong>Sex:</strong> <?php echo $sex; ?></p>
-                                                            <p><strong>Age:</strong> <?php echo $age; ?></p>
-                                                            <p><strong>Status:</strong> <?php echo $status; ?></p>
-                                                            <p><strong>Province:</strong> <?php echo $province; ?></p>
-                                                            <p><strong>Study:</strong> <?php echo $study; ?></p>
-                                                            <p><strong>Height:</strong> <?php echo $height; ?></p>
-                                                            <p><strong>Weight:</strong> <?php echo $weight; ?></p>
-                                                            <p><strong>BMI:</strong> <?php echo $bmi; ?></p>
-                                                            <p><strong>Pressure Up:</strong> <?php echo $pressureup; ?></p>
-                                                            <p><strong>Pressure Down:</strong> <?php echo $pressuredown; ?></p>
-                                                            <p><strong>Waistline:</strong> <?php echo $waistline; ?></p>
-                                                            <p><strong>Fat:</strong> <?php echo $fat; ?></p>
-                                                            <p><strong>Fat Blood:</strong> <?php echo $fatblood; ?></p>
-                                                            <p><strong>Blood Level:</strong> <?php echo $bloodlevel; ?></p>
-                                                            <p><strong>Pregnant:</strong> <?php echo $pregnant; ?></p>
-                                                            <p><strong>Ovary:</strong> <?php echo $ovary; ?></p>
-                                                            <p><strong>Section 1:</strong> <?php echo $section1; ?></p>
-                                                            <p><strong>Section 2:</strong> <?php echo $section2; ?></p>
-                                                            <p><strong>Section 3:</strong> <?php echo $section3; ?></p>
-                                                            <p><strong>Section 4:</strong> <?php echo $section4; ?></p>
-                                                            <p><strong>Section 5:</strong> <?php echo $section5; ?></p>
-                                                            <p><strong>Section 6:</strong> <?php echo $section6; ?></p>
-                                                            <p><strong>Section 7:</strong> <?php echo $section7; ?></p>
-                                                            <p><strong>Section 8:</strong> <?php echo $section8; ?></p>
-                                                            <p><strong>Section 9:</strong> <?php echo $section9; ?></p>
-                                                            <p><strong>Section 10:</strong> <?php echo $section10; ?></p>
-                                                            <p><strong>Section 11:</strong> <?php echo $section11; ?></p>
-                                                            <p><strong>Section 12:</strong> <?php echo $section12; ?></p>
-                                                            <p><strong>Section 13:</strong> <?php echo $section13; ?></p>
-                                                            <p><strong>Section 14:</strong> <?php echo $section14; ?></p>
-                                                            <p><strong>Section 15:</strong> <?php echo $section15; ?></p>
-                                                            <p><strong>Section 16:</strong> <?php echo $section16; ?></p>
-                                                            <p><strong>Section 17:</strong> <?php echo $section17; ?></p>
-                                                            <p><strong>Score All:</strong> <?php echo $scoreall; ?></p> -->
                                                     <?php
                                                         } else {
                                                             echo "ไม่พบข้อมูลสำหรับ form_3_id: $form_3_id";
@@ -121,22 +82,17 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section18" id="D1" value="ไม่มี" />
+                                                                <input class="form-check-input" type="radio" name="section18" id="D1" value="ไม่มี" />
                                                                 <label class="form-check-label" for="D1">ไม่มี</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section18" id="D2"
-                                                                    value="มี เป็นญาติสายตรง ได้แก่ พ่อแม่ พี่น้อง หรือลูกของตัวเอง" />
+                                                                <input class="form-check-input" type="radio" name="section18" id="D2" value="มี เป็นญาติสายตรง ได้แก่ พ่อแม่ พี่น้อง หรือลูกของตัวเอง" />
                                                                 <label class="form-check-label" for="D2">มี
                                                                     เป็นญาติสายตรง ได้แก่ พ่อแม่ พี่น้อง
                                                                     หรือลูกของตัวเอง</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section18" id="D3"
-                                                                    value="มี เครือญาติ ได้แก่ ปู่ ย่า ตา ยาย ลุง ป้า น้า อา" />
+                                                                <input class="form-check-input" type="radio" name="section18" id="D3" value="มี เครือญาติ ได้แก่ ปู่ ย่า ตา ยาย ลุง ป้า น้า อา" />
                                                                 <label class="form-check-label" for="D3">มี เครือญาติ
                                                                     ได้แก่ ปู่ ย่า ตา ยาย ลุง ป้า น้า อา</label>
                                                             </div>
@@ -152,34 +108,23 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section19" id="D4"
-                                                                    value="ลักษณะทางพันธุกรรมที่พบได้ทั่วไป (CC)" />
-                                                                <label class="form-check-label"
-                                                                    for="D4">ลักษณะทางพันธุกรรมที่พบได้ทั่วไป
+                                                                <input class="form-check-input" type="radio" name="section19" id="D4" value="ลักษณะทางพันธุกรรมที่พบได้ทั่วไป (CC)" />
+                                                                <label class="form-check-label" for="D4">ลักษณะทางพันธุกรรมที่พบได้ทั่วไป
                                                                     (CC)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section19" id="D5"
-                                                                    value="ลักษณะทางพันธุกรรมที่มีความแปรผัน Heterozygous (TC)" />
-                                                                <label class="form-check-label"
-                                                                    for="D5">ลักษณะทางพันธุกรรมที่มีความแปรผัน
+                                                                <input class="form-check-input" type="radio" name="section19" id="D5" value="ลักษณะทางพันธุกรรมที่มีความแปรผัน Heterozygous (TC)" />
+                                                                <label class="form-check-label" for="D5">ลักษณะทางพันธุกรรมที่มีความแปรผัน
                                                                     Heterozygous (TC)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section19" id="D6"
-                                                                    value="ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ homozygous (TT)" />
-                                                                <label class="form-check-label"
-                                                                    for="D6">ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ
+                                                                <input class="form-check-input" type="radio" name="section19" id="D6" value="ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ homozygous (TT)" />
+                                                                <label class="form-check-label" for="D6">ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ
                                                                     homozygous (TT)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section19" id="D7" value="ไม่มีข้อมูล" />
-                                                                <label class="form-check-label"
-                                                                    for="D7">ไม่มีข้อมูล</label>
+                                                                <input class="form-check-input" type="radio" name="section19" id="D7" value="ไม่มีข้อมูล" />
+                                                                <label class="form-check-label" for="D7">ไม่มีข้อมูล</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -188,34 +133,23 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section20" id="D8"
-                                                                    value="ลักษณะทางพันธุกรรมที่พบได้ทั่วไป (CC)" />
-                                                                <label class="form-check-label"
-                                                                    for="D8">ลักษณะทางพันธุกรรมที่พบได้ทั่วไป
+                                                                <input class="form-check-input" type="radio" name="section20" id="D8" value="ลักษณะทางพันธุกรรมที่พบได้ทั่วไป (CC)" />
+                                                                <label class="form-check-label" for="D8">ลักษณะทางพันธุกรรมที่พบได้ทั่วไป
                                                                     (CC)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section20" id="D9"
-                                                                    value="ลักษณะทางพันธุกรรมที่มีความแปรผัน Heterozygous (TC)" />
-                                                                <label class="form-check-label"
-                                                                    for="D9">ลักษณะทางพันธุกรรมที่มีความแปรผัน
+                                                                <input class="form-check-input" type="radio" name="section20" id="D9" value="ลักษณะทางพันธุกรรมที่มีความแปรผัน Heterozygous (TC)" />
+                                                                <label class="form-check-label" for="D9">ลักษณะทางพันธุกรรมที่มีความแปรผัน
                                                                     Heterozygous (TC)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section20" id="D10"
-                                                                    value="ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ homozygous (TT)" />
-                                                                <label class="form-check-label"
-                                                                    for="D10">ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ
+                                                                <input class="form-check-input" type="radio" name="section20" id="D10" value="ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ homozygous (TT)" />
+                                                                <label class="form-check-label" for="D10">ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ
                                                                     homozygous (TT)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section20" id="D11" value="ไม่มีข้อมูล" />
-                                                                <label class="form-check-label"
-                                                                    for="D11">ไม่มีข้อมูล</label>
+                                                                <input class="form-check-input" type="radio" name="section20" id="D11" value="ไม่มีข้อมูล" />
+                                                                <label class="form-check-label" for="D11">ไม่มีข้อมูล</label>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -224,43 +158,29 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section21" id="D12"
-                                                                    value="ลักษณะทางพันธุกรรมที่พบได้ทั่วไป (CC)" />
-                                                                <label class="form-check-label"
-                                                                    for="D12">ลักษณะทางพันธุกรรมที่พบได้ทั่วไป
+                                                                <input class="form-check-input" type="radio" name="section21" id="D12" value="ลักษณะทางพันธุกรรมที่พบได้ทั่วไป (CC)" />
+                                                                <label class="form-check-label" for="D12">ลักษณะทางพันธุกรรมที่พบได้ทั่วไป
                                                                     (CC)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section21" id="D13"
-                                                                    value="ลักษณะทางพันธุกรรมที่มีความแปรผัน Heterozygous (TC)" />
-                                                                <label class="form-check-label"
-                                                                    for="D13">ลักษณะทางพันธุกรรมที่มีความแปรผัน
+                                                                <input class="form-check-input" type="radio" name="section21" id="D13" value="ลักษณะทางพันธุกรรมที่มีความแปรผัน Heterozygous (TC)" />
+                                                                <label class="form-check-label" for="D13">ลักษณะทางพันธุกรรมที่มีความแปรผัน
                                                                     Heterozygous (TC)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section21" id="D14"
-                                                                    value="ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ homozygous (TT)" />
-                                                                <label class="form-check-label"
-                                                                    for="D14">ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ
+                                                                <input class="form-check-input" type="radio" name="section21" id="D14" value="ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ homozygous (TT)" />
+                                                                <label class="form-check-label" for="D14">ลักษณะทางพันธุกรรมที่มีความแปรผันแบบ
                                                                     homozygous (TT)</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio"
-                                                                    name="section21" id="D15" value="ไม่มีข้อมูล" />
-                                                                <label class="form-check-label"
-                                                                    for="D15">ไม่มีข้อมูล</label>
+                                                                <input class="form-check-input" type="radio" name="section21" id="D15" value="ไม่มีข้อมูล" />
+                                                                <label class="form-check-label" for="D15">ไม่มีข้อมูล</label>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="demo-inline-spacing d-flex justify-content-between">
-                                                        <button type="button" class="btn btn-primary active"
-                                                            onclick="window.history.back();">ย้อนกลับ</button>
-                                                        <button type="submit" id="nextButton"
-                                                            class="btn btn-primary active"
-                                                            style="display: none">ถัดไป</button>
+                                                        <button type="button" class="btn btn-primary active" onclick="window.history.back();">ย้อนกลับ</button>
+                                                        <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
                                                 </form>
                                                 <?php
@@ -338,7 +258,6 @@ include('user_cont/head.php');
                                                     $section20score = isset($_POST['section20']) ? ($scoreMapping['section20'][$_POST['section20']] ?? 0) : 0;
                                                     $section21score = isset($_POST['section21']) ? ($scoreMapping['section21'][$_POST['section21']] ?? 0) : 0;
 
-
                                                     $totalScore = $section18score + $section19score + $section20score + $section21score;
 
                                                     if ($totalScore >= 0 && $totalScore <= 3) {
@@ -349,36 +268,32 @@ include('user_cont/head.php');
                                                         $score = 3;
                                                     }
 
-                                                    $finishscore = $score + $scoreall;
-
                                                     $score_form1 = $score_form1;
                                                     $score_form2 = $score_form2;
                                                     $score_form3 = $score_form3;
                                                     $score_form4 = $score;
 
-                                                    // echo "คะแนน section18score: $section18score<br>";
-                                                    // echo "คะแนน section19score: $section19score<br>";
-                                                    // echo "คะแนน section20score: $section20score<br>";
-                                                    // echo "คะแนน section20score: $section21score<br>";
-                                                    // echo "<hr>";
-                                                    // echo "POST section18: $section18<br>";
-                                                    // echo "POST section19: $section19<br>";
-                                                    // echo "POST section20: $section20<br>";
-                                                    // echo "POST section20: $section21<br>";
-                                                    // echo "score: $score<br>";
-                                                    // echo "คะแนนรวมทั้งหมด: $finishscore<br>";
+                                                    $finishscore = $score + $scoreall;
+
+                                                    $finishscore = $score + $scoreall;
+                                                    if ($finishscore >= 19 && $finishscore <= 46) {
+                                                        $finishscore_TH = "เสี่ยงต่ำต่อการเป็นโรคเบาหวาน";
+                                                    } elseif ($finishscore >= 47 && $finishscore <= 57) {
+                                                        $finishscore_TH = "เสี่ยงสูงต่อการเป็นโรคเบาหวาน";
+                                                    }
+
 
                                                     $insertQuery = "INSERT INTO form_4 (
-                                                        score_form1, score_form2, score_form3, score_form4, sex, age, status, province, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary,
+                                                        finishscore_TH, score_form1, score_form2, score_form3, score_form4, sex, age, status, province, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary,
                                                         section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14,
                                                         section15, section16, section17, section18, section19, section20, section21, finishscore
                                                     ) VALUES (
-                                                        :score_form1, :score_form2, :score_form3, :score_form4, :sex, :age, :status, :province, :study, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary,
+                                                        :finishscore_TH, :score_form1, :score_form2, :score_form3, :score_form4, :sex, :age, :status, :province, :study, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary,
                                                         :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14,
                                                         :section15, :section16, :section17, :section18, :section19, :section20, :section21, :finishscore
                                                     )";
-
                                                     $stmt = $conn->prepare($insertQuery);
+                                                    $stmt->bindParam(':finishscore_TH', $finishscore_TH);
                                                     $stmt->bindParam(':score_form4', $score_form4);
                                                     $stmt->bindParam(':score_form3', $score_form3);
                                                     $stmt->bindParam(':score_form2', $score_form2);
@@ -421,7 +336,6 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':section20', $section20);
                                                     $stmt->bindParam(':section21', $section21);
                                                     $stmt->bindParam(':finishscore', $finishscore);
-
                                                     try {
                                                         $stmt->execute();
                                                         $form_4_id = $conn->lastInsertId();
@@ -432,32 +346,30 @@ include('user_cont/head.php');
                                                 }
                                                 ?>
                                                 <script>
-                                                function checkSelection() {
-                                                    var selectedProvinces = document.querySelectorAll(
-                                                        'input[type="radio"]:checked').length;
-                                                    var selectedOptions = document.querySelectorAll(
-                                                        'select, input[type="radio"]:checked').length;
+                                                    function checkSelection() {
+                                                        var selectedProvinces = document.querySelectorAll(
+                                                            'input[type="radio"]:checked').length;
+                                                        var selectedOptions = document.querySelectorAll(
+                                                            'select, input[type="radio"]:checked').length;
 
-                                                    if (selectedOptions === 4) {
-                                                        document.getElementById('nextButton').style.display = 'block';
-                                                    } else {
-                                                        document.getElementById('nextButton').style.display = 'none';
+                                                        if (selectedOptions === 4) {
+                                                            document.getElementById('nextButton').style.display = 'block';
+                                                        } else {
+                                                            document.getElementById('nextButton').style.display = 'none';
+                                                        }
+
+                                                        var selectedProvinceCountElement = document.getElementById(
+                                                            'selectedProvinceCount');
+                                                        if (selectedProvinceCountElement) {
+                                                            selectedProvinceCountElement.innerText = selectedProvinces;
+                                                        }
                                                     }
-
-                                                    var selectedProvinceCountElement = document.getElementById(
-                                                        'selectedProvinceCount');
-                                                    if (selectedProvinceCountElement) {
-                                                        selectedProvinceCountElement.innerText = selectedProvinces;
-                                                    }
-                                                }
-
-                                                var formElements = document.querySelectorAll(
-                                                    '#formevaluation4 select, #formevaluation4 input[type="radio"]');
-                                                formElements.forEach(function(element) {
-                                                    element.addEventListener('change', checkSelection);
-                                                });
+                                                    var formElements = document.querySelectorAll(
+                                                        '#formevaluation4 select, #formevaluation4 input[type="radio"]');
+                                                    formElements.forEach(function(element) {
+                                                        element.addEventListener('change', checkSelection);
+                                                    });
                                                 </script>
-
                                             </div>
                                         </div>
                                     </div>
