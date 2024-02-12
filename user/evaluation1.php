@@ -122,7 +122,12 @@ include('user_cont/head.php');
                                                         <div></div>
                                                         <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
-
+                                                    <hr>
+                                                    <center>
+                                                        <div class="button-container">
+                                                            <a type="button" class="btn btn-primary" href="index.php"> <i class='bx bx-home'></i> กลับหน้าหลัก</a>
+                                                        </div>
+                                                    </center>
                                                 </form>
                                                 <?php
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -239,6 +244,9 @@ include('user_cont/head.php');
                     </div>
                     <div class="content-backdrop fade"></div>
                 </div>
+                <?php
+                include('user_cont/footer.php');
+                ?>
             </div>
         </div>
     </div>
@@ -251,6 +259,7 @@ include('user_cont/head.php');
     <script src="../assets/vendor/js/menu.js"></script>
     <script src="../assets/js/main.js"></script>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    
 </body>
 
 </html>

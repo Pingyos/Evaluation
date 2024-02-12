@@ -10,6 +10,9 @@ include('user_cont/head.php');
     <div class="layout-wrapper layout-content-navbar layout-without-menu">
         <div class="layout-container">
             <div class="layout-page">
+                <?php
+                include('user_cont/nav.php');
+                ?>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
@@ -182,6 +185,12 @@ include('user_cont/head.php');
                                                         <button type="button" class="btn btn-primary active" onclick="window.history.back();">ย้อนกลับ</button>
                                                         <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
+                                                    <hr>
+                                                    <center>
+                                                        <div class="button-container">
+                                                            <a type="button" class="btn btn-primary" href="index.php"><i class='bx bx-home'></i> กลับหน้าหลัก</a>
+                                                        </div>
+                                                    </center>
                                                 </form>
                                                 <?php
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -379,6 +388,9 @@ include('user_cont/head.php');
                     </div>
                     <div class="content-backdrop fade"></div>
                 </div>
+                <?php
+                include('user_cont/footer.php');
+                ?>
             </div>
         </div>
     </div>

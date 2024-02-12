@@ -10,6 +10,9 @@ include('user_cont/head.php');
     <div class="layout-wrapper layout-content-navbar layout-without-menu">
         <div class="layout-container">
             <div class="layout-page">
+                <?php
+                include('user_cont/nav.php');
+                ?>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
@@ -18,6 +21,37 @@ include('user_cont/head.php');
                                     <div class="d-flex align-items-end row">
                                         <div class="col-sm-12">
                                             <div class="card-body">
+                                                <div class="col-md mb-5">
+                                                    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                                                        <ol class="carousel-indicators">
+                                                            <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+                                                            <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+                                                            <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+                                                        </ol>
+                                                        <div class="carousel-inner">
+                                                            <div class="carousel-item active">
+                                                                <img class="d-block w-100" src="../assets/img/elements/1.png" alt="First slide" />
+
+                                                            </div>
+                                                            <div class="carousel-item">
+                                                                <img class="d-block w-100" src="../assets/img/elements/2.png" alt="Second slide" />
+
+                                                            </div>
+                                                            <div class="carousel-item">
+                                                                <img class="d-block w-100" src="../assets/img/elements/3.png" alt="Third slide" />
+
+                                                            </div>
+                                                        </div>
+                                                        <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+                                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                                            <span class="visually-hidden">Previous</span>
+                                                        </a>
+                                                        <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+                                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                                            <span class="visually-hidden">Next</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
                                                 <?php
                                                 include('user_cont/connect.php');
                                                 $form_4_id = isset($_GET['form_4_id']) ? $_GET['form_4_id'] : 0;
@@ -66,13 +100,14 @@ include('user_cont/head.php');
                                                         $score_form3 = $result['score_form3'];
                                                         $score_form4 = $result['score_form4'];
                                                         $finishscore = $result['finishscore'];
+                                                        $finishscore_TH = $result['finishscore_TH'];
 
                                                 ?>
-                                                        <h5> ส่วนที่ 1 : <?php echo $score_form1; ?> คะแนน</h5>
+                                                        <!-- <h5> ส่วนที่ 1 : <?php echo $score_form1; ?> คะแนน</h5>
                                                         <h5> ส่วนที่ 2 : <?php echo $score_form2; ?> คะแนน</h5>
                                                         <h5> ส่วนที่ 3 : <?php echo $score_form3; ?> คะแนน</h5>
                                                         <h5> ส่วนที่ 4 : <?php echo $score_form4; ?> คะแนน</h5>
-                                                        <h5> รวม : <?php echo $finishscore; ?> คะแนน</h5>
+                                                        <h5> รวม : <?php echo $finishscore; ?> คะแนน</h5> -->
                                                         <!-- <p><strong>Sex:</strong> <?php echo $sex; ?></p>
                                                         <p><strong>Age:</strong> <?php echo $age; ?></p>
                                                         <p><strong>Status:</strong> <?php echo $status; ?></p>
@@ -115,6 +150,45 @@ include('user_cont/head.php');
                                                     echo "ไม่ได้รับ form_3_id จาก URL";
                                                 }
                                                 ?>
+                                                <div class="col-md-12 col-xl-12 mb-5">
+                                                    <?php
+                                                    if ($finishscore_TH == 'เสี่ยงต่ำต่อการเป็นโรคเบาหวาน') {
+                                                        echo '<div class="card bg-info text-white">
+                                                            <div class="card-body text-center">
+                                                                <h5 class="card-title text-white">ระดับคะแนนของคุณคือ ' . $finishscore . ' คะแนน</h5>
+                                                            </div>
+                                                        </div>';
+                                                    } elseif ($finishscore_TH == 'เสี่ยงสูงต่อการเป็นโรคเบาหวาน') {
+                                                        echo '<div class="card bg-warning text-white">
+                                                            <div class="card-body text-center">
+                                                                <h5 class="card-title text-white">' . $finishscore_TH . '</h5>
+                                                            </div>
+                                                        </div>';
+                                                    }
+                                                    ?>
+
+                                                </div>
+                                                <h3 class="card-title text-center mb-4"><u>ผลการทดสอบ</u></h3>
+                                                <h5 class="card-title text-center mb-4">
+                                                    <b><?php echo $finishscore_TH; ?></b>
+                                                </h5>
+                                                <h5 class="card-title text-center mb-4"><u>ข้อแนะนำในการดูแล</u></h5>
+                                                <?php
+                                                if ($finishscore_TH == 'เสี่ยงต่ำต่อการเป็นโรคเบาหวาน') {
+                                                    echo '<p class="card-title text-center mb-4">ท่านมีความเสี่ยงต่อการป่วยด้วยโรคเบาหวานชนิดที่ 2 ในระดับปานกลาง 
+                                                    ท่านควรควบคุมการบริโภคอาหาร และการออกกำลังกายอย่างเคร่งครัด โดยเลือกอาหารที่มีคุณค่าทางโภชนาการและแคลอรี่ต่ำ เลือกรับประทานอาหารกลุ่มคาร์โบไฮเดรตชนิดอาหารพร่องแป้ง (Low Carb Diet) ได้แก่ ข้าวไม่ขัดสี ขนมปังโฮลวีต ธัญพืช เลือกรับประทานผักประเภทใบแทนประเภทหัว เลือกรับประทานผลไม้ที่มีรสชาติหวานน้อย รวมทั้งหลีกเลี่ยงการรับประทานอาหารมื้อหนักที่ต้องรับประทานมาก ๆ 
+                                                    </p>';
+                                                } elseif ($finishscore_TH == 'เสี่ยงสูงต่อการเป็นโรคเบาหวาน') {
+                                                    echo '<p class="card-title text-center mb-4">ท่านมีพฤติกรรมออกกำลังกายที่ควรปรับปรุง โดยควรออกกำลังกายด้วยกิจกรรมที่เหมาะสมกับสภาพร่างกาย วันละประมาณ 20 - 30 นาที หรือสามารถเพิ่มได้ถึงครั้งละ 60 นาที และควรออกกำลังกายอย่างน้อย 3 วันต่อสัปดาห์ ด้วยการเดิน วิ่ง เต้นแอโรบิก ปั่นจักรยาน ว่ายน้ำ ร่วมทั้งการปรับกิจกรรมในชีวิตประจำวันให้เป็นการออกกำลังกาย เช่น การทำงานบ้านด้วยตัวเอง ลดการใช้สิ่งอำนวยความสะดวกลง เดินให้มากขึ้นเป็นต้น 	</p>';
+                                                }
+                                                ?>
+                                                <hr>
+                                                <center>
+                                                    <div class="button-container">
+                                                        <a type="button" class="btn btn-primary" href="index.php"> <i class='bx bx-home'> </i>กลับหน้าหลัก</a>
+                                                        <a type="button" class="btn btn-primary" href="evaluation1.php"><i class='bx bx-spreadsheet'></i> ประเมินอีกรอบ</a>
+                                                    </div>
+                                                </center>
                                             </div>
                                         </div>
                                     </div>
@@ -124,6 +198,9 @@ include('user_cont/head.php');
                     </div>
                     <div class="content-backdrop fade"></div>
                 </div>
+                <?php
+                include('user_cont/footer.php');
+                ?>
             </div>
         </div>
     </div>

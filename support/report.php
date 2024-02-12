@@ -132,7 +132,7 @@ include('support_cont/head.php');
                                                                 </div>
                                                                 <div class="col-lg-6 col-md-6 col-6">
                                                                     <div class="mb-3">
-                                                                        <label class="form-label" for="basic-default-email">ช่วงคะแนน ส่วนที่ 3 </label>
+                                                                        <label class="form-label" for="basic-default-email">ช่วงคะแนน ส่วนที่ 4 </label>
                                                                         <select class="form-control" name="score_form4" id="score_form4">
                                                                             <option value="" disabled <?php echo empty($_POST['score_form4']) ? 'selected' : ''; ?>>แสดงทั้งหมด</option>
                                                                             <?php
@@ -155,7 +155,7 @@ include('support_cont/head.php');
                                                     </div>
                                                     <div class="col-lg-12 col-md-6 col-12">
                                                         <div class="mb-3">
-                                                            <label class="form-label" for="basic-default-email">คะแนนรวม</label>
+                                                            <label class="form-label" for="basic-default-email">ความเสี่ยง</label>
                                                             <select class="form-control" name="finishscore_TH" id="finishscore_TH">
                                                                 <option value="" disabled selected>แสดงทั้งหมด</option>
                                                                 <?php
@@ -312,7 +312,7 @@ include('support_cont/head.php');
                                                         if (count($results) > 0) {
                                                         ?>
 
-                                                            <table class="table table-bordered">
+                                                            <table id="myTable1" class="table table-bordered">
                                                                 <thead class="text-dark fs-4">
                                                                     <tr>
                                                                         <th class="border-bottom-0">
@@ -328,7 +328,7 @@ include('support_cont/head.php');
                                                                             <h6 class="fw-semibold mb-0">ความเสี่ยง</h6>
                                                                         </th>
                                                                         <th class="border-bottom-0">
-                                                                            <h6 class="fw-semibold mb-0">เวลาบันทึก</h6>
+                                                                            <h6 class="fw-semibold mb-0">วันที่บันทึก</h6>
                                                                         </th>
                                                                     </tr>
                                                                 </thead>
@@ -401,7 +401,15 @@ include('support_cont/head.php');
             <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
             <script src="../assets/js/main.js"></script>
             <script src="../assets/js/dashboards-analytics.js"></script>
-            <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
+            <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css" />
+            <script>
+                $(document).ready(function() {
+                    $("#myTable1").DataTable();
+                });
+            </script>
 </body>
 
 </html>

@@ -176,6 +176,9 @@ include('support_cont/head.php');
             </div>
           </div>
         </div>
+        <?php
+        include('support_cont/footer.php');
+        ?>
       </div>
     </div>
   </div>

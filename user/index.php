@@ -21,8 +21,46 @@ include('user_cont/head.php');
                   <div class="d-flex align-items-end row">
                     <div class="col-sm-12">
                       <div class="card-body">
+                        <div class="col-md mb-5">
+                          <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                            <ol class="carousel-indicators">
+                              <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+                              <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+                              <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                              <div class="carousel-item active">
+                                <img class="d-block w-100" src="../assets/img/elements/1.png" alt="First slide" />
 
+                              </div>
+                              <div class="carousel-item">
+                                <img class="d-block w-100" src="../assets/img/elements/2.png" alt="Second slide" />
 
+                              </div>
+                              <div class="carousel-item">
+                                <img class="d-block w-100" src="../assets/img/elements/3.png" alt="Third slide" />
+
+                              </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExample" role="button" data-bs-slide="prev">
+                              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExample" role="button" data-bs-slide="next">
+                              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                              <span class="visually-hidden">Next</span>
+                            </a>
+                          </div>
+                        </div>
+                        <center>
+                          <div class="button-container ">
+                            <div class="row">
+
+                              <a type="button" class="btn btn-xl btn btn-outline-info col-lg-6 col-md-6 col-6" href="evaluation1.php"><i class='bx bx-spreadsheet'></i> แบบประเมินความเสี่ยงโรงเบาหวาน</a>
+                              <a type="button" class="btn btn-xl btn btn-outline-info col-lg-6 col-md-6 col-6" href="advice.php"><i class='bx bx-star'></i> คำแนะนำ</a>
+                            </div>
+                          </div>
+                        </center>
                       </div>
                     </div>
                   </div>
@@ -32,11 +70,12 @@ include('user_cont/head.php');
           </div>
           <div class="content-backdrop fade"></div>
         </div>
+        <?php
+        include('user_cont/footer.php');
+        ?>
       </div>
     </div>
   </div>
-
-
   <script src="../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="../assets/vendor/libs/popper/popper.js"></script>
   <script src="../assets/vendor/js/bootstrap.js"></script>
@@ -44,6 +83,10 @@ include('user_cont/head.php');
   <script src="../assets/vendor/js/menu.js"></script>
   <script src="../assets/js/main.js"></script>
   <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.6/dist/cookieconsent.js"></script>
+  <script defer src="./cc-init.js"></script>
+
 </body>
 
 </html>
