@@ -57,7 +57,7 @@
         </li>
         <li class="menu-item">
             <a href="report.php" class="menu-link">
-                <i class="menu-icon tf-icons bx bx-table"></i>
+                <i class='menu-icon tf-icons bxs-file-export'></i>
                 <div data-i18n="Tables">ออกรายงาน</div>
             </a>
         </li>

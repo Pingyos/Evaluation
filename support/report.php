@@ -312,7 +312,7 @@ include('support_cont/head.php');
                                                         if (count($results) > 0) {
                                                         ?>
 
-                                                            <table class="table text-nowrap mb-0 align-middle">
+                                                            <table class="table table-bordered">
                                                                 <thead class="text-dark fs-4">
                                                                     <tr>
                                                                         <th class="border-bottom-0">
@@ -325,7 +325,10 @@ include('support_cont/head.php');
                                                                             <h6 class="fw-semibold mb-0">อายุ</h6>
                                                                         </th>
                                                                         <th class="border-bottom-0">
-                                                                            <h6 class="fw-semibold mb-0">คะแนนรวม</h6>
+                                                                            <h6 class="fw-semibold mb-0">ความเสี่ยง</h6>
+                                                                        </th>
+                                                                        <th class="border-bottom-0">
+                                                                            <h6 class="fw-semibold mb-0">เวลาบันทึก</h6>
                                                                         </th>
                                                                     </tr>
                                                                 </thead>
@@ -346,6 +349,9 @@ include('support_cont/head.php');
                                                                             </td>
                                                                             <td class="border-bottom-0">
                                                                                 <h6 class="fw-semibold mb-0"><?= $row['finishscore_TH']; ?></h6>
+                                                                            </td>
+                                                                            <td class="border-bottom-0">
+                                                                                <h6 class="fw-semibold mb-0"><?= $row['dateCreate']; ?></h6>
                                                                             </td>
                                                                         </tr>
                                                                     <?php endforeach; ?>
@@ -372,12 +378,10 @@ include('support_cont/head.php');
                 </div>
             </div>
 
-
             <script src="../assets/vendor/libs/jquery/jquery.js"></script>
             <script src="../assets/vendor/libs/popper/popper.js"></script>
             <script src="../assets/vendor/js/bootstrap.js"></script>
             <script src="../assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
-
             <script src="../assets/vendor/js/menu.js"></script>
             <script src="../assets/vendor/libs/apex-charts/apexcharts.js"></script>
             <script src="../assets/js/main.js"></script>
