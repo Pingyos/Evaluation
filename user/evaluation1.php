@@ -10,6 +10,9 @@ include('user_cont/head.php');
     <div class="layout-wrapper layout-content-navbar layout-without-menu">
         <div class="layout-container">
             <div class="layout-page">
+                <?php
+                include('user_cont/nav.php');
+                ?>
                 <div class="content-wrapper">
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row">
