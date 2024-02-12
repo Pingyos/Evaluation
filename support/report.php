@@ -351,7 +351,7 @@ include('support_cont/head.php');
                                                                                 <h6 class="fw-semibold mb-0"><?= $row['finishscore_TH']; ?></h6>
                                                                             </td>
                                                                             <td class="border-bottom-0">
-                                                                                <h6 class="fw-semibold mb-0"><?= $row['dateCreate']; ?></h6>
+                                                                                <h6 class="fw-semibold mb-0"><?= thai_date($row['dateCreate']); ?></h6>
                                                                             </td>
                                                                         </tr>
                                                                     <?php endforeach; ?>
@@ -377,7 +377,22 @@ include('support_cont/head.php');
                     </div>
                 </div>
             </div>
+            <?php
+            function thai_date($date)
+            {
+                $months = [
+                    'ม.ค', 'ก.พ', 'มี.ค', 'เม.ย', 'พ.ค', 'มิ.ย',
+                    'ก.ค', 'ส.ค', 'ก.ย', 'ต.ค', 'พ.ย', 'ธ.ค'
+                ];
 
+                $timestamp = strtotime($date);
+                $thai_year = date(' Y', $timestamp) + 543;
+                $thai_date = date('j ', $timestamp) . $months[date('n', $timestamp) - 1] . ' ' . $thai_year;
+
+                return $thai_date;
+            }
+
+            ?>
             <script src="../assets/vendor/libs/jquery/jquery.js"></script>
             <script src="../assets/vendor/libs/popper/popper.js"></script>
             <script src="../assets/vendor/js/bootstrap.js"></script>
