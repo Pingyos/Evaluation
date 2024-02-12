@@ -1,4 +1,4 @@
-const config = {
+const config_cookie = {
     current_lang: "th",
     autorun: true,
     autoclear_cookies: true,
@@ -7,14 +7,14 @@ const config = {
         consent_modal: {
           title: "We use cookies!",
           description:
-            'Hi, this website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent. <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
+            'นโยบายการใช้ Cookie คุณสามารถเลือกปฏิเสธการทำงานของคุ้กกี้ได้ตามความต้องการของคุณ โดยการตั้งค่าเบราว์เซอร์หรือการตั้งค่าความเป็นส่วนตัวของคุณ เพื่อระงับการเก็บรวมรวบข้อมูลโดยคุกกี้ในอนาคต อย่างไรก็ตาม หากคุณตั้งค่าเบราว์เซอร์ หรือค่าความเป็นส่วนตัวของคุณ ด้วยการปฎิเสธการทำงานของคุกกี้ทั้งหมด คุณอาจไม่สามารถใช้งานฟังก์ชั่นบางอย่าง หรือทั้งหมดบนเว็บไซต์ได้อย่างมีประสิทธิภาพ กดปุ่ม "ยอมรับทั้งหมด" เพื่ออนุญาตให้เราสามารถนำข้อมูลการใช้งานไปวิเคราะห์เพื่อพัฒนาเว็บไซต์ต่อไป นโยบายคุกกี้ <button type="button" data-cc="c-settings" class="cc-link">Let me choose</button>',
           primary_btn: {
             text: "Accept all",
-            role: "accept_all",
+            role: "accept_all", // 'accept_selected' or 'accept_all'
           },
           secondary_btn: {
             text: "Reject all",
-            role: "accept_necessary",
+            role: "accept_necessary", // 'settings' or 'accept_necessary'
           },
         },
         settings_modal: {
@@ -94,5 +94,4 @@ const config = {
   
 
 let cc = initCookieConsent();
-cc.run(config);
-
+cc.run(config_cookie);

@@ -6,7 +6,7 @@
 include('user_cont/head.php');
 ?>
 
-<body>
+<body class="theme_turquoise">
   <div class="layout-wrapper layout-content-navbar layout-without-menu">
     <div class="layout-container">
       <div class="layout-page">
@@ -85,7 +85,7 @@ include('user_cont/head.php');
   <script async defer src="https://buttons.github.io/buttons.js"></script>
 
   <script defer src="https://cdn.jsdelivr.net/gh/orestbida/cookieconsent@v2.8.6/dist/cookieconsent.js"></script>
-  <script defer src="./cc-init.js"></script>
+  <script defer src="cc-init.js"></script>
 
 </body>
 
