@@ -69,8 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-    // เช็คว่ามีข้อมูลหรือไม่ ถ้าไม่มีให้ดึงข้อมูลทั้งหมด
     if (empty($results)) {
         $sql = "SELECT form_4_id, sex, age, status, province, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17, section18, section19, section20, section21, score_form1, score_form2, score_form3, score_form4, finishscore, finishscore_TH, dateCreate FROM form_4";
 

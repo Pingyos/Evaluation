@@ -72,7 +72,8 @@ include('support_cont/head.php');
                             <h6 class="mb-0">จำนวนผู้กรอกแบบสอบถาม</h6>
                           </div>
                           <div class="user-progress">
-                            <small class="fw-semibold"><?php echo $resulttotal['total']; ?> ราย </small>
+                            <small class="fw-semibold"><?php echo $resulttotal['total']; ?>
+                              ราย </small>
                           </div>
                         </div>
                       </li>
@@ -85,7 +86,8 @@ include('support_cont/head.php');
                             <h6 class="mb-0">จำนวนผู้กรอกแบบสอบถาม เพศ ชาย</h6>
                           </div>
                           <div class="user-progress">
-                            <small class="fw-semibold"><?php echo $male_count; ?> ราย </small>
+                            <small class="fw-semibold"><?php echo $male_count; ?> ราย
+                            </small>
                           </div>
                         </div>
                       </li>
@@ -98,7 +100,8 @@ include('support_cont/head.php');
                             <h6 class="mb-0">จำนวนผู้กรอกแบบสอบถาม เพศ หญิง</h6>
                           </div>
                           <div class="user-progress">
-                            <small class="fw-semibold"><?php echo $female_count; ?> ราย </small>
+                            <small class="fw-semibold"><?php echo $female_count; ?> ราย
+                            </small>
                           </div>
                         </div>
                       </li>
@@ -124,19 +127,12 @@ include('support_cont/head.php');
                             <h6 class="mb-0">เสี่ยงต่ำต่อการเป็นโรคเบาหวาน</h6>
                           </div>
                           <div class="user-progress">
-                            <small class="fw-semibold"><?php echo $down_count; ?> ราย </small>
+                            <small class="fw-semibold"><?php echo $down_count; ?> ราย
+                            </small>
                           </div>
                         </div>
                       </li>
                     </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6 col-lg-6 col-xl-6 order-0 mb-4">
-                <div class="card h-100">
-                  <div class="card-body">
-
-
                   </div>
                 </div>
               </div>
@@ -146,7 +142,20 @@ include('support_cont/head.php');
                     <div class="col-sm-12">
                       <div class="card-body">
                         <h5 class="card-title text-primary">ช่วงอายุ</h5>
-                        <div id="age"></div>
+                        <div id="age" style="width: 100%; height: 300px;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-lg-6 mb-4 order-0">
+                <div class="card">
+                  <div class="d-flex align-items-end row">
+                    <div class="col-sm-12">
+                      <div class="card-body">
+                        <h5 class="card-title text-primary">ภูมิลำเนา</h5>
+                        <div id="province" style="width: 100%; height: 300px;"></div>
                       </div>
                     </div>
                   </div>
@@ -157,8 +166,8 @@ include('support_cont/head.php');
                   <div class="d-flex align-items-end row">
                     <div class="col-sm-12">
                       <div class="card-body">
-                        <h5 class="card-title text-primary">ภูมิลำเนา</h5>
-                        <div id="province"></div>
+                        <h5 class="card-title text-primary">ความเสี่ยง</h5>
+                        <div id="hazard" style="width: 100%; height: 300px;"></div>
                       </div>
                     </div>
                   </div>
@@ -170,7 +179,22 @@ include('support_cont/head.php');
       </div>
     </div>
   </div>
+  <?php
+  function thai_date($date)
+  {
+    $months = [
+      'ม.ค', 'ก.พ', 'มี.ค', 'เม.ย', 'พ.ค', 'มิ.ย',
+      'ก.ค', 'ส.ค', 'ก.ย', 'ต.ค', 'พ.ย', 'ธ.ค'
+    ];
 
+    $timestamp = strtotime($date);
+    $thai_year = date(' Y', $timestamp) + 543;
+    $thai_date = date('j ', $timestamp) . $months[date('n', $timestamp) - 1] . ' ' . $thai_year;
+
+    return $thai_date;
+  }
+
+  ?>
   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
   <script type="text/javascript">
@@ -196,7 +220,10 @@ include('support_cont/head.php');
 
       var options = {
         pieHole: 0.4,
-        colors: ['#ffca28', '#f57f17', '#FB9678', '#e51c23', '#4a148c', '#ab47bc', '#4fc3f7', '#01579b', '#afb42b', '#006064', '#26a69a', '#2baf2b', '#ff6f00', '#6c2c10', '#880e4f', '#311b92', '#e7e9fd']
+        colors: ['#ffca28', '#f57f17', '#FB9678', '#e51c23', '#4a148c', '#ab47bc', '#4fc3f7', '#01579b',
+          '#afb42b', '#006064', '#26a69a', '#2baf2b', '#ff6f00', '#6c2c10', '#880e4f', '#311b92',
+          '#e7e9fd'
+        ]
       };
 
       var chart = new google.visualization.PieChart(document.getElementById('age'));
@@ -227,7 +254,9 @@ include('support_cont/head.php');
 
       var options = {
         pieHole: 0.4,
-        colors: ['#AB8CE4', '#03A9E3', '#FB9678', '#e51c23', '#4a148c', '#ab47bc', '#4fc3f7', '#01579b', '#00bcd4', '#006064', '#26a69a', '#2baf2b', '#ff6f00', '#6c2c10']
+        colors: ['#AB8CE4', '#03A9E3', '#FB9678', '#e51c23', '#4a148c', '#ab47bc', '#4fc3f7', '#01579b',
+          '#00bcd4', '#006064', '#26a69a', '#2baf2b', '#ff6f00', '#6c2c10'
+        ]
       };
 
       var chart = new google.visualization.PieChart(document.getElementById('province'));
@@ -235,6 +264,38 @@ include('support_cont/head.php');
     }
   </script>
 
+  <script type="text/javascript">
+    google.charts.load("current", {
+      packages: ["corechart"]
+    });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['finishscore_TH', 'finishscore_TH'],
+        <?php
+        require_once 'support_cont/connect.php';
+
+        $stmtC = $conn->prepare("SELECT finishscore_TH, COUNT(*) AS count FROM `form_4` GROUP BY finishscore_TH");
+        $stmtC->execute();
+
+        while ($row = $stmtC->fetch(PDO::FETCH_ASSOC)) {
+          echo "['" . $row['finishscore_TH'] . "', " . $row['count'] . "],";
+        }
+        ?>
+      ]);
+
+      var options = {
+        pieHole: 0.4,
+        colors: ['#AB8CE4', '#03A9E3', '#FB9678', '#e51c23', '#4a148c', '#ab47bc', '#4fc3f7', '#01579b',
+          '#00bcd4', '#006064', '#26a69a', '#2baf2b', '#ff6f00', '#6c2c10'
+        ]
+      };
+
+      var chart = new google.visualization.PieChart(document.getElementById('hazard'));
+      chart.draw(data, options);
+    }
+  </script>
 
   <script src="../assets/vendor/libs/jquery/jquery.js"></script>
   <script src="../assets/vendor/libs/popper/popper.js"></script>
