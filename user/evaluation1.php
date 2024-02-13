@@ -191,8 +191,8 @@ include('user_cont/head.php');
 
                                                     // echo "คะแนนรวมทั้งหมด: $totalScore";
 
-                                                    $insertQuery = "INSERT INTO form_1 (sex, age, status, province, study, province_score, total_score) 
-                                                    VALUES (:sex, :age, :status, :province, :study, :provinceScore, :totalScore)";
+                                                    $insertQuery = "INSERT INTO form_1 (sex, age, status, province, study, province_score, total_score, sexScore, ageScore, statusScore, studyScore) 
+                                                    VALUES (:sex, :age, :status, :province, :study, :provinceScore, :totalScore, :sexScore, :ageScore, :statusScore, :studyScore)";
 
                                                     $stmt = $conn->prepare($insertQuery);
                                                     $stmt->bindParam(':sex', $sex);
@@ -202,6 +202,10 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':study', $study);
                                                     $stmt->bindParam(':provinceScore', $provinceScore);
                                                     $stmt->bindParam(':totalScore', $totalScore);
+                                                    $stmt->bindParam(':sexScore', $sexScore);
+                                                    $stmt->bindParam(':ageScore', $sexScore);
+                                                    $stmt->bindParam(':statusScore', $sexScore);
+                                                    $stmt->bindParam(':studyScore', $studyScore);
 
                                                     try {
                                                         $stmt->execute();

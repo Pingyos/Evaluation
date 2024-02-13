@@ -52,10 +52,21 @@ include('user_cont/head.php');
                                                             $ovary = $result['ovary'];
                                                             $score_form1 = $result['score_form1'];
                                                             $score_form2 = $result['score_form2'];
+                                                            $bmiScore = $result['bmiScore'];
+                                                            $pressureupScore = $result['pressureupScore'];
+                                                            $waistlineScore = $result['waistlineScore'];
+                                                            $fatbloodScore = $result['fatbloodScore'];
+                                                            $bloodlevelScore = $result['bloodlevelScore'];
+                                                            $pregnantScore = $result['pregnantScore'];
                                                             $totalScoreFromDatabase = $result['total_score'];
                                                     ?>
-                                                            <!-- <p><strong>:</strong> <?php echo $score_form1; ?></p>
-                                                            <p><strong>:</strong> <?php echo $score_form2; ?></p> -->
+                                                            <!-- <p><strong>:</strong> <?php echo $bmiScore; ?></p>
+                                                            <p><strong>:</strong> <?php echo $pressureupScore; ?></p>
+                                                            <p><strong>:</strong> <?php echo $waistlineScore; ?></p>
+                                                            <p><strong>:</strong> <?php echo $fatbloodScore; ?></p>
+                                                            <p><strong>:</strong> <?php echo $bloodlevelScore; ?></p>
+                                                            <p><strong>:</strong> <?php echo $pregnantScore; ?></p> -->
+
                                                             <!-- <p><strong>:</strong> <?php echo $sex; ?></p>
                                                             <p><strong>:</strong> <?php echo $age; ?></p>
                                                             <p><strong>:</strong> <?php echo $status; ?></p>
@@ -462,7 +473,6 @@ include('user_cont/head.php');
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     include('user_cont/connect.php');
 
-                                                    // ตัวแปรที่ใช้รับค่าจากฟอร์ม
                                                     $sex = isset($result['sex']) ? $result['sex'] : '';
                                                     $age = isset($result['age']) ? $result['age'] : '';
                                                     $status = isset($result['status']) ? $result['status'] : '';
@@ -480,6 +490,13 @@ include('user_cont/head.php');
                                                     $bloodlevel = isset($result['bloodlevel']) ? $result['bloodlevel'] : '';
                                                     $pregnant = isset($result['pregnant']) ? $result['pregnant'] : '';
                                                     $ovary = isset($result['ovary']) ? $result['ovary'] : '';
+
+                                                    $bmiScore = isset($result['bmiScore']) ? $result['bmiScore'] : '';
+                                                    $pressureupScore = isset($result['pressureupScore']) ? $result['pressureupScore'] : '';
+                                                    $waistlineScore = isset($result['waistlineScore']) ? $result['waistlineScore'] : '';
+                                                    $fatbloodScore = isset($result['fatbloodScore']) ? $result['fatbloodScore'] : '';
+                                                    $bloodlevelScore = isset($result['bloodlevelScore']) ? $result['bloodlevelScore'] : '';
+                                                    $pregnantScore = isset($result['pregnantScore']) ? $result['pregnantScore'] : '';
 
                                                     $scoreMapping = array(
                                                         'section1' => array(
@@ -638,18 +655,23 @@ include('user_cont/head.php');
                                                         $score2 = 1;
                                                     }
 
-                                                    echo "score2 : $score2 <br>";
+                                                    // echo "score2 : $score2 <br>";
 
                                                     $totalScore3 = $section12score + $section13score + $section14score;
 
-                                                    echo "totalScore3 : $totalScore3 <br>";
+                                                    // echo "totalScore3 : $totalScore3 <br>";
 
                                                     $scoreall = $totalScoreFromDatabase + $score + $score2 + $totalScore3 + $section15score + $section16score + $section17score;
-                                                    echo "score_form3 : $score_form3 <br>";
+                                                    // echo "score_form3 : $score_form3 <br>";
 
                                                     $score_form1 = $score_form1;
                                                     $score_form2 = $score_form2;
                                                     $score_form3 = $score + $score2 + $totalScore3 + $section15score + $section16score + $section17score;
+
+                                                    $foodScore = $score;
+                                                    $exerciseScore = $score2;
+                                                    $cigaretteScore = $section12score;
+                                                    $alcoholScore = $section15score;
 
                                                     // echo "คะแนน section1score : $section1score <br>";
                                                     // echo "คะแนน section2score : $section2score <br>";
@@ -691,8 +713,8 @@ include('user_cont/head.php');
                                                     // echo "12-14: $totalScore3<br>";
                                                     // echo "คะแนนรวมทั้งหมด: $scoreall";
 
-                                                    $insertQuery = "INSERT INTO form_3 (score_form1, score_form2, score_form3, scoreall, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17) 
-                                                    VALUES (:score_form1, :score_form2, :score_form3, :scoreall, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study, :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14, :section15, :section16, :section17)";
+                                                    $insertQuery = "INSERT INTO form_3 (alcoholScore, cigaretteScore, exerciseScore, foodScore, bmiScore, pressureupScore, waistlineScore, fatbloodScore, bloodlevelScore, pregnantScore, score_form1, score_form2, score_form3, scoreall, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17) 
+                                                    VALUES (:alcoholScore, :cigaretteScore, :exerciseScore, :foodScore, :bmiScore, :pressureupScore, :waistlineScore, :fatbloodScore, :bloodlevelScore, :pregnantScore, :score_form1, :score_form2, :score_form3, :scoreall, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study, :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14, :section15, :section16, :section17)";
                                                     $stmt = $conn->prepare($insertQuery);
                                                     $stmt->bindParam(':score_form3', $score_form3);
                                                     $stmt->bindParam(':score_form2', $score_form2);
@@ -714,6 +736,18 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':status', $status);
                                                     $stmt->bindParam(':province', $province);
                                                     $stmt->bindParam(':study', $study);
+
+                                                    $stmt->bindParam(':bmiScore', $bmiScore);
+                                                    $stmt->bindParam(':pressureupScore', $pressureupScore);
+                                                    $stmt->bindParam(':waistlineScore', $waistlineScore);
+                                                    $stmt->bindParam(':fatbloodScore', $fatbloodScore);
+                                                    $stmt->bindParam(':bloodlevelScore', $bloodlevelScore);
+                                                    $stmt->bindParam(':pregnantScore', $pregnantScore);
+                                                    $stmt->bindParam(':foodScore', $foodScore);
+                                                    $stmt->bindParam(':exerciseScore', $exerciseScore);
+                                                    $stmt->bindParam(':cigaretteScore', $cigaretteScore);
+                                                    $stmt->bindParam(':alcoholScore', $alcoholScore);
+
                                                     $stmt->bindParam(':section1', $section1);
                                                     $stmt->bindParam(':section2', $section2);
                                                     $stmt->bindParam(':section3', $section3);

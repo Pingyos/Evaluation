@@ -70,6 +70,18 @@ include('user_cont/head.php');
                                                             $score_form1 = $result['score_form1'];
                                                             $score_form2 = $result['score_form2'];
                                                             $score_form3 = $result['score_form3'];
+
+
+                                                            $bmiScore = $result['bmiScore'];
+                                                            $pressureupScore = $result['pressureupScore'];
+                                                            $waistlineScore = $result['waistlineScore'];
+                                                            $fatbloodScore = $result['fatbloodScore'];
+                                                            $bloodlevelScore = $result['bloodlevelScore'];
+                                                            $pregnantScore = $result['pregnantScore'];
+                                                            $foodScore = $result['foodScore'];
+                                                            $exerciseScore = $result['exerciseScore'];
+                                                            $cigaretteScore = $result['cigaretteScore'];
+                                                            $alcoholScore = $result['alcoholScore'];
                                                     ?>
                                                     <?php
                                                         } else {
@@ -196,6 +208,17 @@ include('user_cont/head.php');
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     include('user_cont/connect.php');
 
+                                                    $bmiScore = isset($result['bmiScore']) ? $result['bmiScore'] : '';
+                                                    $pressureupScore = isset($result['pressureupScore']) ? $result['pressureupScore'] : '';
+                                                    $waistlineScore = isset($result['waistlineScore']) ? $result['waistlineScore'] : '';
+                                                    $fatbloodScore = isset($result['fatbloodScore']) ? $result['fatbloodScore'] : '';
+                                                    $bloodlevelScore = isset($result['bloodlevelScore']) ? $result['bloodlevelScore'] : '';
+                                                    $pregnantScore = isset($result['pregnantScore']) ? $result['pregnantScore'] : '';
+                                                    $foodScore = isset($result['foodScore']) ? $result['foodScore'] : '';
+                                                    $exerciseScore = isset($result['exerciseScore']) ? $result['exerciseScore'] : '';
+                                                    $cigaretteScore = isset($result['cigaretteScore']) ? $result['cigaretteScore'] : '';
+                                                    $alcoholScore = isset($result['alcoholScore']) ? $result['alcoholScore'] : '';
+
                                                     $sex = isset($result['sex']) ? $result['sex'] : '';
                                                     $age = isset($result['age']) ? $result['age'] : '';
                                                     $status = isset($result['status']) ? $result['status'] : '';
@@ -295,13 +318,27 @@ include('user_cont/head.php');
                                                     $insertQuery = "INSERT INTO form_4 (
                                                         finishscore_TH, score_form1, score_form2, score_form3, score_form4, sex, age, status, province, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary,
                                                         section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14,
-                                                        section15, section16, section17, section18, section19, section20, section21, finishscore
+                                                        section15, section16, section17, section18, section19, section20, section21, finishscore, 
+                                                        bmiScore, pressureupScore, waistlineScore, fatbloodScore, bloodlevelScore, pregnantScore, foodScore, exerciseScore, cigaretteScore, alcoholScore
                                                     ) VALUES (
                                                         :finishscore_TH, :score_form1, :score_form2, :score_form3, :score_form4, :sex, :age, :status, :province, :study, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary,
                                                         :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14,
-                                                        :section15, :section16, :section17, :section18, :section19, :section20, :section21, :finishscore
+                                                        :section15, :section16, :section17, :section18, :section19, :section20, :section21, :finishscore,
+                                                        :bmiScore, :pressureupScore, :waistlineScore, :fatbloodScore, :bloodlevelScore, :pregnantScore, :foodScore, :exerciseScore, :cigaretteScore, :alcoholScore
                                                     )";
                                                     $stmt = $conn->prepare($insertQuery);
+
+                                                    $stmt->bindParam(':bmiScore', $bmiScore);
+                                                    $stmt->bindParam(':pressureupScore', $pressureupScore);
+                                                    $stmt->bindParam(':waistlineScore', $waistlineScore);
+                                                    $stmt->bindParam(':fatbloodScore', $fatbloodScore);
+                                                    $stmt->bindParam(':bloodlevelScore', $bloodlevelScore);
+                                                    $stmt->bindParam(':pregnantScore', $pregnantScore);
+                                                    $stmt->bindParam(':foodScore', $foodScore);
+                                                    $stmt->bindParam(':exerciseScore', $exerciseScore);
+                                                    $stmt->bindParam(':cigaretteScore', $cigaretteScore);
+                                                    $stmt->bindParam(':alcoholScore', $alcoholScore);
+
                                                     $stmt->bindParam(':finishscore_TH', $finishscore_TH);
                                                     $stmt->bindParam(':score_form4', $score_form4);
                                                     $stmt->bindParam(':score_form3', $score_form3);

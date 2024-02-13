@@ -37,6 +37,10 @@ include('user_cont/head.php');
                                                             $status = $result['status'];
                                                             $province = $result['province'];
                                                             $study = $result['study'];
+                                                            $sexScore = $result['sexScore'];
+                                                            $ageScore = $result['ageScore'];
+                                                            $statusScore = $result['statusScore'];
+                                                            $studyScore = $result['studyScore'];
                                                             $totalScoreFromDatabase = $result['total_score'];
                                                     ?>
                                                             <!-- <h1>ข้อมูล Form 1</h1>
@@ -45,6 +49,10 @@ include('user_cont/head.php');
                                                             <p><strong>สถานะ:</strong> <?php echo $status; ?></p>
                                                             <p><strong>ภูมิลำเนา:</strong> <?php echo $province; ?></p>
                                                             <p><strong>ระดับการศึกษา:</strong> <?php echo $study; ?></p>
+                                                            <p><strong>sexScore:</strong> <?php echo $sexScore; ?></p>
+                                                            <p><strong>ageScore:</strong> <?php echo $ageScore; ?></p>
+                                                            <p><strong>statusScore:</strong> <?php echo $statusScore; ?></p>
+                                                            <p><strong>studyScore:</strong> <?php echo $studyScore; ?></p>
                                                             <p><strong>คะแนนรวมจากฐานข้อมูล:</strong> <?php echo $totalScoreFromDatabase; ?></p> -->
                                                     <?php
                                                         } else {
@@ -262,6 +270,7 @@ include('user_cont/head.php');
                                                     $status = isset($result['status']) ? $result['status'] : '';
                                                     $province = isset($result['province']) ? $result['province'] : '';
                                                     $study = isset($result['study']) ? $result['study'] : '';
+
                                                     $height = isset($_POST['height']) ? $_POST['height'] : '';
                                                     $weight = isset($_POST['weight']) ? $_POST['weight'] : '';
                                                     $bmi = isset($_POST['bmi']) ? $_POST['bmi'] : '';
@@ -336,8 +345,66 @@ include('user_cont/head.php');
                                                     $score_form1 = $totalScoreFromDatabase;
                                                     $score_form2 = $bmiScore + $pressureupScore + $pressuredownScore + $waistlineScore + $fatScore + $fatbloodScore + $bloodlevelScore + $pregnantScore + $ovaryScore;
 
-                                                    $insertQuery = "INSERT INTO form_2 (score_form1, score_form2, total_score, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study) 
-                                                    VALUES (:score_form1, :score_form2, :totalScore, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study)";
+                                                    $insertQuery = "INSERT INTO form_2 (
+                                                        score_form1, 
+                                                        score_form2, 
+                                                        total_score, 
+                                                        height, 
+                                                        weight, 
+                                                        bmi, 
+                                                        pressureup, 
+                                                        pressuredown, 
+                                                        waistline, 
+                                                        fat, 
+                                                        fatblood, 
+                                                        bloodlevel, 
+                                                        pregnant, 
+                                                        ovary,
+                                                        sex,
+                                                        age,
+                                                        status,
+                                                        province,
+                                                        study,
+                                                        bmiScore, 
+                                                        pressureupScore, 
+                                                        pressuredownScore, 
+                                                        waistlineScore, 
+                                                        fatScore, 
+                                                        fatbloodScore, 
+                                                        bloodlevelScore, 
+                                                        pregnantScore, 
+                                                        ovaryScore
+                                                    ) 
+                                                    VALUES (
+                                                        :score_form1, 
+                                                        :score_form2, 
+                                                        :totalScore, 
+                                                        :height, 
+                                                        :weight, 
+                                                        :bmi, 
+                                                        :pressureup, 
+                                                        :pressuredown, 
+                                                        :waistline, 
+                                                        :fat, 
+                                                        :fatblood, 
+                                                        :bloodlevel, 
+                                                        :pregnant, 
+                                                        :ovary,
+                                                        :sex,
+                                                        :age,
+                                                        :status,
+                                                        :province,
+                                                        :study,
+                                                        :bmiScore, 
+                                                        :pressureupScore, 
+                                                        :pressuredownScore, 
+                                                        :waistlineScore, 
+                                                        :fatScore, 
+                                                        :fatbloodScore, 
+                                                        :bloodlevelScore, 
+                                                        :pregnantScore, 
+                                                        :ovaryScore
+                                                    )";
 
                                                     $stmt = $conn->prepare($insertQuery);
                                                     $stmt->bindParam(':score_form2', $score_form2);
@@ -359,7 +426,15 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':status', $status);
                                                     $stmt->bindParam(':province', $province);
                                                     $stmt->bindParam(':study', $study);
-
+                                                    $stmt->bindParam(':bmiScore', $bmiScore);
+                                                    $stmt->bindParam(':pressureupScore', $pressureupScore);
+                                                    $stmt->bindParam(':pressuredownScore', $pressuredownScore);
+                                                    $stmt->bindParam(':waistlineScore', $waistlineScore);
+                                                    $stmt->bindParam(':fatScore', $fatScore);
+                                                    $stmt->bindParam(':fatbloodScore', $fatbloodScore);
+                                                    $stmt->bindParam(':bloodlevelScore', $bloodlevelScore);
+                                                    $stmt->bindParam(':pregnantScore', $pregnantScore);
+                                                    $stmt->bindParam(':ovaryScore', $ovaryScore);
                                                     try {
                                                         $stmt->execute();
                                                         $form_2_id = $conn->lastInsertId();

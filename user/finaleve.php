@@ -102,13 +102,41 @@ include('user_cont/head.php');
                                                         $finishscore = $result['finishscore'];
                                                         $finishscore_TH = $result['finishscore_TH'];
 
+                                                        $bmiScore = $result['bmiScore'];
+                                                        $pressureupScore = $result['pressureupScore'];
+                                                        $waistlineScore = $result['waistlineScore'];
+                                                        $fatbloodScore = $result['fatbloodScore'];
+                                                        $bloodlevelScore = $result['bloodlevelScore'];
+                                                        $pregnantScore = $result['pregnantScore'];
+                                                        $foodScore = $result['foodScore'];
+                                                        $exerciseScore = $result['exerciseScore'];
+                                                        $cigaretteScore = $result['cigaretteScore'];
+                                                        $alcoholScore = $result['alcoholScore'];
+                                                        $score_form4 = $result['score_form4'];
+
+
                                                 ?>
+
+                                                        <!-- <h5> คำแนะนำ BMI : <?php echo $bmiScore; ?></h5>
+                                                        <h5> คำแนะนำความดันโลหิต : <?php echo $pressureupScore; ?></h5>
+                                                        <h5> คำแนะนำรอบเอว : <?php echo $waistlineScore; ?></h5>
+                                                        <h5> คำแนะนำระดับไขมันในเลือด : <?php echo $fatbloodScore; ?></h5>
+                                                        <h5> คำแนะนำระดับน้ำตาลในเลือดหลังอดอาหาร 6-8 ชั่วโมง : <?php echo $bloodlevelScore; ?></h5>
+                                                        <h5> คำแนะนำมีประวัติเป็นเบาหวานขณะตั้งครรภ์ /คลอดบุตรมีน้ำหนักเกิน 4 กิโลกรัม : <?php echo $pregnantScore; ?></h5>
+                                                        <h5> คำแนะนำพฤติกรรมการบริโภคอาหาร : <?php echo $foodScore; ?></h5>
+                                                        <h5> คำแนะนำพฤติกรรมการออกกำลังกาย : <?php echo $exerciseScore; ?></h5>
+                                                        <h5> คำแนะนำพฤติกรรมการสูบบุหรี่ : <?php echo $cigaretteScore; ?></h5>
+                                                        <h5> คำแนะนำพฤติกรรมการบริโภคเครื่องดื่มแอลกอฮอล์ : <?php echo $alcoholScore; ?></h5>
+                                                        <h5> คำแนะนำส่วนที่ 4 พันธุกรรม : <?php echo $score_form4; ?></h5> -->
+
+
+
                                                         <!-- <h5> ส่วนที่ 1 : <?php echo $score_form1; ?> คะแนน</h5>
                                                         <h5> ส่วนที่ 2 : <?php echo $score_form2; ?> คะแนน</h5>
                                                         <h5> ส่วนที่ 3 : <?php echo $score_form3; ?> คะแนน</h5>
                                                         <h5> ส่วนที่ 4 : <?php echo $score_form4; ?> คะแนน</h5>
-                                                        <h5> รวม : <?php echo $finishscore; ?> คะแนน</h5> -->
-                                                        <!-- <p><strong>Sex:</strong> <?php echo $sex; ?></p>
+                                                        <h5> รวม : <?php echo $finishscore; ?> คะแนน</h5>
+                                                        <p><strong>Sex:</strong> <?php echo $sex; ?></p>
                                                         <p><strong>Age:</strong> <?php echo $age; ?></p>
                                                         <p><strong>Status:</strong> <?php echo $status; ?></p>
                                                         <p><strong>Province:</strong> <?php echo $province; ?></p>
@@ -170,18 +198,347 @@ include('user_cont/head.php');
                                                 </div>
                                                 <h3 class="card-title text-center mb-4"><u>ผลการทดสอบ</u></h3>
                                                 <h5 class="card-title text-center mb-4">
-                                                    <b><?php echo $finishscore_TH; ?></b>
+                                                    <p style='color: red;'>
+                                                        <b><?php echo $finishscore_TH; ?></b>
+                                                    </p>
                                                 </h5>
-                                                <h5 class="card-title text-center mb-4"><u>ข้อแนะนำในการดูแล</u></h5>
-                                                <?php
-                                                if ($finishscore_TH == 'เสี่ยงต่ำต่อการเป็นโรคเบาหวาน') {
-                                                    echo '<p class="card-title text-center mb-4">ท่านมีความเสี่ยงต่อการป่วยด้วยโรคเบาหวานชนิดที่ 2 ในระดับปานกลาง 
-                                                    ท่านควรควบคุมการบริโภคอาหาร และการออกกำลังกายอย่างเคร่งครัด โดยเลือกอาหารที่มีคุณค่าทางโภชนาการและแคลอรี่ต่ำ เลือกรับประทานอาหารกลุ่มคาร์โบไฮเดรตชนิดอาหารพร่องแป้ง (Low Carb Diet) ได้แก่ ข้าวไม่ขัดสี ขนมปังโฮลวีต ธัญพืช เลือกรับประทานผักประเภทใบแทนประเภทหัว เลือกรับประทานผลไม้ที่มีรสชาติหวานน้อย รวมทั้งหลีกเลี่ยงการรับประทานอาหารมื้อหนักที่ต้องรับประทานมาก ๆ 
-                                                    </p>';
-                                                } elseif ($finishscore_TH == 'เสี่ยงสูงต่อการเป็นโรคเบาหวาน') {
-                                                    echo '<p class="card-title text-center mb-4">ท่านมีพฤติกรรมออกกำลังกายที่ควรปรับปรุง โดยควรออกกำลังกายด้วยกิจกรรมที่เหมาะสมกับสภาพร่างกาย วันละประมาณ 20 - 30 นาที หรือสามารถเพิ่มได้ถึงครั้งละ 60 นาที และควรออกกำลังกายอย่างน้อย 3 วันต่อสัปดาห์ ด้วยการเดิน วิ่ง เต้นแอโรบิก ปั่นจักรยาน ว่ายน้ำ ร่วมทั้งการปรับกิจกรรมในชีวิตประจำวันให้เป็นการออกกำลังกาย เช่น การทำงานบ้านด้วยตัวเอง ลดการใช้สิ่งอำนวยความสะดวกลง เดินให้มากขึ้นเป็นต้น 	</p>';
-                                                }
-                                                ?>
+                                                <h5 class="card-title text-center mb-2"><u>ข้อแนะนำในการดูแล</u></h5>
+                                                <div class="row">
+                                                    <div class="col-md mb-4 mb-md-0">
+                                                        <div class="accordion mt-3" id="accordionExample">
+                                                            <div class="card accordion-item active">
+                                                                <h2 class="accordion-header" id="headingOne">
+                                                                    <button type="button" class="accordion-button" data-bs-toggle="collapse" data-bs-target="#accordionOne" aria-expanded="true" aria-controls="accordionOne">
+                                                                        คำแนะนำ BMI
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM bmiadvice WHERE score = :bmiScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':bmiScore', $bmiScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingTwo">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionTwo" aria-expanded="false" aria-controls="accordionTwo">
+                                                                        คำแนะนำความดันโลหิต
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM pressureupadvice WHERE score = :pressureupScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':pressureupScore', $pressureupScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingThree">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionThree" aria-expanded="false" aria-controls="accordionThree">
+                                                                        คำแนะนำรอบเอว
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM waistlineadvice WHERE score = :waistlineScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':waistlineScore', $waistlineScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingFour">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionFour" aria-expanded="false" aria-controls="accordionFour">
+                                                                        คำแนะนำระดับไขมันในเลือด
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM fatbloodadvice WHERE score = :fatbloodScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':fatbloodScore', $fatbloodScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingFive">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionFive" aria-expanded="false" aria-controls="accordionFive">
+                                                                        คำแนะนำระดับน้ำตาลในเลือดหลังอดอาหาร 6-8 ชั่วโมง
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM bloodleveladvice WHERE score = :bloodlevelScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':bloodlevelScore', $bloodlevelScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingSix">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionSix" aria-expanded="false" aria-controls="accordionSix">
+                                                                        คำแนะนำมีประวัติเป็นเบาหวานขณะตั้งครรภ์ /คลอดบุตรมีน้ำหนักเกิน 4 กิโลกรัม
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM pregnantadvice WHERE score = :pregnantScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':pregnantScore', $pregnantScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingSeven">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionSeven" aria-expanded="false" aria-controls="accordionSeven">
+                                                                        คำแนะนำพฤติกรรมการบริโภคอาหาร
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM foodadvice WHERE score = :foodScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':foodScore', $foodScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingEight">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionEight" aria-expanded="false" aria-controls="accordionEight">
+                                                                        คำแนะนำพฤติกรรมการออกกำลังกาย
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM exerciseadvice WHERE score = :exerciseScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':exerciseScore', $exerciseScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingNine">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionNine" aria-expanded="false" aria-controls="accordionNine">
+                                                                        คำแนะนำพฤติกรรมการสูบบุหรี่
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM cigaretteadvice WHERE score = :cigaretteScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':cigaretteScore', $cigaretteScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingTen">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionTen" aria-expanded="false" aria-controls="accordionTen">
+                                                                        คำแนะนำพฤติกรรมการบริโภคเครื่องดื่มแอลกอฮอล์
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionTen" class="accordion-collapse collapse" aria-labelledby="headingTen" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM alcoholadvice WHERE score = :alcoholScore";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':alcoholScore', $alcoholScore);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="card accordion-item">
+                                                                <h2 class="accordion-header" id="headingEleven">
+                                                                    <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#accordionEleven" aria-expanded="false" aria-controls="accordionEleven">
+                                                                        คำแนะนำส่วนที่ 4 พันธุกรรม
+                                                                    </button>
+                                                                </h2>
+                                                                <div id="accordionEleven" class="accordion-collapse collapse" aria-labelledby="headingEleven" data-bs-parent="#accordionExample">
+                                                                    <div class="accordion-body">
+                                                                        <?php
+                                                                        $sql = "SELECT title, advice FROM score_form4advice WHERE score = :score_form4";
+                                                                        $stmt = $conn->prepare($sql);
+                                                                        $stmt->bindParam(':score_form4', $score_form4);
+                                                                        $stmt->execute();
+                                                                        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+                                                                        if ($row) {
+                                                                            $title = $row['title'];
+                                                                            $advice = $row['advice'];
+                                                                            echo "<p class='card-title text-center mb-4'>$title</p>";
+                                                                            echo "<hr>";
+                                                                            if (!empty($advice)) {
+                                                                                echo "<p style='color: red;'>คำแนะนำในการดูแลตนเองให้ห่างไกลโรค</p>";
+                                                                                echo "<p class='card-title text-center mb-4'>$advice</p>";
+                                                                            }
+                                                                        } else {
+                                                                            echo "<p class='card-title text-center mb-4'>ไม่พบข้อมูลที่เกี่ยวข้อง</p>";
+                                                                        }
+                                                                        ?>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                                 <hr>
                                                 <center>
                                                     <div class="button-container">
