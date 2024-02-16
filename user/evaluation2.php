@@ -35,19 +35,26 @@ include('user_cont/head.php');
                                                             $sex = $result['sex'];
                                                             $age = $result['age'];
                                                             $status = $result['status'];
-                                                            $province = $result['province'];
                                                             $study = $result['study'];
                                                             $sexScore = $result['sexScore'];
                                                             $ageScore = $result['ageScore'];
                                                             $statusScore = $result['statusScore'];
                                                             $studyScore = $result['studyScore'];
+                                                            $fullname = $result['fullname'];
+                                                            $tel = $result['tel'];
+                                                            $address = $result['address'];
+                                                            $province_name = $result['province_name'];
+                                                            $district_name = $result['district_name'];
+                                                            $subdistrict_name = $result['subdistrict_name'];
                                                             $totalScoreFromDatabase = $result['total_score'];
                                                     ?>
                                                             <!-- <h1>ข้อมูล Form 1</h1>
                                                             <p><strong>เพศ:</strong> <?php echo $sex; ?></p>
                                                             <p><strong>อายุ:</strong> <?php echo $age; ?></p>
                                                             <p><strong>สถานะ:</strong> <?php echo $status; ?></p>
-                                                            <p><strong>ภูมิลำเนา:</strong> <?php echo $province; ?></p>
+                                                            <p><strong>จังหวัด:</strong> <?php echo $province_name; ?></p>
+                                                            <p><strong>อำเภอ:</strong> <?php echo $district_name; ?></p>
+                                                            <p><strong>ตำบล:</strong> <?php echo $subdistrict_name; ?></p>
                                                             <p><strong>ระดับการศึกษา:</strong> <?php echo $study; ?></p>
                                                             <p><strong>sexScore:</strong> <?php echo $sexScore; ?></p>
                                                             <p><strong>ageScore:</strong> <?php echo $ageScore; ?></p>
@@ -67,7 +74,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-mb">
                                                             <div class="form-check form-check-inline">
-                                                                <input type="number" class="form-control" name="height" id="B1" aria-describedby="defaultFormControlHelp">
+                                                                <input type="number" class="form-control" name="height" id="B1" aria-describedby="defaultFormControlHelp" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -76,7 +83,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input type="number" class="form-control" name="weight" id="B2" aria-describedby="defaultFormControlHelp">
+                                                                <input type="number" class="form-control" name="weight" id="B2" aria-describedby="defaultFormControlHelp" required>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -86,7 +93,7 @@ include('user_cont/head.php');
                                                         <span id="bmiDisplay"></span>
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="bmi" id="B3" value="น้อยกว่า 18.5" />
+                                                                <input class="form-check-input" type="radio" name="bmi" id="B3" value="น้อยกว่า 18.5" required />
                                                                 <label class="form-check-label" for="B3">น้อยกว่า 18.5</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
@@ -108,7 +115,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-8">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="pressureup" id="B7" value="น้อยกว่า 120 mmHg" />
+                                                                <input class="form-check-input" type="radio" name="pressureup" id="B7" value="น้อยกว่า 120 mmHg" required />
                                                                 <label class="form-check-label" for="pressureup">น้อยกว่า 120 mmHg</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
@@ -130,7 +137,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="pressuredown" id="B11" value="น้อยกว่า 80 mmHg" />
+                                                                <input class="form-check-input" type="radio" name="pressuredown" id="B11" value="น้อยกว่า 80 mmHg" required />
                                                                 <label class="form-check-label" for="pressuredown">น้อยกว่า 80 mmHg</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
@@ -175,7 +182,7 @@ include('user_cont/head.php');
                                                         <h5 class="card-title text-primary">ระดับไขมัน HDL ในเลือด (mg/dL)</h5>
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="fat" id="B15" value="น้อยกว่า 35 mg/dL" />
+                                                                <input class="form-check-input" type="radio" name="fat" id="B15" value="น้อยกว่า 35 mg/dL" required />
                                                                 <label class="form-check-label" for="fat">น้อยกว่า 35 mg/dL</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
@@ -189,7 +196,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="fatblood" id="B17" value="น้อยกว่า 250 mg/dL" />
+                                                                <input class="form-check-input" type="radio" name="fatblood" id="B17" value="น้อยกว่า 250 mg/dL" required />
                                                                 <label class="form-check-label" for="fatblood">น้อยกว่า 250 mg/dL</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
@@ -203,7 +210,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="bloodlevel" id="B19" value="น้อยกว่า 100 mg%" />
+                                                                <input class="form-check-input" type="radio" name="bloodlevel" id="B19" value="น้อยกว่า 100 mg%" required />
                                                                 <label class="form-check-label" for="bloodlevel">น้อยกว่า 100 mg%</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
@@ -241,7 +248,7 @@ include('user_cont/head.php');
                                                     <div class="row col-lg-12 col-md-6 col-3">
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="ovary" id="B24" value="ไม่มี" />
+                                                                <input class="form-check-input" type="radio" name="ovary" id="B24" value="ไม่มี" required />
                                                                 <label class="form-check-label" for="ovary">ไม่มี</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
@@ -265,12 +272,6 @@ include('user_cont/head.php');
                                                 <?php
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     include('user_cont/connect.php');
-                                                    $sex = isset($result['sex']) ? $result['sex'] : '';
-                                                    $age = isset($result['age']) ? $result['age'] : '';
-                                                    $status = isset($result['status']) ? $result['status'] : '';
-                                                    $province = isset($result['province']) ? $result['province'] : '';
-                                                    $study = isset($result['study']) ? $result['study'] : '';
-
                                                     $height = isset($_POST['height']) ? $_POST['height'] : '';
                                                     $weight = isset($_POST['weight']) ? $_POST['weight'] : '';
                                                     $bmi = isset($_POST['bmi']) ? $_POST['bmi'] : '';
@@ -282,6 +283,7 @@ include('user_cont/head.php');
                                                     $bloodlevel = isset($_POST['bloodlevel']) ? $_POST['bloodlevel'] : '';
                                                     $pregnant = isset($_POST['pregnant']) ? $_POST['pregnant'] : '';
                                                     $ovary = isset($_POST['ovary']) ? $_POST['ovary'] : '';
+
 
                                                     $scoreMapping = array(
                                                         'bmi' => array(
@@ -363,7 +365,9 @@ include('user_cont/head.php');
                                                         sex,
                                                         age,
                                                         status,
-                                                        province,
+                                                        province_name,
+                                                        district_name,
+                                                        subdistrict_name,
                                                         study,
                                                         bmiScore, 
                                                         pressureupScore, 
@@ -373,7 +377,10 @@ include('user_cont/head.php');
                                                         fatbloodScore, 
                                                         bloodlevelScore, 
                                                         pregnantScore, 
-                                                        ovaryScore
+                                                        ovaryScore,
+                                                        fullname,
+                                                        tel,
+                                                        address
                                                     ) 
                                                     VALUES (
                                                         :score_form1, 
@@ -393,7 +400,9 @@ include('user_cont/head.php');
                                                         :sex,
                                                         :age,
                                                         :status,
-                                                        :province,
+                                                        :province_name,
+                                                        :district_name,
+                                                        :subdistrict_name,
                                                         :study,
                                                         :bmiScore, 
                                                         :pressureupScore, 
@@ -403,7 +412,10 @@ include('user_cont/head.php');
                                                         :fatbloodScore, 
                                                         :bloodlevelScore, 
                                                         :pregnantScore, 
-                                                        :ovaryScore
+                                                        :ovaryScore,
+                                                        :fullname,
+                                                        :tel,
+                                                        :address
                                                     )";
 
                                                     $stmt = $conn->prepare($insertQuery);
@@ -424,7 +436,9 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':sex', $sex);
                                                     $stmt->bindParam(':age', $age);
                                                     $stmt->bindParam(':status', $status);
-                                                    $stmt->bindParam(':province', $province);
+                                                    $stmt->bindParam(':province_name', $province_name);
+                                                    $stmt->bindParam(':district_name', $district_name);
+                                                    $stmt->bindParam(':subdistrict_name', $subdistrict_name);
                                                     $stmt->bindParam(':study', $study);
                                                     $stmt->bindParam(':bmiScore', $bmiScore);
                                                     $stmt->bindParam(':pressureupScore', $pressureupScore);
@@ -435,6 +449,10 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':bloodlevelScore', $bloodlevelScore);
                                                     $stmt->bindParam(':pregnantScore', $pregnantScore);
                                                     $stmt->bindParam(':ovaryScore', $ovaryScore);
+                                                    $stmt->bindParam(':fullname', $fullname);
+                                                    $stmt->bindParam(':tel', $tel);
+                                                    $stmt->bindParam(':address', $address);
+
                                                     try {
                                                         $stmt->execute();
                                                         $form_2_id = $conn->lastInsertId();
@@ -514,7 +532,7 @@ include('user_cont/head.php');
                                                 </script>
                                                 <script>
                                                     function checkSelection() {
-                                                        var selectedProvinces = document.querySelectorAll('input[type="radio"]:checked').length;
+                                                        var selectedprovince_names = document.querySelectorAll('input[type="radio"]:checked').length;
                                                         var selectedOptions = document.querySelectorAll('select, input[type="radio"]:checked').length;
 
                                                         if (selectedOptions >= 8 && selectedOptions <= 9) {
@@ -523,8 +541,6 @@ include('user_cont/head.php');
                                                             document.getElementById('nextButton').style.display = 'none';
                                                         }
                                                     }
-
-
                                                     var formElements = document.querySelectorAll('#formevaluation2 select, #formevaluation2 input[type="radio"]');
                                                     formElements.forEach(function(element) {
                                                         element.addEventListener('change', checkSelection);

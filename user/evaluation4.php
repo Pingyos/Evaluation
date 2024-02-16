@@ -36,7 +36,6 @@ include('user_cont/head.php');
                                                             $sex = $result['sex'];
                                                             $age = $result['age'];
                                                             $status = $result['status'];
-                                                            $province = $result['province'];
                                                             $study = $result['study'];
                                                             $height = $result['height'];
                                                             $weight = $result['weight'];
@@ -82,6 +81,13 @@ include('user_cont/head.php');
                                                             $exerciseScore = $result['exerciseScore'];
                                                             $cigaretteScore = $result['cigaretteScore'];
                                                             $alcoholScore = $result['alcoholScore'];
+
+                                                            $fullname = $result['fullname'];
+                                                            $tel = $result['tel'];
+                                                            $address = $result['address'];
+                                                            $province_name = $result['province_name'];
+                                                            $district_name = $result['district_name'];
+                                                            $subdistrict_name = $result['subdistrict_name'];
                                                     ?>
                                                     <?php
                                                         } else {
@@ -195,7 +201,7 @@ include('user_cont/head.php');
                                                     </div>
                                                     <div class="demo-inline-spacing d-flex justify-content-between">
                                                         <button type="button" class="btn btn-primary active" onclick="window.history.back();">ย้อนกลับ</button>
-                                                        <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
+                                                        <button id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
                                                     <hr>
                                                     <center>
@@ -208,52 +214,10 @@ include('user_cont/head.php');
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     include('user_cont/connect.php');
 
-                                                    $bmiScore = isset($result['bmiScore']) ? $result['bmiScore'] : '';
-                                                    $pressureupScore = isset($result['pressureupScore']) ? $result['pressureupScore'] : '';
-                                                    $waistlineScore = isset($result['waistlineScore']) ? $result['waistlineScore'] : '';
-                                                    $fatbloodScore = isset($result['fatbloodScore']) ? $result['fatbloodScore'] : '';
-                                                    $bloodlevelScore = isset($result['bloodlevelScore']) ? $result['bloodlevelScore'] : '';
-                                                    $pregnantScore = isset($result['pregnantScore']) ? $result['pregnantScore'] : '';
-                                                    $foodScore = isset($result['foodScore']) ? $result['foodScore'] : '';
-                                                    $exerciseScore = isset($result['exerciseScore']) ? $result['exerciseScore'] : '';
-                                                    $cigaretteScore = isset($result['cigaretteScore']) ? $result['cigaretteScore'] : '';
-                                                    $alcoholScore = isset($result['alcoholScore']) ? $result['alcoholScore'] : '';
-
-                                                    $sex = isset($result['sex']) ? $result['sex'] : '';
-                                                    $age = isset($result['age']) ? $result['age'] : '';
-                                                    $status = isset($result['status']) ? $result['status'] : '';
-                                                    $province = isset($result['province']) ? $result['province'] : '';
-                                                    $study = isset($result['study']) ? $result['study'] : '';
-                                                    $height = isset($result['height']) ? $result['height'] : '';
-                                                    $weight = isset($result['weight']) ? $result['weight'] : '';
-                                                    $bmi = isset($result['bmi']) ? $result['bmi'] : '';
-                                                    $pressureup = isset($result['pressureup']) ? $result['pressureup'] : '';
-                                                    $pressuredown = isset($result['pressuredown']) ? $result['pressuredown'] : '';
-                                                    $waistline = isset($result['waistline']) ? $result['waistline'] : '';
-                                                    $fat = isset($result['fat']) ? $result['fat'] : '';
-                                                    $fatblood = isset($result['fatblood']) ? $result['fatblood'] : '';
-                                                    $bloodlevel = isset($result['bloodlevel']) ? $result['bloodlevel'] : '';
-                                                    $pregnant = isset($result['pregnant']) ? $result['pregnant'] : '';
-                                                    $ovary = isset($result['ovary']) ? $result['ovary'] : '';
-                                                    $section1 = isset($result['section1']) ? $result['section1'] : '';
-                                                    $section2 = isset($result['section2']) ? $result['section2'] : '';
-                                                    $section3 = isset($result['section3']) ? $result['section3'] : '';
-                                                    $section4 = isset($result['section4']) ? $result['section4'] : '';
-                                                    $section5 = isset($result['section5']) ? $result['section5'] : '';
-                                                    $section6 = isset($result['section6']) ? $result['section6'] : '';
-                                                    $section7 = isset($result['section7']) ? $result['section7'] : '';
-                                                    $section8 = isset($result['section8']) ? $result['section8'] : '';
-                                                    $section9 = isset($result['section9']) ? $result['section9'] : '';
-                                                    $section10 = isset($result['section10']) ? $result['section10'] : '';
-                                                    $section11 = isset($result['section11']) ? $result['section11'] : '';
-                                                    $section12 = isset($result['section12']) ? $result['section12'] : '';
-                                                    $section13 = isset($result['section13']) ? $result['section13'] : '';
-                                                    $section14 = isset($result['section14']) ? $result['section14'] : '';
-                                                    $section15 = isset($result['section15']) ? $result['section15'] : '';
-                                                    $section16 = isset($result['section16']) ? $result['section16'] : '';
-                                                    $section17 = isset($result['section17']) ? $result['section17'] : '';
-                                                    $scoreall = isset($result['scoreall']) ? $result['scoreall'] : '';
-
+                                                    $section18 = isset($_POST['section18']) ? $_POST['section18'] : '';
+                                                    $section19 = isset($_POST['section19']) ? $_POST['section19'] : '';
+                                                    $section20 = isset($_POST['section20']) ? $_POST['section20'] : '';
+                                                    $section21 = isset($_POST['section21']) ? $_POST['section21'] : '';
 
                                                     $scoreMapping = array(
                                                         'section18' => array(
@@ -280,10 +244,6 @@ include('user_cont/head.php');
                                                             'ไม่มีข้อมูล' => 0,
                                                         ),
                                                     );
-                                                    $section18 = isset($_POST['section18']) ? $_POST['section18'] : '';
-                                                    $section19 = isset($_POST['section19']) ? $_POST['section19'] : '';
-                                                    $section20 = isset($_POST['section20']) ? $_POST['section20'] : '';
-                                                    $section21 = isset($_POST['section21']) ? $_POST['section21'] : '';
 
                                                     $section18score = isset($_POST['section18']) ? ($scoreMapping['section18'][$_POST['section18']] ?? 0) : 0;
                                                     $section19score = isset($_POST['section19']) ? ($scoreMapping['section19'][$_POST['section19']] ?? 0) : 0;
@@ -316,12 +276,12 @@ include('user_cont/head.php');
 
 
                                                     $insertQuery = "INSERT INTO form_4 (
-                                                        finishscore_TH, score_form1, score_form2, score_form3, score_form4, sex, age, status, province, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary,
+                                                        province_name, district_name, subdistrict_name, fullname, tel, address, finishscore_TH, score_form1, score_form2, score_form3, score_form4, sex, age, status, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary,
                                                         section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14,
                                                         section15, section16, section17, section18, section19, section20, section21, finishscore, 
                                                         bmiScore, pressureupScore, waistlineScore, fatbloodScore, bloodlevelScore, pregnantScore, foodScore, exerciseScore, cigaretteScore, alcoholScore
                                                     ) VALUES (
-                                                        :finishscore_TH, :score_form1, :score_form2, :score_form3, :score_form4, :sex, :age, :status, :province, :study, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary,
+                                                        :province_name, :district_name, :subdistrict_name, :fullname, :tel, :address, :finishscore_TH, :score_form1, :score_form2, :score_form3, :score_form4, :sex, :age, :status, :study, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary,
                                                         :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14,
                                                         :section15, :section16, :section17, :section18, :section19, :section20, :section21, :finishscore,
                                                         :bmiScore, :pressureupScore, :waistlineScore, :fatbloodScore, :bloodlevelScore, :pregnantScore, :foodScore, :exerciseScore, :cigaretteScore, :alcoholScore
@@ -347,7 +307,6 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':sex', $sex);
                                                     $stmt->bindParam(':age', $age);
                                                     $stmt->bindParam(':status', $status);
-                                                    $stmt->bindParam(':province', $province);
                                                     $stmt->bindParam(':study', $study);
                                                     $stmt->bindParam(':height', $height);
                                                     $stmt->bindParam(':weight', $weight);
@@ -381,11 +340,51 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':section19', $section19);
                                                     $stmt->bindParam(':section20', $section20);
                                                     $stmt->bindParam(':section21', $section21);
+
+                                                    $stmt->bindParam(':fullname', $fullname);
+                                                    $stmt->bindParam(':tel', $tel);
+                                                    $stmt->bindParam(':address', $address);
+                                                    $stmt->bindParam(':province_name', $province_name);
+                                                    $stmt->bindParam(':district_name', $district_name);
+                                                    $stmt->bindParam(':subdistrict_name', $subdistrict_name);
                                                     $stmt->bindParam(':finishscore', $finishscore);
                                                     try {
+                                                        echo '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+                                                        echo '
+                                                        <script>
+                                                            Swal.fire({
+                                                                title: "คำเตือน",
+                                                                text: "ระบบจะทำการบันทึกข้อมูล เมื่อท่านกด ยืนยันการบันทึก",
+                                                                icon: "warning",
+                                                                showCancelButton: true,
+                                                                confirmButtonColor: "#696cff",
+                                                                cancelButtonColor: "#ee3a1b",
+                                                                confirmButtonText: "ยืนยันการบันทึก",
+                                                                cancelButtonText: "ยกเลิก" // ต้องเพิ่ม comma ที่นี่
+                                                            }).then((result) => {
+                                                                if (result.isConfirmed) {
+                                                                    ';
                                                         $stmt->execute();
                                                         $form_4_id = $conn->lastInsertId();
-                                                        echo '<script>window.location.href = "finaleve.php?form_4_id=' . $form_4_id . '";</script>';
+                                                        echo '
+                                                                    Swal.fire({
+                                                                        title: "สำเร็จ",
+                                                                        text: "บันทึกข้อมูลสำเร็จ",
+                                                                        icon: "success",
+                                                                        timer: 1500,
+                                                                        showConfirmButton: false 
+                                                                    }).then((result) => {
+                                                                        window.location.href = "finaleve.php?form_4_id=' . $form_4_id . '";
+                                                                    });
+                                                                } else {
+                                                                    Swal.fire({
+                                                                        title: "เกิดข้อผิดพลาด",
+                                                                        text: "เกิดข้อผิดพลาดในการบันทึกข้อมูล",
+                                                                        icon: "info"
+                                                                    });
+                                                                }
+                                                            });
+                                                        </script>';
                                                     } catch (PDOException $e) {
                                                         echo "Error: " . $e->getMessage();
                                                     }

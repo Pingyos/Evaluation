@@ -21,13 +21,30 @@ include('user_cont/head.php');
                                     <div class="d-flex align-items-end row">
                                         <div class="col-sm-12">
                                             <div class="card-body">
-
+                                                <div class="col-md-12 col-xl-12 mb-5">
+                                                    <div class="card bg-info text-white">
+                                                        <div class="card-body text-center">
+                                                            <h5 class="card-title text-white">รหัสลับห่างไกลโรค ด้วย 3อ 2 ส</h5>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="text-center mb-2">
+                                                    <h5 class="card-title mb-2">1. อ.อาหาร รับประทานอาหารครบ 5 หมู่ ตามธงโภชนาการ</h5>
+                                                    <img src="../assets/img/elements/adviceimg.jpg" class="img-fluid mb-2" alt="ภาพจากกองโภชนการกรมอนามัยกระทรวงสาธารณสุข" />
+                                                    <h5 class="card-title mb-2">หลีกเลี่ยงการรับประทานอาหารที่มีรสหวาน มัน เค็ม มากเกินไปด้วยโมเดล 6: 6: 1</h5>
+                                                    <img src="../assets/img/elements/adviceimg2.png" class="img-fluid mb-2" />
+                                                    <h5 class="card-title mb-2">2. อ.ออกกำลังกาย เคลื่อนไหวร่างกาย และออกกำลังกายเป็นประจำอย่างน้อยสัปดาห์ละ 5 วัน วันละ 30 นาที</h5>
+                                                    <h5 class="card-title mb-2">3. อ.อารมณ์ มีการจัดการกับอารมณ์ ฝึกสมาธิและผ่อนคลายเครียด</h5>
+                                                    <h5 class="card-title mb-2">4. ส.ไม่สูบบุหรี่ ลด ละ เลิก การสูบบุหรี่</h5>
+                                                    <h5 class="card-title mb-2">5. ส.ไม่ดื่มสุรา หรือเครื่องดื่มที่มีแอลกอฮอล์</h5>
+                                                    <h5 class="card-title mb-2">ปฏิบัติตามหลักการ 3อ 2ส แล้ว ผู้ที่มีอายุ 35 ปีขึ้นไป ควรไปรับการตรวจสุขภาพสม่ำเสมอ อย่างน้อยปีละ 1 ครั้ง</h5>
+                                                </div>
 
                                                 <hr>
                                                 <center>
                                                     <div class="button-container">
                                                         <a type="button" class="btn btn-primary" href="index.php"> <i class='bx bx-home'> </i>กลับหน้าหลัก</a>
-                                                        <a type="button" class="btn btn-primary" href="evaluation1.php"><i class='bx bx-spreadsheet'></i> ประเมินอีกรอบ</a>
+                                                        <a type="button" class="btn btn-primary" href="evaluation0.php"><i class='bx bx-spreadsheet'></i> ประเมินอีกรอบ</a>
                                                     </div>
                                                 </center>
                                             </div>

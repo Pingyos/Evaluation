@@ -37,7 +37,6 @@ include('user_cont/head.php');
                                                             $sex = $result['sex'];
                                                             $age = $result['age'];
                                                             $status = $result['status'];
-                                                            $province = $result['province'];
                                                             $study = $result['study'];
                                                             $height = $result['height'];
                                                             $weight = $result['weight'];
@@ -58,32 +57,48 @@ include('user_cont/head.php');
                                                             $fatbloodScore = $result['fatbloodScore'];
                                                             $bloodlevelScore = $result['bloodlevelScore'];
                                                             $pregnantScore = $result['pregnantScore'];
+
+                                                            $fullname = $result['fullname'];
+                                                            $tel = $result['tel'];
+                                                            $address = $result['address'];
+                                                            $province_name = $result['province_name'];
+                                                            $district_name = $result['district_name'];
+                                                            $subdistrict_name = $result['subdistrict_name'];
+                                                            $totalScoreFromDatabase = $result['total_score'];
+
                                                             $totalScoreFromDatabase = $result['total_score'];
                                                     ?>
-                                                            <!-- <p><strong>:</strong> <?php echo $bmiScore; ?></p>
-                                                            <p><strong>:</strong> <?php echo $pressureupScore; ?></p>
-                                                            <p><strong>:</strong> <?php echo $waistlineScore; ?></p>
-                                                            <p><strong>:</strong> <?php echo $fatbloodScore; ?></p>
-                                                            <p><strong>:</strong> <?php echo $bloodlevelScore; ?></p>
-                                                            <p><strong>:</strong> <?php echo $pregnantScore; ?></p> -->
-
-                                                            <!-- <p><strong>:</strong> <?php echo $sex; ?></p>
-                                                            <p><strong>:</strong> <?php echo $age; ?></p>
-                                                            <p><strong>:</strong> <?php echo $status; ?></p>
-                                                            <p><strong>:</strong> <?php echo $province; ?></p>
-                                                            <p><strong>:</strong> <?php echo $study; ?></p>
-                                                            <p><strong>:</strong> <?php echo $height; ?></p>
-                                                            <p><strong>:</strong> <?php echo $weight; ?></p>
-                                                            <p><strong>:</strong> <?php echo $bmi; ?></p>
-                                                            <p><strong>:</strong> <?php echo $pressureup; ?></p>
-                                                            <p><strong>:</strong> <?php echo $pressuredown; ?></p>
-                                                            <p><strong>:</strong> <?php echo $waistline; ?></p>
-                                                            <p><strong>:</strong> <?php echo $fat; ?></p>
-                                                            <p><strong>:</strong> <?php echo $fatblood; ?></p>
-                                                            <p><strong>:</strong> <?php echo $bloodlevel; ?></p>
-                                                            <p><strong>:</strong> <?php echo $pregnant; ?></p>
-                                                            <p><strong>:</strong> <?php echo $ovary; ?></p>
+                                                            <!-- <p><strong>เพศ:</strong> <?php echo $sex; ?></p>
+                                                            <p><strong>อายุ:</strong> <?php echo $age; ?></p>
+                                                            <p><strong>สถานะ:</strong> <?php echo $status; ?></p>
+                                                            <p><strong>การศึกษา:</strong> <?php echo $study; ?></p>
+                                                            <p><strong>ส่วนสูง:</strong> <?php echo $height; ?></p>
+                                                            <p><strong>น้ำหนัก:</strong> <?php echo $weight; ?></p>
+                                                            <p><strong>BMI:</strong> <?php echo $bmi; ?></p>
+                                                            <p><strong>ความดันโลหิต (บน):</strong> <?php echo $pressureup; ?></p>
+                                                            <p><strong>ความดันโลหิต (ล่าง):</strong> <?php echo $pressuredown; ?></p>
+                                                            <p><strong>รอบเอว:</strong> <?php echo $waistline; ?></p>
+                                                            <p><strong>ไขมัน:</strong> <?php echo $fat; ?></p>
+                                                            <p><strong>ไขมันในเลือด:</strong> <?php echo $fatblood; ?></p>
+                                                            <p><strong>ระดับน้ำตาลในเลือด:</strong> <?php echo $bloodlevel; ?></p>
+                                                            <p><strong>การตั้งครรภ์:</strong> <?php echo $pregnant; ?></p>
+                                                            <p><strong>การมีรังไข่:</strong> <?php echo $ovary; ?></p>
+                                                            <p><strong>คะแนน form 1:</strong> <?php echo $score_form1; ?></p>
+                                                            <p><strong>คะแนน form 2:</strong> <?php echo $score_form2; ?></p>
+                                                            <p><strong>คะแนน BMI:</strong> <?php echo $bmiScore; ?></p>
+                                                            <p><strong>คะแนนความดันโลหิต (บน):</strong> <?php echo $pressureupScore; ?></p>
+                                                            <p><strong>คะแนนรอบเอว:</strong> <?php echo $waistlineScore; ?></p>
+                                                            <p><strong>คะแนนไขมันในเลือด:</strong> <?php echo $fatbloodScore; ?></p>
+                                                            <p><strong>คะแนนระดับน้ำตาลในเลือด:</strong> <?php echo $bloodlevelScore; ?></p>
+                                                            <p><strong>คะแนนการตั้งครรภ์:</strong> <?php echo $pregnantScore; ?></p>
+                                                            <p><strong>ชื่อเต็ม:</strong> <?php echo $fullname; ?></p>
+                                                            <p><strong>เบอร์โทร:</strong> <?php echo $tel; ?></p>
+                                                            <p><strong>ที่อยู่:</strong> <?php echo $address; ?></p>
+                                                            <p><strong>จังหวัด:</strong> <?php echo $province_name; ?></p>
+                                                            <p><strong>อำเภอ:</strong> <?php echo $district_name; ?></p>
+                                                            <p><strong>ตำบล:</strong> <?php echo $subdistrict_name; ?></p>
                                                             <p><strong>คะแนนรวมจากฐานข้อมูล:</strong> <?php echo $totalScoreFromDatabase; ?></p> -->
+
                                                     <?php
                                                         } else {
                                                             echo "ไม่พบข้อมูลสำหรับ form_2_id: $form_2_id";
@@ -322,7 +337,7 @@ include('user_cont/head.php');
                                                         <div class="col-md">
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="section10" id="C43" value="น้อยกว่า 30 นาที" />
-                                                                <label class="form-check-label" for="C44">น้อยกว่า 30 นาที</label>
+                                                                <label class="form-check-label" for="C43">น้อยกว่า 30 นาที</label>
                                                             </div>
                                                             <div class="form-check form-check-inline">
                                                                 <input class="form-check-input" type="radio" name="section10" id="C44" value="มากกว่า 30 นาที" />
@@ -419,42 +434,44 @@ include('user_cont/head.php');
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <h5 class="card-title text-primary">ชนิดของเครื่องดื่มแอลกอฮอล์ที่ดื่มเป็นประจำ</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-6">
-                                                        <div class="col-md">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section16" id="C58" value="สุรา" />
-                                                                <label class="form-check-label" for="C58">สุรา</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section16" id="C59" value="เบียร์" />
-                                                                <label class="form-check-label" for="C59">เบียร์</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section16" id="C60" value="ไวน์/สปาย" />
-                                                                <label class="form-check-label" for="C60">ไวน์/สปาย</label>
+                                                    <div class="row col-lg-12 col-md-6 col-12" id="section15">
+                                                        <h5 class="card-title text-primary">ชนิดของเครื่องดื่มแอลกอฮอล์ที่ดื่มเป็นประจำ</h5>
+                                                        <div class="row col-lg-12 col-md-6 col-6">
+                                                            <div class="col-md">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section16" id="C58" value="สุรา" />
+                                                                    <label class="form-check-label" for="C58">สุรา</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section16" id="C59" value="เบียร์" />
+                                                                    <label class="form-check-label" for="C59">เบียร์</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section16" id="C60" value="ไวน์/สปาย" />
+                                                                    <label class="form-check-label" for="C60">ไวน์/สปาย</label>
+                                                                </div>
                                                             </div>
                                                         </div>
-                                                    </div>
-                                                    <br>
-                                                    <h5 class="card-title text-primary">ปริมาณการดื่มต่อครั้ง</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-8">
-                                                        <div class="col-md">
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section17" id="C61" value="ไม่เคยดื่ม/ดื่มน้อยมาก" />
-                                                                <label class="form-check-label" for="C61">ไม่เคยดื่ม/ดื่มน้อยมาก</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section17" id="C62" value="ดื่มน้อย" />
-                                                                <label class="form-check-label" for="C62">ดื่มน้อย</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section17" id="C63" value="ดื่มปานกลาง" />
-                                                                <label class="form-check-label" for="C63">ดื่มปานกลาง</label>
-                                                            </div>
-                                                            <div class="form-check form-check-inline">
-                                                                <input class="form-check-input" type="radio" name="section17" id="C64" value="ดื่มมาก" />
-                                                                <label class="form-check-label" for="C64">ดื่มมาก</label>
+                                                        <br>
+                                                        <h5 class="card-title text-primary">ปริมาณการดื่มต่อครั้ง</h5>
+                                                        <div class="row col-lg-12 col-md-6 col-8">
+                                                            <div class="col-md">
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section17" id="C61" value="ไม่เคยดื่ม/ดื่มน้อยมาก" />
+                                                                    <label class="form-check-label" for="C61">ไม่เคยดื่ม/ดื่มน้อยมาก</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section17" id="C62" value="ดื่มน้อย" />
+                                                                    <label class="form-check-label" for="C62">ดื่มน้อย</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section17" id="C63" value="ดื่มปานกลาง" />
+                                                                    <label class="form-check-label" for="C63">ดื่มปานกลาง</label>
+                                                                </div>
+                                                                <div class="form-check form-check-inline">
+                                                                    <input class="form-check-input" type="radio" name="section17" id="C64" value="ดื่มมาก" />
+                                                                    <label class="form-check-label" for="C64">ดื่มมาก</label>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -472,31 +489,23 @@ include('user_cont/head.php');
                                                 <?php
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     include('user_cont/connect.php');
-
-                                                    $sex = isset($result['sex']) ? $result['sex'] : '';
-                                                    $age = isset($result['age']) ? $result['age'] : '';
-                                                    $status = isset($result['status']) ? $result['status'] : '';
-                                                    $province = isset($result['province']) ? $result['province'] : '';
-                                                    $study = isset($result['study']) ? $result['study'] : '';
-
-                                                    $height = isset($result['height']) ? $result['height'] : '';
-                                                    $weight = isset($result['weight']) ? $result['weight'] : '';
-                                                    $bmi = isset($result['bmi']) ? $result['bmi'] : '';
-                                                    $pressureup = isset($result['pressureup']) ? $result['pressureup'] : '';
-                                                    $pressuredown = isset($result['pressuredown']) ? $result['pressuredown'] : '';
-                                                    $waistline = isset($result['waistline']) ? $result['waistline'] : '';
-                                                    $fat = isset($result['fat']) ? $result['fat'] : '';
-                                                    $fatblood = isset($result['fatblood']) ? $result['fatblood'] : '';
-                                                    $bloodlevel = isset($result['bloodlevel']) ? $result['bloodlevel'] : '';
-                                                    $pregnant = isset($result['pregnant']) ? $result['pregnant'] : '';
-                                                    $ovary = isset($result['ovary']) ? $result['ovary'] : '';
-
-                                                    $bmiScore = isset($result['bmiScore']) ? $result['bmiScore'] : '';
-                                                    $pressureupScore = isset($result['pressureupScore']) ? $result['pressureupScore'] : '';
-                                                    $waistlineScore = isset($result['waistlineScore']) ? $result['waistlineScore'] : '';
-                                                    $fatbloodScore = isset($result['fatbloodScore']) ? $result['fatbloodScore'] : '';
-                                                    $bloodlevelScore = isset($result['bloodlevelScore']) ? $result['bloodlevelScore'] : '';
-                                                    $pregnantScore = isset($result['pregnantScore']) ? $result['pregnantScore'] : '';
+                                                    $section1 = isset($_POST['section1']) ? $_POST['section1'] : '';
+                                                    $section2 = isset($_POST['section2']) ? $_POST['section2'] : '';
+                                                    $section3 = isset($_POST['section3']) ? $_POST['section3'] : '';
+                                                    $section4 = isset($_POST['section4']) ? $_POST['section4'] : '';
+                                                    $section5 = isset($_POST['section5']) ? $_POST['section5'] : '';
+                                                    $section6 = isset($_POST['section6']) ? $_POST['section6'] : '';
+                                                    $section7 = isset($_POST['section7']) ? $_POST['section7'] : '';
+                                                    $section8 = isset($_POST['section8']) ? $_POST['section8'] : '';
+                                                    $section9 = isset($_POST['section9']) ? $_POST['section9'] : '';
+                                                    $section10 = isset($_POST['section10']) ? $_POST['section10'] : '';
+                                                    $section11 = isset($_POST['section11']) ? $_POST['section11'] : '';
+                                                    $section12 = isset($_POST['section12']) ? $_POST['section12'] : '';
+                                                    $section13 = isset($_POST['section13']) ? $_POST['section13'] : '';
+                                                    $section14 = isset($_POST['section14']) ? $_POST['section14'] : '';
+                                                    $section15 = isset($_POST['section15']) ? $_POST['section15'] : '';
+                                                    $section16 = isset($_POST['section16']) ? $_POST['section16'] : '';
+                                                    $section17 = isset($_POST['section17']) ? $_POST['section17'] : '';
 
                                                     $scoreMapping = array(
                                                         'section1' => array(
@@ -655,14 +664,9 @@ include('user_cont/head.php');
                                                         $score2 = 1;
                                                     }
 
-                                                    // echo "score2 : $score2 <br>";
-
                                                     $totalScore3 = $section12score + $section13score + $section14score;
 
-                                                    // echo "totalScore3 : $totalScore3 <br>";
-
                                                     $scoreall = $totalScoreFromDatabase + $score + $score2 + $totalScore3 + $section15score + $section16score + $section17score;
-                                                    // echo "score_form3 : $score_form3 <br>";
 
                                                     $score_form1 = $score_form1;
                                                     $score_form2 = $score_form2;
@@ -673,48 +677,8 @@ include('user_cont/head.php');
                                                     $cigaretteScore = $section12score;
                                                     $alcoholScore = $section15score;
 
-                                                    // echo "คะแนน section1score : $section1score <br>";
-                                                    // echo "คะแนน section2score : $section2score <br>";
-                                                    // echo "คะแนน section3score : $section3score <br>";
-                                                    // echo "คะแนน section4score : $section4score <br>";
-                                                    // echo "คะแนน section5score : $section5score <br>";
-                                                    // echo "คะแนน section6score : $section6score <br>";
-                                                    // echo "คะแนน section7score : $section7score <br>";
-                                                    // echo "คะแนน section8score : $section8score <br>";
-                                                    // echo "คะแนน section9score : $section9score <br>";
-                                                    // echo "คะแนน section10score : $section10score <br>";
-                                                    // echo "คะแนน section11score : $section11score <br>";
-                                                    // echo "คะแนน section12score : $section12score <br>";
-                                                    // echo "คะแนน section13score : $section13score <br>";
-                                                    // echo "คะแนน section14score : $section14score <br>";
-                                                    // echo "คะแนน section15score : $section15score <br>";
-                                                    // echo "คะแนน section16score : $section16score <br>";
-                                                    // echo "คะแนน section17score : $section17score <br>";
-                                                    // echo "<hr>";
-                                                    // echo ": $section1<br>";
-                                                    // echo ": $section2<br>";
-                                                    // echo ": $section3<br>";
-                                                    // echo ": $section4<br>";
-                                                    // echo ": $section5<br>";
-                                                    // echo ": $section6<br>";
-                                                    // echo ": $section7<br>";
-                                                    // echo ": $section8<br>";
-                                                    // echo ": $section9<br>";
-                                                    // echo ": $section10<br>";
-                                                    // echo ": $section11<br>";
-                                                    // echo ": $section12<br>";
-                                                    // echo ": $section13<br>";
-                                                    // echo ": $section14<br>";
-                                                    // echo ": $section15<br>";
-                                                    // echo ": $section16<br>";
-                                                    // echo ": $section17<br>";
-                                                    // echo "1-8: $score<br>";
-                                                    // echo "9-11: $score2<br>";
-                                                    // echo "12-14: $totalScore3<br>";
-                                                    // echo "คะแนนรวมทั้งหมด: $scoreall";
-
-                                                    $insertQuery = "INSERT INTO form_3 (alcoholScore, cigaretteScore, exerciseScore, foodScore, bmiScore, pressureupScore, waistlineScore, fatbloodScore, bloodlevelScore, pregnantScore, score_form1, score_form2, score_form3, scoreall, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, province, study, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17) 
-                                                    VALUES (:alcoholScore, :cigaretteScore, :exerciseScore, :foodScore, :bmiScore, :pressureupScore, :waistlineScore, :fatbloodScore, :bloodlevelScore, :pregnantScore, :score_form1, :score_form2, :score_form3, :scoreall, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :province, :study, :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14, :section15, :section16, :section17)";
+                                                    $insertQuery = "INSERT INTO form_3 (province_name, district_name, subdistrict_name, fullname, tel, address, alcoholScore, cigaretteScore, exerciseScore, foodScore, bmiScore, pressureupScore, waistlineScore, fatbloodScore, bloodlevelScore, pregnantScore, score_form1, score_form2, score_form3, scoreall, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, sex, age, status, study, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17) 
+                                                    VALUES ( :province_name, :district_name, :subdistrict_name, :fullname, :tel, :address, :alcoholScore, :cigaretteScore, :exerciseScore, :foodScore, :bmiScore, :pressureupScore, :waistlineScore, :fatbloodScore, :bloodlevelScore, :pregnantScore, :score_form1, :score_form2, :score_form3, :scoreall, :height, :weight, :bmi, :pressureup, :pressuredown, :waistline, :fat, :fatblood, :bloodlevel, :pregnant, :ovary, :sex, :age, :status, :study, :section1, :section2, :section3, :section4, :section5, :section6, :section7, :section8, :section9, :section10, :section11, :section12, :section13, :section14, :section15, :section16, :section17)";
                                                     $stmt = $conn->prepare($insertQuery);
                                                     $stmt->bindParam(':score_form3', $score_form3);
                                                     $stmt->bindParam(':score_form2', $score_form2);
@@ -734,7 +698,6 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':sex', $sex);
                                                     $stmt->bindParam(':age', $age);
                                                     $stmt->bindParam(':status', $status);
-                                                    $stmt->bindParam(':province', $province);
                                                     $stmt->bindParam(':study', $study);
 
                                                     $stmt->bindParam(':bmiScore', $bmiScore);
@@ -747,6 +710,13 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':exerciseScore', $exerciseScore);
                                                     $stmt->bindParam(':cigaretteScore', $cigaretteScore);
                                                     $stmt->bindParam(':alcoholScore', $alcoholScore);
+
+                                                    $stmt->bindParam(':fullname', $fullname);
+                                                    $stmt->bindParam(':tel', $tel);
+                                                    $stmt->bindParam(':address', $address);
+                                                    $stmt->bindParam(':province_name', $province_name);
+                                                    $stmt->bindParam(':district_name', $district_name);
+                                                    $stmt->bindParam(':subdistrict_name', $subdistrict_name);
 
                                                     $stmt->bindParam(':section1', $section1);
                                                     $stmt->bindParam(':section2', $section2);
@@ -779,7 +749,7 @@ include('user_cont/head.php');
                                                         var selectedProvinces = document.querySelectorAll('input[type="radio"]:checked').length;
                                                         var selectedOptions = document.querySelectorAll('select, input[type="radio"]:checked').length;
 
-                                                        if (selectedOptions >= 15 && selectedOptions <= 18) {
+                                                        if (selectedOptions >= 13 && selectedOptions <= 18) {
                                                             document.getElementById('nextButton').style.display = 'block';
                                                         } else {
                                                             document.getElementById('nextButton').style.display = 'none';
@@ -794,9 +764,16 @@ include('user_cont/head.php');
                                                 <script>
                                                     document.addEventListener('DOMContentLoaded', function() {
                                                         toggleSmokingSection();
+                                                        toggleAlcoholSection();
+
                                                         var smokingStatusRadios = document.getElementsByName('section12');
                                                         for (var i = 0; i < smokingStatusRadios.length; i++) {
                                                             smokingStatusRadios[i].addEventListener('change', toggleSmokingSection);
+                                                        }
+
+                                                        var alcoholStatusRadios = document.getElementsByName('section15');
+                                                        for (var i = 0; i < alcoholStatusRadios.length; i++) {
+                                                            alcoholStatusRadios[i].addEventListener('change', toggleAlcoholSection);
                                                         }
                                                     });
 
@@ -805,6 +782,14 @@ include('user_cont/head.php');
                                                         var smokingStatusSection = document.getElementById('section12');
                                                         if (smokingStatusSection) {
                                                             smokingStatusSection.style.display = (smokingStatus === 'ไม่เคย') ? 'none' : 'block';
+                                                        }
+                                                    }
+
+                                                    function toggleAlcoholSection() {
+                                                        var alcoholStatus = getSelectedRadioValue('section15');
+                                                        var alcoholStatusSection = document.getElementById('section15');
+                                                        if (alcoholStatusSection) {
+                                                            alcoholStatusSection.style.display = (alcoholStatus === 'ไม่เคยดื่ม') ? 'none' : 'block';
                                                         }
                                                     }
 
@@ -818,6 +803,7 @@ include('user_cont/head.php');
                                                         return null;
                                                     }
                                                 </script>
+
                                             </div>
                                         </div>
                                     </div>

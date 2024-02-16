@@ -82,7 +82,7 @@ include('user_cont/head.php');
                                                     <hr>
                                                     <div class="demo-inline-spacing d-flex justify-content-between">
                                                         <div></div>
-                                                        <button type="submit" class="btn btn-primary active" id="nextBtn" disabled>ถัดไป</button>
+                                                        <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
                                                     <hr>
                                                     <center>
@@ -92,120 +92,87 @@ include('user_cont/head.php');
                                                         </div>
                                                     </center>
                                                 </form>
-                                                <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-                                                <script>
-                                                    document.addEventListener("DOMContentLoaded", function() {
-                                                        // Function to check if all fields are filled
-                                                        function checkForm() {
-                                                            var fullname = document.getElementById("fullname")
-                                                                .value;
-                                                            var tel = document.getElementById("tel").value;
-                                                            var address = document.getElementById("address").value;
-                                                            var province_id = document.getElementById("province_id")
-                                                                .value;
-                                                            var district_id = document.getElementById("district_id")
-                                                                .value;
-                                                            var subdistrict_id = document.getElementById(
-                                                                "subdistrict_id").value;
-
-                                                            if (fullname !== "" && tel !== "" && address !== "" &&
-                                                                province_id !== "" && district_id !== "" &&
-                                                                subdistrict_id !== "") {
-                                                                document.getElementById("nextBtn").disabled = false;
-                                                            } else {
-                                                                document.getElementById("nextBtn").disabled = true;
+                                                <?php
+                                                include('user_cont/connect.php');
+                                                $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
+                                                $tel = isset($_POST['tel']) ? $_POST['tel'] : '';
+                                                $address = isset($_POST['address']) ? $_POST['address'] : '';
+                                                $province_id = isset($_POST['province_id']) ? $_POST['province_id'] : '';
+                                                $district_id = isset($_POST['district_id']) ? $_POST['district_id'] : '';
+                                                $subdistrict_id = isset($_POST['subdistrict_id']) ? $_POST['subdistrict_id'] : '';
+                                                $checkProvinceQuery = "SELECT name_th FROM th_province WHERE province_id = :province_id";
+                                                $stmt_check_province = $conn->prepare($checkProvinceQuery);
+                                                $stmt_check_province->bindParam(':province_id', $province_id);
+                                                $stmt_check_province->execute();
+                                                $province_name = $stmt_check_province->fetchColumn();
+                                                if ($province_name) {
+                                                    $checkDistrictQuery = "SELECT name_th FROM th_district WHERE district_id = :district_id";
+                                                    $stmt_check_district = $conn->prepare($checkDistrictQuery);
+                                                    $stmt_check_district->bindParam(':district_id', $district_id);
+                                                    $stmt_check_district->execute();
+                                                    $district_name = $stmt_check_district->fetchColumn();
+                                                    if ($district_name) {
+                                                        $checkSubdistrictQuery = "SELECT name_th FROM th_subdistrict WHERE subdistrict_id = :subdistrict_id";
+                                                        $stmt_check_subdistrict = $conn->prepare($checkSubdistrictQuery);
+                                                        $stmt_check_subdistrict->bindParam(':subdistrict_id', $subdistrict_id);
+                                                        $stmt_check_subdistrict->execute();
+                                                        $subdistrict_name = $stmt_check_subdistrict->fetchColumn();
+                                                        if ($subdistrict_name) {
+                                                            $insertQuery = "INSERT INTO form_0 (fullname, tel, address, province_name, district_name, subdistrict_name) 
+                                                            VALUES (:fullname, :tel, :address, :province_name, :district_name, :subdistrict_name)";
+                                                            $stmt_insert = $conn->prepare($insertQuery);
+                                                            $stmt_insert->bindParam(':fullname', $fullname);
+                                                            $stmt_insert->bindParam(':tel', $tel);
+                                                            $stmt_insert->bindParam(':address', $address);
+                                                            $stmt_insert->bindParam(':province_name', $province_name);
+                                                            $stmt_insert->bindParam(':district_name', $district_name);
+                                                            $stmt_insert->bindParam(':subdistrict_name', $subdistrict_name);
+                                                            try {
+                                                                $stmt_insert->execute(); // Execute the insert statement
+                                                                $form_0_id = $conn->lastInsertId(); // Get the last inserted ID
+                                                                echo '<script>window.location.href = "evaluation1.php?form_0_id=' . $form_0_id . '";</script>';
+                                                                exit();
+                                                            } catch (PDOException $e) {
+                                                                echo "Error: " . $e->getMessage();
                                                             }
+                                                        } else {
+                                                            echo "console.error('Error: Invalid district_id.');";
                                                         }
-                                                        document.getElementById("fullname").addEventListener(
-                                                            "input", checkForm);
-                                                        document.getElementById("tel").addEventListener("input",
-                                                            checkForm);
-                                                        document.getElementById("address").addEventListener("input",
-                                                            checkForm);
-                                                        document.getElementById("province_id").addEventListener(
-                                                            "change", checkForm);
-                                                        document.getElementById("district_id").addEventListener(
-                                                            "change", checkForm);
-                                                        document.getElementById("subdistrict_id").addEventListener(
-                                                            "change", checkForm);
-                                                    });
-                                                </script>
+                                                    } else {
+                                                        echo "console.error('Error: Invalid province_id.');";
+                                                    }
+                                                }
+                                                ?>
+
                                                 <script>
-                                                    document.addEventListener("DOMContentLoaded", function() {
-                                                        document.querySelector('.btn-primary').addEventListener(
-                                                            'click',
-                                                            function(event) {
-                                                                event
-                                                                    .preventDefault(); // Prevent default form submission
-                                                                Swal.fire({
-                                                                    title: "โปรดอ่าน",
-                                                                    text: "เมื่อคุณกด ยืนยัน ระบบจะทำการเก็บข้อมูลส่วนบุคคลคุณในระบบ",
-                                                                    icon: "warning",
-                                                                    showCancelButton: true,
-                                                                    confirmButtonColor: "#3085d6",
-                                                                    cancelButtonColor: "#d33",
-                                                                    confirmButtonText: "ยืนยัน",
-                                                                    cancelButtonText: "ยกเลิก"
-                                                                }).then((result) => {
-                                                                    if (result.isConfirmed) {
-                                                                        document.getElementById(
-                                                                                "formevaluation0")
-                                                                            .submit();
-                                                                        <?php
-                                                                        include('user_cont/connect.php');
-                                                                        $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
-                                                                        $tel = isset($_POST['tel']) ? $_POST['tel'] : '';
-                                                                        $address = isset($_POST['address']) ? $_POST['address'] : '';
-                                                                        $province_id = isset($_POST['province_id']) ? $_POST['province_id'] : '';
-                                                                        $district_id = isset($_POST['district_id']) ? $_POST['district_id'] : '';
-                                                                        $subdistrict_id = isset($_POST['subdistrict_id']) ? $_POST['subdistrict_id'] : '';
-                                                                        $checkProvinceQuery = "SELECT name_th FROM th_province WHERE province_id = :province_id";
-                                                                        $stmt_check_province = $conn->prepare($checkProvinceQuery);
-                                                                        $stmt_check_province->bindParam(':province_id', $province_id);
-                                                                        $stmt_check_province->execute();
-                                                                        $province_name = $stmt_check_province->fetchColumn();
-                                                                        if ($province_name) {
-                                                                            $checkDistrictQuery = "SELECT name_th FROM th_district WHERE district_id = :district_id";
-                                                                            $stmt_check_district = $conn->prepare($checkDistrictQuery);
-                                                                            $stmt_check_district->bindParam(':district_id', $district_id);
-                                                                            $stmt_check_district->execute();
-                                                                            $district_name = $stmt_check_district->fetchColumn();
-                                                                            if ($district_name) {
-                                                                                $checkSubdistrictQuery = "SELECT name_th FROM th_subdistrict WHERE subdistrict_id = :subdistrict_id";
-                                                                                $stmt_check_subdistrict = $conn->prepare($checkSubdistrictQuery);
-                                                                                $stmt_check_subdistrict->bindParam(':subdistrict_id', $subdistrict_id);
-                                                                                $stmt_check_subdistrict->execute();
-                                                                                $subdistrict_name = $stmt_check_subdistrict->fetchColumn();
-                                                                                if ($subdistrict_name) {
-                                                                                    $insertQuery = "INSERT INTO form_0 (fullname, tel, address, province_name, district_name, subdistrict_name) 
-                                                                                    VALUES (:fullname, :tel, :address, :province_name, :district_name, :subdistrict_name)";
-                                                                                    $stmt_insert = $conn->prepare($insertQuery);
-                                                                                    $stmt_insert->bindParam(':fullname', $fullname);
-                                                                                    $stmt_insert->bindParam(':tel', $tel);
-                                                                                    $stmt_insert->bindParam(':address', $address);
-                                                                                    $stmt_insert->bindParam(':province_name', $province_name);
-                                                                                    $stmt_insert->bindParam(':district_name', $district_name);
-                                                                                    $stmt_insert->bindParam(':subdistrict_name', $subdistrict_name);
-                                                                                    try {
-                                                                                        $stmt->execute();
-                                                                                        $form_0_id = $conn->lastInsertId();
-                                                                                        echo '<script>window.location.href = "evaluation1.php?form_0_id=' . $form_0_id . '";
-                                                                                        </script>';
-                                                                                        exit();
-                                                                                    } catch (PDOException $e) {
-                                                                                        echo "console.error('Error: " . $e->getMessage() . "');";
-                                                                                    }
-                                                                                } else {
-                                                                                    echo "console.error('Error: Invalid district_id.');";
-                                                                                }
-                                                                            } else {
-                                                                                echo "console.error('Error: Invalid province_id.');";
-                                                                            }
-                                                                        }
-                                                                        ?>
-                                                                    }
-                                                                });
-                                                            });
+                                                    function checkSelection() {
+                                                        var textInputs = document.querySelectorAll('input[type="text"]');
+                                                        var selectInputs = document.querySelectorAll('select');
+                                                        var allInputs = document.querySelectorAll('input[type="text"], select');
+                                                        var allInputsCompleted = true;
+
+                                                        textInputs.forEach(function(input) {
+                                                            if (!input.value.trim()) {
+                                                                allInputsCompleted = false;
+                                                            }
+                                                        });
+
+                                                        selectInputs.forEach(function(select) {
+                                                            if (!select.value.trim()) {
+                                                                allInputsCompleted = false;
+                                                            }
+                                                        });
+
+                                                        if (allInputsCompleted) {
+                                                            document.getElementById('nextButton').style.display = 'block';
+                                                        } else {
+                                                            document.getElementById('nextButton').style.display = 'none';
+                                                        }
+                                                    }
+
+                                                    var formElements = document.querySelectorAll('#formevaluation0 input[type="text"], #formevaluation0 select');
+                                                    formElements.forEach(function(element) {
+                                                        element.addEventListener('change', checkSelection);
                                                     });
                                                 </script>
                                             </div>

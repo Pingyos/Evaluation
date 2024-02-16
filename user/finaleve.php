@@ -65,7 +65,6 @@ include('user_cont/head.php');
                                                         $sex = $result['sex'];
                                                         $age = $result['age'];
                                                         $status = $result['status'];
-                                                        $province = $result['province'];
                                                         $study = $result['study'];
                                                         $height = $result['height'];
                                                         $weight = $result['weight'];
@@ -113,7 +112,12 @@ include('user_cont/head.php');
                                                         $cigaretteScore = $result['cigaretteScore'];
                                                         $alcoholScore = $result['alcoholScore'];
                                                         $score_form4 = $result['score_form4'];
-
+                                                        $fullname = $result['fullname'];
+                                                        $tel = $result['tel'];
+                                                        $address = $result['address'];
+                                                        $province_name = $result['province_name'];
+                                                        $district_name = $result['district_name'];
+                                                        $subdistrict_name = $result['subdistrict_name'];
 
                                                 ?>
 
@@ -180,22 +184,22 @@ include('user_cont/head.php');
                                                 ?>
                                                 <div class="col-md-12 col-xl-12 mb-5">
                                                     <?php
-                                                    if ($finishscore_TH == 'เสี่ยงต่ำต่อการเป็นโรคเบาหวาน') {
+                                                    if ($finishscore < 47) {
                                                         echo '<div class="card bg-info text-white">
-                                                            <div class="card-body text-center">
-                                                                <h5 class="card-title text-white">ระดับคะแนนของคุณคือ ' . $finishscore . ' คะแนน</h5>
-                                                            </div>
-                                                        </div>';
-                                                    } elseif ($finishscore_TH == 'เสี่ยงสูงต่อการเป็นโรคเบาหวาน') {
+                                                        <div class="card-body text-center">
+                                                            <h5 class="card-title text-white">ระดับคะแนนของคุณคือ ' . $finishscore . ' คะแนน</h5>
+                                                        </div>
+                                                    </div>';
+                                                    } else {
                                                         echo '<div class="card bg-warning text-white">
-                                                            <div class="card-body text-center">
-                                                                <h5 class="card-title text-white">' . $finishscore_TH . '</h5>
-                                                            </div>
-                                                        </div>';
+                                                        <div class="card-body text-center">
+                                                            <h5 class="card-title text-white">ระดับคะแนนของคุณคือ ' . $finishscore . ' คะแนน</h5>
+                                                        </div>
+                                                    </div>';
                                                     }
                                                     ?>
-
                                                 </div>
+
                                                 <h3 class="card-title text-center mb-4"><u>ผลการทดสอบ</u></h3>
                                                 <h5 class="card-title text-center mb-4">
                                                     <p style='color: red;'>
@@ -543,7 +547,7 @@ include('user_cont/head.php');
                                                 <center>
                                                     <div class="button-container">
                                                         <a type="button" class="btn btn-primary" href="index.php"> <i class='bx bx-home'> </i>กลับหน้าหลัก</a>
-                                                        <a type="button" class="btn btn-primary" href="evaluation1.php"><i class='bx bx-spreadsheet'></i> ประเมินอีกรอบ</a>
+                                                        <a type="button" class="btn btn-primary" href="evaluation0.php"><i class='bx bx-spreadsheet'></i> ประเมินอีกรอบ</a>
                                                     </div>
                                                 </center>
                                             </div>

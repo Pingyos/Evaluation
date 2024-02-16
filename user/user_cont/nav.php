@@ -4,7 +4,8 @@
             <span class="app-brand-logo demo">
                 <img src="../assets/img/favicon/logo-cmru.png" alt="Logo" width="100" height="50">
             </span>
-        </a> | <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-2" aria-controls="navbar-ex-2" aria-expanded="false" aria-label="Toggle navigation">
+            ระบบประเมินความเสี่ยงโรคเบาหวาน
+        </a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-2" aria-controls="navbar-ex-2" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbar-ex-2">

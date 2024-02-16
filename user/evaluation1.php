@@ -39,14 +39,25 @@ include('user_cont/head.php');
                                                             $province_name = $result['province_name'];
                                                             $district_name = $result['district_name'];
                                                             $subdistrict_name = $result['subdistrict_name'];
+                                                            $check_query = "SELECT * FROM province WHERE province_name = :province_name";
+                                                            $check_stmt = $conn->prepare($check_query);
+                                                            $check_stmt->bindParam(':province_name', $province_name);
+                                                            $check_stmt->execute();
+                                                            $province_result = $check_stmt->fetch(PDO::FETCH_ASSOC);
+                                                            if ($province_result) {
+                                                                $province_scores = $province_result['province_scores'];
+                                                            } else {
+                                                                echo "ไม่พบข้อมูลจังหวัด: $province_name";
+                                                            }
                                                     ?>
-                                                            <h1>ข้อมูล Form 0</h1>
+                                                            <!-- <h1>ข้อมูล Form 0</h1>
                                                             <p><strong>ชื่อ-สกุล:</strong> <?php echo $fullname; ?></p>
                                                             <p><strong>เบอร์โทรศัพท์:</strong> <?php echo $tel; ?></p>
                                                             <p><strong>ที่อยู่:</strong> <?php echo $address; ?></p>
                                                             <p><strong>จังหวัด:</strong> <?php echo $province_name; ?></p>
                                                             <p><strong>อำเภอ:</strong> <?php echo $district_name; ?></p>
                                                             <p><strong>ตำบล:</strong> <?php echo $subdistrict_name; ?></p>
+                                                            <p><strong>คะแนน:</strong> <?php echo $province_scores; ?></p> -->
                                                     <?php
                                                         } else {
                                                             echo "ไม่พบข้อมูลสำหรับ form_0_id: $form_0_id";
@@ -55,7 +66,6 @@ include('user_cont/head.php');
                                                         echo "ไม่ได้รับ form_0_id จาก URL";
                                                     }
                                                     ?>
-
                                                     <hr>
                                                     <h5 class="card-title text-primary">เพศ</h5>
                                                     <div class="row col-lg-12 col-md-6 col-6">
@@ -107,28 +117,6 @@ include('user_cont/head.php');
                                                         </div>
                                                     </div>
                                                     <br>
-                                                    <h5 class="card-title text-primary">ภูมิลำเนา</h5>
-                                                    <div class="row col-lg-12 col-md-6 col-12">
-                                                        <?php
-                                                        include('user_cont/connect.php');
-                                                        $query = "
-                                                            SELECT province_name, province_scores FROM province
-                                                            ORDER BY province_name ASC
-                                                        ";
-                                                        $result = $conn->query($query);
-                                                        ?>
-                                                        <div class="mb-3">
-                                                            <select class="form-select" name="province">
-                                                                <option value="">กรุณาเลือกภูมิลำเนา</option>
-                                                                <?php
-                                                                foreach ($result as $row) {
-                                                                    echo '<option value="' . $row["province_name"] . '">' . $row["province_name"] . '</option>';
-                                                                }
-                                                                ?>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                    <br>
                                                     <h5 class="card-title text-primary">ระดับการศึกษา</h5>
                                                     <div class="row col-lg-12 col-md-6 col-12">
                                                         <div class="col-md">
@@ -152,7 +140,7 @@ include('user_cont/head.php');
                                                     </div>
                                                     <hr>
                                                     <div class="demo-inline-spacing d-flex justify-content-between">
-                                                        <div></div>
+                                                        <button type="button" class="btn btn-primary active" onclick="window.history.back();">ย้อนกลับ</button>
                                                         <button type="submit" id="nextButton" class="btn btn-primary active" style="display: none">ถัดไป</button>
                                                     </div>
                                                     <hr>
@@ -165,29 +153,10 @@ include('user_cont/head.php');
                                                 <?php
                                                 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                                     include('user_cont/connect.php');
-
-                                                    $fullname = isset($_POST['fullname']) ? $_POST['fullname'] : '';
-                                                    $tel = isset($_POST['tel']) ? $_POST['tel'] : '';
-                                                    $province_name = isset($_POST['province_name']) ? $_POST['province_name'] : '';
-                                                    $district_name = isset($_POST['district_name']) ? $_POST['district_name'] : '';
-                                                    $subdistrict_name = isset($_POST['subdistrict_name']) ? $_POST['subdistrict_name'] : '';
-                                                    $address = isset($_POST['address']) ? $_POST['address'] : '';
-
                                                     $sex = isset($_POST['sex']) ? $_POST['sex'] : '';
                                                     $age = isset($_POST['age']) ? $_POST['age'] : '';
                                                     $status = isset($_POST['status']) ? $_POST['status'] : '';
-                                                    $province = isset($_POST['province']) ? $_POST['province'] : '';
                                                     $study = isset($_POST['study']) ? $_POST['study'] : '';
-                                                    $provinceScore = 0;
-
-                                                    if (!empty($province)) {
-                                                        $provinceQuery = "SELECT province_scores FROM province WHERE province_name = :province";
-                                                        $stmtProvince = $conn->prepare($provinceQuery);
-                                                        $stmtProvince->bindParam(':province', $province);
-                                                        $stmtProvince->execute();
-                                                        $resultProvince = $stmtProvince->fetch(PDO::FETCH_ASSOC);
-                                                        $provinceScore = $resultProvince['province_scores'];
-                                                    }
 
                                                     $scoreMapping = array(
                                                         'sex' => array(
@@ -217,10 +186,10 @@ include('user_cont/head.php');
                                                     $statusScore = isset($_POST['status']) ? ($scoreMapping['status'][$status] ?? 0) : 0;
                                                     $studyScore = isset($_POST['study']) ? ($scoreMapping['study'][$study] ?? 0) : 0;
 
-                                                    $totalScore = $sexScore + $ageScore + $statusScore + $studyScore + $provinceScore;
+                                                    $totalScore = $sexScore + $ageScore + $statusScore + $studyScore + $province_scores;
 
-                                                    $insertQuery = "INSERT INTO form_1 (fullname, tel, province_name, district_name, subdistrict_name, address, sex, age, status, province, study, province_score, total_score, sexScore, ageScore, statusScore, studyScore) 
-                                                    VALUES (:fullname, :tel, :province_name, :district_name, :subdistrict_name, :address, :sex, :age, :status, :province, :study, :provinceScore, :totalScore, :sexScore, :ageScore, :statusScore, :studyScore)";
+                                                    $insertQuery = "INSERT INTO form_1 (fullname, tel, province_name, district_name, subdistrict_name, address, sex, age, status,  study, province_score, total_score, sexScore, ageScore, statusScore, studyScore) 
+                                                    VALUES (:fullname, :tel, :province_name, :district_name, :subdistrict_name, :address, :sex, :age, :status,:study, :province_scores, :totalScore, :sexScore, :ageScore, :statusScore, :studyScore)";
 
                                                     $stmt = $conn->prepare($insertQuery);
                                                     $stmt->bindParam(':fullname', $fullname);
@@ -232,9 +201,8 @@ include('user_cont/head.php');
                                                     $stmt->bindParam(':sex', $sex);
                                                     $stmt->bindParam(':age', $age);
                                                     $stmt->bindParam(':status', $status);
-                                                    $stmt->bindParam(':province', $province);
                                                     $stmt->bindParam(':study', $study);
-                                                    $stmt->bindParam(':provinceScore', $provinceScore);
+                                                    $stmt->bindParam(':province_scores', $province_scores);
                                                     $stmt->bindParam(':totalScore', $totalScore);
                                                     $stmt->bindParam(':sexScore', $sexScore);
                                                     $stmt->bindParam(':ageScore', $ageScore);
@@ -256,7 +224,7 @@ include('user_cont/head.php');
                                                         var selectedProvinces = document.querySelectorAll('input[type="radio"]:checked').length;
                                                         var selectedOptions = document.querySelectorAll('select, input[type="radio"]:checked').length;
 
-                                                        if (selectedOptions === 5) {
+                                                        if (selectedOptions === 4) {
                                                             document.getElementById('nextButton').style.display = 'block';
                                                         } else {
                                                             document.getElementById('nextButton').style.display = 'none';
