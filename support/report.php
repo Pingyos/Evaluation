@@ -1,3 +1,13 @@
+<?php
+session_start();
+require_once 'support_cont/connect.php';
+
+if (!isset($_SESSION['admin_login']) && !isset($_SESSION['user_login'])) {
+    $_SESSION['error'] = 'กรุณาเข้าสู่ระบบ!';
+    header('location: index.php');
+    exit;
+}
+?>
 <!DOCTYPE html>
 
 <html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="../assets/" data-template="vertical-menu-template-free">
