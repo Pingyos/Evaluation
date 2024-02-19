@@ -56,7 +56,7 @@ include('user_cont/head.php');
                           <div class="button-container ">
                             <div class="row">
 
-                              <a type="button" class="btn btn-xl btn btn-outline-info col-lg-6 col-md-6 col-6" href="evaluation1.php"><i class='bx bx-spreadsheet'></i> แบบประเมินความเสี่ยงโรงเบาหวาน</a>
+                              <a type="button" class="btn btn-xl btn btn-outline-info col-lg-6 col-md-6 col-6" href="evaluation0.php"><i class='bx bx-spreadsheet'></i> แบบประเมินความเสี่ยงโรงเบาหวาน</a>
                               <a type="button" class="btn btn-xl btn btn-outline-info col-lg-6 col-md-6 col-6" href="advice.php"><i class='bx bx-star'></i> คำแนะนำ</a>
                             </div>
                           </div>
