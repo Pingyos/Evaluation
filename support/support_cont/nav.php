@@ -1,7 +1,5 @@
 <?php
-// เช็คว่ามี session ของ admin หรือ user ที่ล็อกอินอยู่หรือไม่
 if (isset($_SESSION['admin_login']) || isset($_SESSION['user_login'])) {
-    // หากมี session ของ admin หรือ user ที่ล็อกอินอยู่ ให้ดำเนินการต่อ
     $user_id = isset($_SESSION['admin_login']) ? $_SESSION['admin_login'] : $_SESSION['user_login'];
     $stmt = $conn->prepare("SELECT * FROM users WHERE id = :user_id");
     $stmt->bindParam(':user_id', $user_id, PDO::PARAM_INT);
