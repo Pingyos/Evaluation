@@ -9,8 +9,8 @@ if (isset($_POST['signin'])) {
     if (empty($password)) {
         $_SESSION['error'] = 'กรุณากรอกรหัสผ่าน';
         header("location: index.php");
-    } else if (strlen($_POST['password']) > 20 || strlen($_POST['password']) < 5) {
-        $_SESSION['error'] = 'รหัสผ่านต้องมีความยาวระหว่าง 5 ถึง 20 ตัวอักษร';
+    } else if (strlen($_POST['password']) !== 13) {
+        $_SESSION['error'] = 'รหัสผ่านต้องมีความยาว 13 ตัวอักษร';
         header("location: index.php");
     } else {
         try {
