@@ -2,9 +2,9 @@
     <div class="container-fluid">
         <a href="index.php" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="../assets/img/favicon/logo-cmru.png" alt="Logo" width="100" height="50">
+                <img src="../assets/img/favicon/logo-cmru.png" alt="Logo" width="90" height="45">
             </span>
-            ระบบประเมินความเสี่ยงโรคเบาหวาน
+            แบบประเมินความเสี่ยงโรคเบาหวาน
         </a><button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-ex-2" aria-controls="navbar-ex-2" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>

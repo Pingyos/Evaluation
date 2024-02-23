@@ -34,15 +34,12 @@ include('user_cont/head.php');
                                                         <div class="col-lg-6 col-md-6 col-12">
                                                             <h5 class="card-title text-primary">เบอร์โทรศัพท์</h5>
                                                             <div class="mb-3">
-                                                                <input type="text" class="form-control" name="tel" id="tel" required />
+                                                                <input type="number" class="form-control" name="tel" id="tel" required />
                                                             </div>
                                                         </div>
-                                                        <div class="col-lg-6 col-md-6 col-12">
-                                                            <h5 class="card-title text-primary">ที่อยู่</h5>
-                                                            <div class="mb-3">
-                                                                <input type="text" class="form-control" name="address" id="address" required />
-                                                            </div>
-                                                        </div>
+
+                                                        <input type="text" class="form-control" name="address" id="address" hidden />
+
                                                         <div class="col-lg-6 col-md-6 col-12">
                                                             <?php
                                                             include('user_cont/connect.php');
@@ -128,8 +125,8 @@ include('user_cont/head.php');
                                                             $stmt_insert->bindParam(':district_name', $district_name);
                                                             $stmt_insert->bindParam(':subdistrict_name', $subdistrict_name);
                                                             try {
-                                                                $stmt_insert->execute(); // Execute the insert statement
-                                                                $form_0_id = $conn->lastInsertId(); // Get the last inserted ID
+                                                                $stmt_insert->execute();
+                                                                $form_0_id = $conn->lastInsertId();
                                                                 echo '<script>window.location.href = "evaluation1.php?form_0_id=' . $form_0_id . '";</script>';
                                                                 exit();
                                                             } catch (PDOException $e) {
@@ -148,33 +145,40 @@ include('user_cont/head.php');
                                                     function checkSelection() {
                                                         var textInputs = document.querySelectorAll('input[type="text"]');
                                                         var selectInputs = document.querySelectorAll('select');
-                                                        var allInputs = document.querySelectorAll('input[type="text"], select');
-                                                        var allInputsCompleted = true;
+                                                        var numberInputs = document.querySelectorAll('input[type="number"]');
+                                                        var filledInputsCount = 0;
 
+                                                        numberInputs.forEach(function(input) {
+                                                            if (input.value.trim()) {
+                                                                filledInputsCount++;
+                                                            }
+                                                        });
                                                         textInputs.forEach(function(input) {
-                                                            if (!input.value.trim()) {
-                                                                allInputsCompleted = false;
+                                                            if (input.value.trim()) {
+                                                                filledInputsCount++;
                                                             }
                                                         });
 
                                                         selectInputs.forEach(function(select) {
-                                                            if (!select.value.trim()) {
-                                                                allInputsCompleted = false;
+                                                            if (select.value.trim()) {
+                                                                filledInputsCount++;
                                                             }
                                                         });
 
-                                                        if (allInputsCompleted) {
+                                                        if (filledInputsCount >= 5) {
                                                             document.getElementById('nextButton').style.display = 'block';
                                                         } else {
                                                             document.getElementById('nextButton').style.display = 'none';
                                                         }
                                                     }
 
-                                                    var formElements = document.querySelectorAll('#formevaluation0 input[type="text"], #formevaluation0 select');
+                                                    var formElements = document.querySelectorAll('#formevaluation0 input[type="text"], #formevaluation0 select, #formevaluation0 input[type="number"]');
                                                     formElements.forEach(function(element) {
                                                         element.addEventListener('change', checkSelection);
                                                     });
                                                 </script>
+
+
                                             </div>
                                         </div>
                                     </div>
