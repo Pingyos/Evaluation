@@ -2,7 +2,7 @@
     <div class="app-brand demo">
         <a href="dashboard.php" class="app-brand-link">
             <span class="app-brand-logo demo">
-                <img src="../assets/img/favicon/logo-cmru.png" alt="Logo" width="100" height="50">
+                <!-- <img src="../assets/img/favicon/logo-cmru.png" alt="Logo" width="100" height="50"> -->
             </span>
         </a>
         <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">

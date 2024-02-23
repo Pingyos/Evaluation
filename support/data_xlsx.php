@@ -9,7 +9,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $selected_finishscore_TH = isset($_GET['finishscore_TH']) ? $_GET['finishscore_TH'] : null;
     $showall = isset($_GET['showall']) ? $_GET['showall'] : 'form_4';
 
-    $sql = "SELECT form_4_id, sex, age, status, province, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17, section18, section19, section20, section21, score_form1, score_form2, score_form3, score_form4, finishscore, finishscore_TH, dateCreate FROM form_4";
+    $sql = "SELECT form_4_id, fullname, sex, age, status, subdistrict_name, district_name, province_name, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17, section18, section19, section20, section21, score_form1, score_form2, score_form3, score_form4, finishscore, finishscore_TH, dateCreate FROM form_4";
 
     $sql .= " WHERE 1=1";
 
@@ -70,7 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $stmt->execute();
     $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
     if (empty($results)) {
-        $sql = "SELECT form_4_id, sex, age, status, province, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17, section18, section19, section20, section21, score_form1, score_form2, score_form3, score_form4, finishscore, finishscore_TH, dateCreate FROM form_4";
+        $sql = "SELECT form_4_id, fullname, sex, age, status, subdistrict_name, district_name, province_name, study, height, weight, bmi, pressureup, pressuredown, waistline, fat, fatblood, bloodlevel, pregnant, ovary, section1, section2, section3, section4, section5, section6, section7, section8, section9, section10, section11, section12, section13, section14, section15, section16, section17, section18, section19, section20, section21, score_form1, score_form2, score_form3, score_form4, finishscore, finishscore_TH, dateCreate FROM form_4";
 
         $sql .= " ORDER BY form_4_id DESC";
         $stmt = $conn->prepare($sql);
@@ -84,7 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
         $spreadsheet = new \PhpOffice\PhpSpreadsheet\Spreadsheet();
         $sheet = $spreadsheet->getActiveSheet();
 
-        $columns = ['เพศ', 'อายุ', 'สถานภาพ', 'ภูมิลำเนา', 'ระดับการศึกษา', 'ส่วนสูง', 'น้ำหนัก', 'ดัชนีมวลกาย (BMI)', 'ระดับความดันโลหิตตัวบน', 'ระดับความดันโลหิตตัวล่าง', 'รอบเอว ชาย/หญิง', 'ระดับไขมัน HDL ในเลือด (mg/dL)', 'ระดับไขมันไตรกลีเซอไรด์ในเลือด (mg/dL)', 'ระดับน้ำตาลในเลือดหลังอดอาหาร 6-8 ชั่วโมง', 'มีประวัติเป็นเบาหวานขณะตั้งครรภ์', 'มีประวัติเป็นโรคความดันโลหิตสูง', 'ท่านรับประทานอาหารครบ 3 มื้อ', 'ท่านชอบเติมเครื่องปรุงรสชาติอาหารให้มีรสหวานเสมอ เช่น น้ำตาล ผงชูรส ก้อนปรุงรส ซอส', 'ท่านรับประทานอาหารว่างระหว่างมื้อนอกเหนือจากอาหารมื้อหลัก 3 มื้อต่อวัน', 'ท่านรับประทานขัดสี ข้าวเหนียว ขนมปังสีขาว', 'ท่านรับประทานเส้นก๋วยเตี๋ยว ได้แก่ เส้นเล็ก เส้นใหญ่ บะหมี่เส้นเหลือง', 'ท่านรับประทานผลไม้อย่างไม่จำกัดปริมาณ', 'ท่านรับประทานอาหารมัน อาหารทอด แกงกะ', 'ท่านดื่มเครื่องดื่มประเภท น้ำหวาน น้ำชา กาแฟ น้ำอัดลม ที่รสชาติหวาน', '	ท่านออกกำลังกายประเภทแอโรบิก เช่น การวิ่งเหยาะ ๆ ว่ายน้ำ แบดมินตัน ฟุตบอล เต้นแอโรบิก', 'ระยะเวลาในแต่และครั้งที่ออกกำลังกาย', 'ความถี่ของการออกกำลังกาย', 'ท่านสูบบุหรี่หรือไม่', 'ปริมาณการสูบบุหรี่', 'บุคคลใกล้ชิดของท่านเคยสูบบุหรี่หรือไม่', 'ท่านดื่มเครื่องดื่มแอลกอฮอล์หรือไม่', 'ชนิดของเครื่องดื่มแอลกอฮอล์ที่ดื่มเป็นประจำ', 'ปริมาณการดื่มต่อครั้ง', 'ยีน CDKN2A/2B (rs10811661)', 'ยีน TCF7L2 (rs7903146)', 'ยีน KCNQ1 (rs2237892)', 'คะแนนส่วน 1', 'คะแนนส่วน 2', 'คะแนนส่วน 3', 'คะแนนส่วน 4', 'คะแนนรวม', 'ความเสี่ยง'];
+        $columns = ['ชื่อ-สกุล', 'เพศ', 'อายุ', 'สถานภาพ', 'ภูมิลำเนา', 'ระดับการศึกษา', 'ส่วนสูง', 'น้ำหนัก', 'ดัชนีมวลกาย (BMI)', 'ระดับความดันโลหิตตัวบน', 'ระดับความดันโลหิตตัวล่าง', 'รอบเอว ชาย/หญิง', 'ระดับไขมัน HDL ในเลือด (mg/dL)', 'ระดับไขมันไตรกลีเซอไรด์ในเลือด (mg/dL)', 'ระดับน้ำตาลในเลือดหลังอดอาหาร 6-8 ชั่วโมง', 'มีประวัติเป็นเบาหวานขณะตั้งครรภ์', 'มีประวัติเป็นโรคความดันโลหิตสูง', 'ท่านรับประทานอาหารครบ 3 มื้อ', 'ท่านชอบเติมเครื่องปรุงรสชาติอาหารให้มีรสหวานเสมอ เช่น น้ำตาล ผงชูรส ก้อนปรุงรส ซอส', 'ท่านรับประทานอาหารว่างระหว่างมื้อนอกเหนือจากอาหารมื้อหลัก 3 มื้อต่อวัน', 'ท่านรับประทานขัดสี ข้าวเหนียว ขนมปังสีขาว', 'ท่านรับประทานเส้นก๋วยเตี๋ยว ได้แก่ เส้นเล็ก เส้นใหญ่ บะหมี่เส้นเหลือง', 'ท่านรับประทานผลไม้อย่างไม่จำกัดปริมาณ', 'ท่านรับประทานอาหารมัน อาหารทอด แกงกะ', 'ท่านดื่มเครื่องดื่มประเภท น้ำหวาน น้ำชา กาแฟ น้ำอัดลม ที่รสชาติหวาน', '	ท่านออกกำลังกายประเภทแอโรบิก เช่น การวิ่งเหยาะ ๆ ว่ายน้ำ แบดมินตัน ฟุตบอล เต้นแอโรบิก', 'ระยะเวลาในแต่และครั้งที่ออกกำลังกาย', 'ความถี่ของการออกกำลังกาย', 'ท่านสูบบุหรี่หรือไม่', 'ปริมาณการสูบบุหรี่', 'บุคคลใกล้ชิดของท่านเคยสูบบุหรี่หรือไม่', 'ท่านดื่มเครื่องดื่มแอลกอฮอล์หรือไม่', 'ชนิดของเครื่องดื่มแอลกอฮอล์ที่ดื่มเป็นประจำ', 'ปริมาณการดื่มต่อครั้ง', 'ยีน CDKN2A/2B (rs10811661)', 'ยีน TCF7L2 (rs7903146)', 'ยีน KCNQ1 (rs2237892)', 'คะแนนส่วน 1', 'คะแนนส่วน 2', 'คะแนนส่วน 3', 'คะแนนส่วน 4', 'คะแนนรวม', 'ความเสี่ยง'];
         $col = 'A';
 
         foreach ($columns as $column) {
@@ -96,13 +96,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
 
         foreach ($results as $result) {
             $col = 'A';
+            $sheet->setCellValue($col . $row, $result['fullname']);
+            $col++;
             $sheet->setCellValue($col . $row, $result['sex']);
             $col++;
             $sheet->setCellValue($col . $row, $result['age']);
             $col++;
             $sheet->setCellValue($col . $row, $result['status']);
             $col++;
-            $sheet->setCellValue($col . $row, $result['province']);
+            $sheet->setCellValue($col . $row, $result['subdistrict_name'] . ', ' . $result['district_name'] . ', ' . $result['province_name']);
             $col++;
             $sheet->setCellValue($col . $row, $result['study']);
             $col++;

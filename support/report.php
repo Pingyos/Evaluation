@@ -329,10 +329,10 @@ include('support_cont/head.php');
                                                                             <h6 class="fw-semibold mb-0">ลำดับ</h6>
                                                                         </th>
                                                                         <th class="border-bottom-0">
-                                                                            <h6 class="fw-semibold mb-0">เพศ</h6>
+                                                                            <h6 class="fw-semibold mb-0">ข้อมูลส่วนตัว</h6>
                                                                         </th>
                                                                         <th class="border-bottom-0">
-                                                                            <h6 class="fw-semibold mb-0">อายุ</h6>
+                                                                            <h6 class="fw-semibold mb-0">ภูมิลำเนา</h6>
                                                                         </th>
                                                                         <th class="border-bottom-0">
                                                                             <h6 class="fw-semibold mb-0">ความเสี่ยง</h6>
@@ -352,10 +352,11 @@ include('support_cont/head.php');
                                                                                 <h6 class="fw-semibold mb-0"><?= $startIndex++; ?></h6>
                                                                             </td>
                                                                             <td class="border-bottom-0">
-                                                                                <h6 class="fw-semibold mb-0"><?= $row['sex']; ?></h6>
+                                                                                <h6 class="fw-semibold mb-1"> <?= $row['fullname']; ?> </h6>
+                                                                                <span class="fw-normal">เพศ <?= $row['sex']; ?> | อายุ <?= $row['age']; ?></span>
                                                                             </td>
                                                                             <td class="border-bottom-0">
-                                                                                <h6 class="fw-semibold mb-0"><?= $row['age']; ?></h6>
+                                                                                <h6 class="fw-semibold mb-0">ต.<?= $row['subdistrict_name']; ?> อ.<?= $row['district_name']; ?> จ.<?= $row['province_name']; ?></h6>
                                                                             </td>
                                                                             <td class="border-bottom-0">
                                                                                 <h6 class="fw-semibold mb-0"><?= $row['finishscore_TH']; ?></h6>
