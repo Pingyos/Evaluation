@@ -37,7 +37,7 @@
         </li>
         <li class="menu-header small text-uppercase"><span class="menu-header-text">เอกสาร</span></li>
         <li class="menu-item">
-            <a href="" target="_blank" class="menu-link">
+            <a href="../support/manual.pdf" target="_blank" class="menu-link">
                 <i class="menu-icon tf-icons bx bx-file"></i>
                 <div data-i18n="Documentation">คู่มือ</div>
             </a>
